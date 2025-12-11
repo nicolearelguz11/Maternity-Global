@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maternidad Global – Plataforma para mujeres migrantes</title>
+
+  <!-- Fuente limpia y profesional (tipo OMS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #005eb8;        /* Azul tipo OMS */
+      --primary-light: #e5f2ff;
+      --accent: #f5a623;         /* Detalles cálidos */
+      --bg: #f7f9fb;
+      --text-main: #1f2933;
+      --text-muted: #6b7280;
+      --card-bg: #ffffff;
+      --danger: #b91c1c;
+      --border-soft: #d1d5db;
+      --radius: 12px;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout base */
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .lang-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .lang-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-soft);
+      background-color: #fff;
+      font-size: 0.8rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0 1rem 0;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, #fff 0, #fff 25%, var(--primary) 26%, var(--primary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .logo-text-title {
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.03em;
+    }
+
+    .logo-text-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.55rem 1.2rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(0, 94, 184, 0.35);
+    }
+
+    .btn-primary:hover {
+      background-color: #00478b;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background-color: #fff;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary-light);
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(circle at top left, var(--primary-light), #ffffff 52%);
+      padding: 3.5rem 0 3rem 0;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.6fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: #e0f2fe;
+      color: #075985;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-label span.icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background-color: #0ea5e9;
+      color: #fff;
+      font-size: 0.8rem;
+    }
+
+    .hero-title {
+      font-size: 2.25rem;
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+      color: #0f172a;
+    }
+
+    .hero-title span.highlight {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+    }
+
+    .hero-card {
+      background-color: #ffffff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-soft);
+      padding: 1.5rem 1.25rem;
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .hero-card-pill {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem 1.2rem;
+      font-size: 0.82rem;
+    }
+
+    .hero-card-label {
+      color: var(--text-muted);
+      font-size: 0.78rem;
+    }
+
+    .hero-card-value {
+      font-weight: 600;
+    }
+
+    .hero-card-lang {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .hero-card-lang span {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background-color: #eff6ff;
+      font-size: 0.75rem;
+      color: #1d4ed8;
+    }
+
+    .hero-disclaimer {
+      font-size: 0.72rem;
+      color: var(--danger);
+      border-left: 3px solid var(--danger);
+      padding-left: 0.55rem;
+      margin-top: 0.5rem;
+    }
+
+    /* Secciones principales */
+    section {
+      padding: 2.7rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: #0f172a;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 40rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.9rem;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 0.1rem;
+    }
+
+    .card-text {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .card-meta {
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background-color: #eef2ff;
+      color: #4338ca;
+      font-size: 0.78rem;
+    }
+
+    .pill span.icon {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background-color: #4f46e5;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .list-check {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .list-check li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .list-check li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      top: 0.05rem;
+      font-size: 0.8rem;
+      color: var(--primary);
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      background-color: #fef3c7;
+      color: #92400e;
+      margin-bottom: 0.4rem;
+    }
+
+    .table-resources {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    .table-resources th,
+    .table-resources td {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border-soft);
+      text-align: left;
+    }
+
+    .table-resources th {
+      font-weight: 600;
+      color: #111827;
+      background-color: #f3f4f6;
+    }
+
+    /* Llamado a la acción final */
+    .cta {
+      background: linear-gradient(135deg, #0f766e, #0f172a);
+      color: #ecfeff;
+      border-radius: 24px;
+      padding: 2.1rem 1.6rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 1.8rem;
+      align-items: center;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.45);
+      margin-bottom: 2.5rem;
+    }
+
+    .cta-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cta-text {
+      font-size: 0.95rem;
+      opacity: 0.92;
+      margin-bottom: 0.9rem;
+    }
+
+    .cta-note {
+      font-size: 0.78rem;
+      opacity: 0.85;
+    }
+
+    .cta-card {
+      background-color: rgba(15, 23, 42, 0.85);
+      border-radius: 18px;
+      padding: 1rem 1rem;
+      font-size: 0.82rem;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .cta-chip {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background-color: rgba(248, 250, 252, 0.12);
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 1.7rem 0 2rem 0;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .cta {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .hero-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar idiomas -->
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <div>Proyecto de investigación – Salud materna y migración</div>
+        <div class="lang-badges" aria-label="Idiomas disponibles">
+          <span class="lang-badge">ES</span>
+          <span class="lang-badge">FR</span>
+          <span class="lang-badge">EN</span>
+          <span class="lang-badge">AR</span>
+          <span class="lang-badge">PT</span>
+          <span class="lang-badge">DE</span>
+          <span class="lang-badge">IT</span>
+        </div>
+      </div>
+
+      <!-- Navegación -->
+      <nav class="nav" aria-label="Navegación principal">
+        <div class="logo">
+          <div class="logo-mark">MG</div>
+          <div>
+            <div class="logo-text-title">Maternidad Global</div>
+            <div class="logo-text-subtitle">Plataforma para mujeres migrantes</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#sobre">Sobre el proyecto</a>
+          <a href="#embarazo">Embarazo</a>
+          <a href="#migracion">Migración</a>
+          <a href="#mental">Salud mental</a>
+          <a href="#articulos">Artículos</a>
+          <a href="#recursos">Recursos</a>
+          <button class="btn btn-primary">Participar en el estudio</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="hero-label">
+            <span class="icon">❤</span>
+            Plataforma humanizada basada en evidencia científica
+          </div>
+          <h1 class="hero-title">
+            Salud materna <span class="highlight">para todas las mujeres</span>, sin importar país, idioma ni seguro médico.
+          </h1>
+          <p class="hero-subtitle">
+            Maternidad Global es un proyecto de investigación que reúne información fiable sobre embarazo,
+            movimientos fetales, salud sexual y migración. Diseñado especialmente para mujeres migrantes que
+            buscan orientación clara, respetuosa y en su propio idioma.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary">Explorar contenido educativo</button>
+            <button class="btn btn-outline">Leer más sobre el proyecto</button>
+          </div>
+          <p class="hero-note">
+            Disponible progresivamente en: español, francés, árabe, inglés, portugués, alemán e italiano.
+            Este sitio no sustituye una consulta médica presencial ni los servicios de urgencias.
+          </p>
+        </div>
+
+        <!-- Tarjeta lateral tipo panel OMS -->
+        <aside class="hero-card" aria-label="Resumen del proyecto">
+          <div class="hero-card-header">
+            <div>
+              <div class="hero-card-title">Información clara para decisiones informadas</div>
+              <div class="hero-card-label">Enfoque: embarazo, migración y salud integral de la mujer</div>
+            </div>
+            <span class="hero-card-pill">Estudio en curso</span>
+          </div>
+
+          <div class="hero-card-grid">
+            <div>
+              <div class="hero-card-label">Áreas principales</div>
+              <div class="hero-card-value">Embarazo, migración, salud mental, sexualidad, duelo</div>
+            </div>
+            <div>
+              <div class="hero-card-label">Población objetivo</div>
+              <div class="hero-card-value">Mujeres migrantes, con o sin seguro médico</div>
+            </div>
+            <div>
+              <div class="hero-card-label">Formato</div>
+              <div class="hero-card-value">Artículos médicos, guías prácticas y recursos por país</div>
+            </div>
+            <div>
+              <div class="hero-card-label">Próximamente</div>
+              <div class="hero-card-value">Aplicación tipo directorio médico (estilo Doctoralia)</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-card-label">Idiomas previstos</div>
+            <div class="hero-card-lang">
+              <span>Español</span>
+              <span>Français</span>
+              <span>English</span>
+              <span>العربية</span>
+              <span>Português</span>
+              <span>Deutsch</span>
+              <span>Italiano</span>
+            </div>
+          </div>
+
+          <p class="hero-disclaimer">
+            Este sitio ofrece información de carácter general y educativo. No constituye diagnóstico,
+            prescripción ni sustituto de una consulta médica profesional. En caso de urgencia, contacte con
+            los servicios de emergencia de su país.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SOBRE EL PROYECTO -->
+    <section id="sobre">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Sobre el proyecto</div>
+          <h2 class="section-title">Un espacio multicultural de salud basado en evidencia</h2>
+          <p class="section-subtitle">
+            Maternidad Global nace para responder a una necesidad real: muchas mujeres migrantes viven su
+            embarazo lejos de su red de apoyo, con barreras de idioma, burocracia y acceso limitado a la
+            información sanitaria. Nuestro objetivo es ofrecer contenido riguroso, comprensible y culturalmente
+            sensible.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-tag">Perspectiva médica</div>
+            <h3 class="card-title">Contenido revisado por profesionales</h3>
+            <p class="card-text">
+              Cada sección se basa en guías clínicas, recomendaciones internacionales y consensos científicos.
+              El lenguaje se adapta para que sea claro sin perder rigor.
+            </p>
+            <p class="card-meta">Orientación, no sustitución de una consulta médica.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Perspectiva migratoria</div>
+            <h3 class="card-title">Entender la realidad de vivir lejos de casa</h3>
+            <p class="card-text">
+              Hablamos de duelo migratorio, barreras administrativas, discriminación, redes de apoyo y derechos
+              sanitarios en distintos países, con un enfoque respetuoso y realista.
+            </p>
+            <p class="card-meta">La experiencia migrante forma parte central del proyecto.</p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Idioma y accesibilidad</div>
+            <h3 class="card-title">Información en varios idiomas</h3>
+            <p class="card-text">
+              Priorizamos los idiomas más hablados por mujeres migrantes: español, francés, árabe, inglés,
+              portugués, alemán e italiano. Progresivamente añadiremos más lenguas según las necesidades
+              detectadas.
+            </p>
+            <p class="card-meta">La comprensión es la primera forma de cuidado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EMBARAZO Y MOVIMIENTOS FETALES -->
+    <section id="embarazo">
+      <div class="container two-column">
+        <div>
+          <div class="section-header">
+            <div class="section-kicker">Embarazo y desarrollo fetal</div>
+            <h2 class="section-title">Comprender semana a semana lo que ocurre en tu cuerpo</h2>
+            <p class="section-subtitle">
+              El embarazo puede ser una mezcla de ilusión, miedo, cansancio y muchas preguntas. Nuestro objetivo
+              es acompañarte con información clara sobre desarrollo fetal, cambios físicos, señales de alarma y
+              autocuidado, siempre desde un enfoque respetuoso con tu historia personal y cultural.
+            </p>
+          </div>
+
+          <ul class="list-check">
+            <li>Guías por trimestre: síntomas frecuentes, signos de alarma y cuándo consultar.</li>
+            <li>Desarrollo del feto explicado de forma visual y sencilla.</li>
+            <li>Información sobre movimientos fetales: qué es esperable y cuándo es importante pedir ayuda.</li>
+            <li>Consejos generales sobre descanso, nutrición y apoyo emocional.</li>
+          </ul>
+        </div>
+
+        <aside>
+          <span class="badge-soft">Próximamente – Herramienta simple de registro</span>
+          <article class="card">
+            <h3 class="card-title">Registro de movimientos fetales</h3>
+            <p class="card-text">
+              Estamos diseñando una herramienta básica para que puedas anotar de forma sencilla los movimientos
+              fetales y compartir esta información con tu profesional sanitario. Esta herramienta será orientativa
+              y no se utilizará para fines de diagnóstico.
+            </p>
+            <p class="card-meta">
+              En la futura aplicación, este módulo se integrará con recordatorios, gráficos y recomendaciones
+              generales basadas en guías clínicas.
+            </p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <!-- MIGRACIÓN Y DERECHOS -->
+    <section id="migracion">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Migración y acceso a la salud</div>
+          <h2 class="section-title">Navegar el sistema sanitario en un país nuevo</h2>
+          <p class="section-subtitle">
+            Estar embarazada lejos de tu país puede generar mucha incertidumbre: ¿tengo derecho a atención?,
+            ¿dónde puedo ir si no tengo seguro?, ¿qué pasa si no hablo el idioma?. Esta sección recopila información
+            orientativa y recursos por país / región.
+          </p>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <div class="pill">
+              <span class="icon">🌍</span>
+              Guías por región (en construcción)
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin:0.7rem 0 0.9rem;">
+              A medida que avance el proyecto, iremos incorporando fichas por país con:
+            </p>
+            <ul class="list-check">
+              <li>Información general sobre acceso a la atención prenatal sin seguro o con seguro limitado.</li>
+              <li>Listados de organizaciones sociales, ONG y servicios comunitarios que acompañan a mujeres migrantes.</li>
+              <li>Orientación básica sobre derechos sanitarios en cada contexto.</li>
+              <li>Teléfonos de ayuda y líneas de emergencia.</li>
+            </ul>
+          </div>
+
+          <div>
+            <table class="table-resources" id="recursos">
+              <thead>
+                <tr>
+                  <th>Región / País</th>
+                  <th>Tipo de recurso</th>
+                  <th>Notas</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Europa (ejemplo)</td>
+                  <td>ONG de apoyo a mujeres embarazadas migrantes</td>
+                  <td>Pendiente de completar con organizaciones específicas por país.</td>
+                </tr>
+                <tr>
+                  <td>América Latina</td>
+                  <td>Redes comunitarias y centros de salud públicos</td>
+                  <td>Información general y enlaces oficiales en desarrollo.</td>
+                </tr>
+                <tr>
+                  <td>Otros contextos</td>
+                  <td>Recursos locales</td>
+                  <td>Se irán incorporando según la evolución de la investigación.</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.5rem;">
+              Esta tabla es un punto de partida. Puedes editar este contenido directamente en el archivo
+              <strong>index.html</strong> para añadir países, ciudades y contactos conforme avance la investigación.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SALUD MENTAL Y TEMAS SENSIBLES -->
+    <section id="mental">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Salud mental y temas sensibles</div>
+          <h2 class="section-title">Duelo migratorio, sexualidad, violencia y bienestar emocional</h2>
+          <p class="section-subtitle">
+            Además de los cambios físicos, muchas mujeres viven procesos profundos a nivel emocional:
+            duelo por lo que se deja atrás, cambios en la pareja, experiencias de racismo o violencia,
+            dificultades económicas y fatiga constante. Aquí encontrarás artículos que abordan estos temas
+            con sensibilidad y sin juicios.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3 class="card-title">Duelo migratorio</h3>
+            <p class="card-text">
+              Pérdida de la red familiar, del idioma, de las costumbres… Hablamos de cómo estos aspectos pueden
+              influir en el embarazo y en el postparto, y qué pequeñas estrategias pueden ayudar.
+            </p>
+            <p class="card-meta">Contenido en preparación en varios idiomas.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Salud sexual y reproductiva</h3>
+            <p class="card-text">
+              Anticoncepción, ETS, sexualidad en el embarazo, consentimiento y placer. Información científica
+              explicada con un lenguaje cercano y respetuoso con distintas culturas.
+            </p>
+            <p class="card-meta">Incluye referencias a guías internacionales.</p>
+          </article>
+
+          <article class="card">
+            <h3 class="card-title">Violencia y seguridad</h3>
+            <p class="card-text">
+              Orientación general sobre violencia obstétrica, violencia de pareja y recursos donde buscar ayuda
+              si te sientes en riesgo. Con enfoque en seguridad y protección.
+            </p>
+            <p class="card-meta">En caso de peligro inmediato, contacta siempre con los servicios de emergencia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTÍCULOS -->
+    <section id="articulos">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Artículos médicos y testimonios</div>
+          <h2 class="section-title">Una biblioteca viva en varios idiomas</h2>
+          <p class="section-subtitle">
+            Aquí irás añadiendo poco a poco artículos de interés médico, guías prácticas y, si lo consideras adecuado,
+            testimonios anónimos de mujeres que deseen compartir su experiencia migratoria y de embarazo.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-tag">Ejemplo de artículo</div>
+            <h3 class="card-title">Primer trimestre del embarazo</h3>
+            <p class="card-text">
+              Cambios más frecuentes, cuándo consultar, náuseas, sangrados y síntomas que requieren una
+              valoración profesional. Puedes enlazar aquí a un PDF o a una página específica.
+            </p>
+            <p class="card-meta">ES · FR · EN (pendiente de traducción).</p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Ejemplo de tema migración</div>
+            <h3 class="card-title">Cómo prepararte para una consulta médica en otro idioma</h3>
+            <p class="card-text">
+              Listas de frases útiles, consejos para llevar apuntado lo más importante, derechos básicos y cómo
+              pedir intérprete si el sistema de salud lo permite.
+            </p>
+            <p class="card-meta">ES · AR · EN (en preparación).</p>
+          </article>
+
+          <article class="card">
+            <div class="card-tag">Ejemplo de bienestar</div>
+            <h3 class="card-title">Cuidar tu salud mental en el embarazo</h3>
+            <p class="card-text">
+              Señales de alarma en depresión perinatal, ansiedad y estrés extremo, así como recursos de apoyo
+              comunitario y profesional.
+            </p>
+            <p class="card-meta">ES · PT · IT (en preparación).</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <div class="cta-title">Próximos pasos: hacia una aplicación global para mujeres</div>
+            <p class="cta-text">
+              Este sitio web es el primer paso de un proyecto más amplio. La visión a futuro incluye una aplicación
+              donde las mujeres puedan encontrar profesionales de la salud por país, idioma y especialidad, similar
+              a un directorio médico tipo Doctoralia pero centrado en salud femenina y migración.
+            </p>
+            <p class="cta-note">
+              Aquí podrás describir la metodología de tu investigación, los criterios éticos, el proceso de
+              anonimización de datos y cómo se integrará la tecnología en la práctica clínica y social.
+            </p>
+          </div>
+          <div class="cta-card">
+            <div class="cta-chip">
+              <span>🔬</span> Proyecto de investigación
+            </div>
+            <p>
+              Utiliza este espacio para resumir tu protocolo de estudio: objetivos, población, métodos y
+              colaboraciones internacionales.
+            </p>
+            <p>
+              Puedes añadir un enlace al PDF completo de tu protocolo, a tu institución académica o al comité
+              de ética que avala el proyecto.
+            </p>
+            <button class="btn btn-outline" style="margin-top:0.4rem;">
+              Añadir enlace al protocolo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> Maternidad Global. Este sitio forma parte de un proyecto de investigación
+        en desarrollo. Algunos contenidos pueden estar incompletos o en revisión.
+      </div>
+      <div class="footer-links">
+        <a href="#">Aviso legal</a>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Metodología</a>
+        <a href="#">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mostrar automáticamente el año actual en el footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
