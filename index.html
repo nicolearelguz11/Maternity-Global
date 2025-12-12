@@ -24,6 +24,27 @@
       --radius: 12px;
       --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.06);
     }
+
+/* ===== LOGO HEADER ===== */
+.logo-img {
+  height: 80px;          /* tamaño grande */
+  width: auto;
+  object-fit: contain;
+}
+
+/* Asegurar fondo uniforme */
+header {
+  background-color: #0f3b6f; /* mismo azul del logo */
+}
+
+/* Ajuste móvil */
+@media (max-width: 640px) {
+  .logo-img {
+    height: 60px;
+  }
+
+
+
     
     * {
       box-sizing: border-box;
