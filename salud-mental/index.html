@@ -5,164 +5,155 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Duelo migratorio | Maternidad Global</title>
 
-  <!-- Fuente -->
+  <!-- FUENTE -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- IMPORTANTE: reutilizamos exactamente los mismos estilos -->
-  <link rel="stylesheet" href="../styles.css">
+  <!-- ESTILOS -->
+  <style>
+    body {
+      font-family: "Nunito", system-ui, sans-serif;
+      background-color: #f7f9fb;
+      color: #1f2933;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #d1d5db;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-weight: 700;
+      color: #005eb8;
+    }
+
+    .nav a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #6b7280;
+    }
+
+    main {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #005eb8;
+      font-weight: 700;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin: 0.4rem 0;
+    }
+
+    .section-subtitle {
+      color: #6b7280;
+      max-width: 720px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
+      margin-bottom: 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid #d1d5db;
+      padding: 2rem 0;
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER (idéntico al index principal) -->
+<!-- HEADER -->
 <header>
-  <div class="container">
-    <div class="topbar">
-      <div>Proyecto de investigación – Salud materna y migración</div>
-      <div class="lang-badges">
-        <span class="lang-badge">ES</span>
-        <span class="lang-badge">FR</span>
-        <span class="lang-badge">EN</span>
-        <span class="lang-badge">AR</span>
-        <span class="lang-badge">PT</span>
-        <span class="lang-badge">DE</span>
-        <span class="lang-badge">IT</span>
-      </div>
-    </div>
-
-    <nav class="nav">
-      <div class="logo">
-        <div class="logo-mark">MG</div>
-        <div>
-          <div class="logo-text-title">Maternidad Global</div>
-          <div class="logo-text-subtitle">Plataforma para mujeres migrantes</div>
-        </div>
-      </div>
-      <div class="nav-links">
-        <a href="../index.html">Inicio</a>
-        <a href="../index.html#mental">Salud mental</a>
-        <a href="../index.html#articulos">Artículos</a>
-        <a href="../index.html#recursos">Recursos</a>
-      </div>
+  <div class="container nav">
+    <div class="logo">Maternidad Global</div>
+    <nav>
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#mental">Salud mental</a>
+      <a href="../index.html#articulos">Artículos</a>
+      <a href="../index.html#recursos">Recursos</a>
     </nav>
   </div>
 </header>
 
 <!-- CONTENIDO -->
 <main>
+  <div class="container">
 
-  <!-- INTRO -->
-  <section class="hero">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Salud mental y migración</div>
-        <h1 class="section-title">Duelo migratorio</h1>
-        <p class="section-subtitle">
-          El duelo migratorio es un proceso emocional profundo que puede acompañar a las mujeres
-          durante meses o incluso años. No es una enfermedad, sino una respuesta humana ante múltiples
-          pérdidas que ocurren al migrar.
-        </p>
-      </div>
+    <div class="section-header">
+      <div class="section-kicker">Salud mental</div>
+      <h1 class="section-title">Duelo migratorio</h1>
+      <p class="section-subtitle">
+        El duelo migratorio es un proceso emocional profundo que puede acompañar a las mujeres
+        durante meses o incluso años, especialmente en el embarazo y la maternidad.
+      </p>
     </div>
-  </section>
 
-  <!-- DESCRIPCIÓN -->
-  <section>
-    <div class="container two-column">
-      <div>
-        <p class="card-text">
-          En mujeres migrantes, el duelo migratorio puede intensificarse durante el embarazo,
-          el postparto o la crianza, etapas en las que la necesidad de apoyo emocional suele ser mayor.
-          La distancia con la familia, el idioma, las diferencias culturales y la inseguridad
-          administrativa pueden aumentar la vulnerabilidad emocional.
-        </p>
+    <article class="card">
+      <h2>¿Qué es el duelo migratorio?</h2>
+      <p>
+        No es una enfermedad ni una debilidad personal, sino una respuesta humana normal ante
+        múltiples pérdidas: la familia, el idioma, la cultura, el entorno social y la sensación
+        de pertenencia.
+      </p>
+    </article>
 
-        <ul class="list-check" style="margin-top:1rem;">
-          <li>Tristeza persistente y sensación de pérdida</li>
-          <li>Soledad y falta de red de apoyo</li>
-          <li>Conflictos culturales en torno al embarazo y la maternidad</li>
-          <li>Dificultades para expresar emociones en otro idioma</li>
-        </ul>
-      </div>
+    <article class="card">
+      <h2>Duelo migratorio y embarazo</h2>
+      <p>
+        Durante el embarazo o el postparto, este proceso puede intensificarse. La distancia con
+        la red de apoyo, el miedo al sistema sanitario y las barreras culturales pueden aumentar
+        la vulnerabilidad emocional.
+      </p>
+    </article>
 
-      <aside>
-        <article class="card">
-          <span class="badge-soft">Nota importante</span>
-          <p class="card-text">
-            El duelo migratorio no tiene una duración fija. Puede reaparecer en distintos momentos
-            de la vida, especialmente en etapas vitales significativas como el embarazo o la maternidad.
-          </p>
-          <p class="card-meta">
-            Esta información es educativa y no sustituye una valoración profesional.
-          </p>
-        </article>
-      </aside>
-    </div>
-  </section>
+    <article class="card">
+      <h2>Artículos disponibles</h2>
+      <ul>
+        <li>Soledad durante el duelo migratorio</li>
+        <li>Embarazo lejos del país de origen</li>
+        <li>Señales de alerta emocional</li>
+      </ul>
+    </article>
 
-  <!-- ARTÍCULOS -->
-  <section>
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Artículos disponibles</div>
-        <h2 class="section-title">Explorar temas relacionados</h2>
-        <p class="section-subtitle">
-          A continuación encontrarás artículos que profundizan en distintos aspectos
-          del duelo migratorio. Cada uno puede leerse de forma independiente.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <a href="duelo-migratorio-soledad.html" class="card-link">
-          <article class="card">
-            <h3 class="card-title">Soledad durante el duelo migratorio</h3>
-            <p class="card-text">
-              Por qué la soledad es una experiencia frecuente en mujeres migrantes
-              y cómo puede impactar en la salud mental durante el embarazo.
-            </p>
-            <p class="card-meta">Artículo educativo · ES / FR</p>
-          </article>
-        </a>
-
-        <a href="duelo-migratorio-embarazo.html" class="card-link">
-          <article class="card">
-            <h3 class="card-title">Embarazo lejos del país de origen</h3>
-            <p class="card-text">
-              Vivir la gestación sin la red familiar habitual: miedos,
-              expectativas y estrategias de afrontamiento.
-            </p>
-            <p class="card-meta">Artículo educativo · ES / EN</p>
-          </article>
-        </a>
-
-        <article class="card">
-          <h3 class="card-title">Señales de alerta emocional</h3>
-          <p class="card-text">
-            Cuándo el malestar emocional puede requerir apoyo profesional
-            y cómo pedir ayuda en un sistema sanitario desconocido.
-          </p>
-          <p class="card-meta">Próximamente</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
+  </div>
 </main>
 
 <!-- FOOTER -->
 <footer>
-  <div class="container footer-inner">
-    <div>
-      ©️ <span id="year"></span> Maternidad Global · Proyecto de investigación en desarrollo.
-    </div>
-    <div class="footer-links">
-      <a href="#">Aviso legal</a>
-      <a href="#">Privacidad</a>
-      <a href="#">Metodología</a>
-      <a href="#">Contacto</a>
-    </div>
+  <div class="container">
+    © <span id="year"></span> Maternidad Global · Proyecto de investigación en salud materna y migración
   </div>
 </footer>
 
