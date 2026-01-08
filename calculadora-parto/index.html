@@ -4,9 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculadora FPP | Maternity Global</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -16,18 +13,18 @@
       --radius:14px;
     }
     *{box-sizing:border-box; transition: all 0.3s ease;}
-    body{font-family:"Nunito",system-ui,sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.6;}
-    header{background:var(--card);border-bottom:1px solid var(--line); padding: 1rem 0;}
-    .container{max-width:1120px;margin:0 auto;padding:0 1.5rem;}
-    .nav{display:flex;justify-content:space-between;align-items:center;}
-    .logo{font-weight:800;color:var(--brand);font-size:1.3rem;text-decoration:none;}
+    body{font-family:"Nunito",sans-serif; margin:0; background:var(--bg); color:var(--text); line-height:1.6;}
+    header{background:var(--card); border-bottom:1px solid var(--line); padding: 1rem 0;}
+    .container{max-width:1120px; margin:0 auto; padding:0 1.5rem;}
+    .nav{display:flex; justify-content:space-between; align-items:center;}
+    .logo{font-weight:800; color:var(--brand); font-size:1.3rem; text-decoration:none;}
     
     main{padding:2.5rem 0 3.5rem;}
-    .kicker{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);font-weight:800;}
-    .title{margin:.3rem 0 .5rem;font-size:2.2rem;line-height:1.2;}
+    .kicker{font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); font-weight:800;}
+    .title{margin:.3rem 0 .5rem; font-size:2.2rem; line-height:1.2;}
     
-    .grid-calc{display:grid;grid-template-columns: 1.2fr 0.8fr; gap:2rem;}
-    .card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--line);}
+    .grid-calc{display:grid; grid-template-columns: 1.2fr 0.8fr; gap:2rem;}
+    .card{background:var(--card); border-radius:var(--radius); padding:2rem; box-shadow:var(--shadow); border:1px solid var(--line); height: fit-content;}
     
     .note-box {
         background: #f0f7ff; border-left: 4px solid var(--brand);
@@ -53,7 +50,6 @@
     .semaforo-container { margin-top: 2rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
     .trimestre-row { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; opacity: 0.3; }
     .circulo { width: 18px; height: 18px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 5px rgba(0,0,0,0.1); flex-shrink: 0; }
-    
     .activo { opacity: 1 !important; transform: translateX(5px); font-weight: 700; }
 
     @media(max-width:850px){ .grid-calc{grid-template-columns: 1fr;} }
@@ -69,9 +65,9 @@
 </header>
 
 <main class="container">
-    <div class="kicker">Salud Materna</div>
-    <h1 class="title">Calculadora Gestacional</h1>
-    <p style="color:var(--muted); margin-bottom: 2rem;">Estimación profesional de tu Fecha Probable de Parto (FPP).</p>
+    <div class="kicker">Salud basada en evidencia</div>
+    <h1 class="title">Fecha de probable Parto</h1>
+    <p style="color:var(--muted); margin-bottom: 2rem;">Estimación profesional de tu fecha de parto y semanas de embarazo.</p>
 
     <div class="grid-calc">
         <div class="card">
@@ -79,10 +75,10 @@
             <input type="date" id="fur">
             
             <div class="note-box">
-                <strong>¿Por qué el primer día?</strong> Es el estándar médico para marcar el inicio del ciclo y la preparación del óvulo.
+                <strong>Nota aclaratoria:</strong> Se utiliza el <strong>primer día</strong> de sangrado porque es la referencia médica estándar para marcar el inicio del ciclo menstrual y la preparación del óvulo.
             </div>
 
-            <button class="btn-calc" onclick="calcularTodo()">Calcular Fecha y Semanas</button>
+            <button class="btn-calc" onclick="calcularTodo()">Calcular mi fecha</button>
 
             <div id="resultado">
                 <p style="margin:0; font-weight:700; color:var(--brand);">Tu fecha estimada de parto:</p>
@@ -95,31 +91,44 @@
                     📅 Guardar en Google Calendar
                 </button>
             </div>
+
+            <div style="margin-top:2rem; font-size:0.9rem; color:var(--text);">
+                <h3 style="color:var(--brand); font-size:1.1rem;">Importancia del Cálculo</h3>
+                <p>Las recomendaciones de la fecha de probable parto son fundamentales para el seguimiento del embarazo. Aunque solo un 4% de los bebés nacen en la fecha exacta calculada, esta estimación permite:</p>
+                <ul style="padding-left:1.2rem; color:var(--muted);">
+                    <li>Programar los controles prenatales de manera adecuada.</li>
+                    <li>Vigilar que el crecimiento fetal sea acorde al tiempo gestacional.</li>
+                    <li>Identificar riesgos como partos prematuros o embarazos prolongados.</li>
+                </ul>
+            </div>
         </div>
 
         <div class="card">
-            <h3 style="font-size:1.1rem; margin-top:0; color:var(--brand);">Importancia del Cálculo</h3>
-            <ul style="font-size:0.85rem; color:var(--muted); padding-left:1.2rem;">
-                <li style="margin-bottom:8px;"><strong>Control:</strong> Permite programar ultrasonidos y exámenes clave.</li>
-                <li><strong>Referencia:</strong> El ultrasonido (USG) de primer trimestre es el método más preciso.</li>
-            </ul>
+            <h3 style="font-size:1.1rem; margin-top:0; color:var(--brand);">Aviso de Salud</h3>
+            <p style="font-size:0.85rem; color:var(--muted);">
+                Es importante recordar que el <strong>ultrasonido (USG)</strong> realizado por un profesional en el primer trimestre es el método más preciso para determinar la edad gestacional. 
+                <br><br>
+                Esta calculadora es una herramienta educativa; solo tu ginecólogo puede confirmar la fecha definitiva tras una evaluación clínica.
+            </p>
+
+            
 
             <div class="semaforo-container">
                 <h3 style="font-size:1rem; color:var(--brand); margin-bottom:1rem;">Semáforo de Trimestres</h3>
                 
                 <div id="t1" class="trimestre-row">
                     <div class="circulo" style="background:#ff4d4d;"></div>
-                    <div style="font-size:0.85rem;">1er Trimestre: Organogénesis (Sem. 1-13)</div>
+                    <div style="font-size:0.85rem;"><strong>1er Trimestre:</strong> Formación de órganos (Sem. 1-13)</div>
                 </div>
 
                 <div id="t2" class="trimestre-row">
                     <div class="circulo" style="background:#ffcc00;"></div>
-                    <div style="font-size:0.85rem;">2do Trimestre: Crecimiento (Sem. 14-27)</div>
+                    <div style="font-size:0.85rem;"><strong>2do Trimestre:</strong> Crecimiento y audición (Sem. 14-27)</div>
                 </div>
 
                 <div id="t3" class="trimestre-row">
                     <div class="circulo" style="background:#2ecc71;"></div>
-                    <div style="font-size:0.85rem;">3er Trimestre: Maduración (Sem. 28-40+)</div>
+                    <div style="font-size:0.85rem;"><strong>3er Trimestre:</strong> Maduración y pulmones (Sem. 28-40+)</div>
                 </div>
             </div>
         </div>
@@ -127,7 +136,7 @@
 </main>
 
 <footer>
-    <div class="container">© 2026 Maternity Global · Información orientativa. Consulta a tu médico.</div>
+    <div class="container">© 2026 Maternity Global · Salud Basada en Evidencia</div>
 </footer>
 
 <script>
@@ -138,23 +147,26 @@
         let fur = new Date(fechaInput + 'T00:00:00');
         let hoy = new Date();
         
-        // 1. Cálculo FPP
         let fpp = new Date(fur);
         fpp.setDate(fpp.getDate() + 7);
         fpp.setMonth(fpp.getMonth() + 9);
 
-        // 2. Cálculo Semanas
         let diff = hoy - fur;
         let dias = Math.floor(diff / (1000*60*60*24));
         let semanas = Math.floor(dias / 7);
         let diasR = dias % 7;
 
-        // Mostrar Resultados
-        document.getElementById('fpp-display').innerText = fpp.toLocaleDateString('es-ES', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
-        document.getElementById('contador-semanas').innerHTML = `Tienes: <strong>${semanas} semanas y ${diasR} días</strong>`;
+        const opciones = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        document.getElementById('fpp-display').innerText = fpp.toLocaleDateString('es-ES', opciones);
+        
+        if (dias < 0) {
+            document.getElementById('contador-semanas').innerHTML = `La fecha seleccionada es futura.`;
+        } else {
+            document.getElementById('contador-semanas').innerHTML = `Hoy tienes: <strong>${semanas} semanas y ${diasR} días</strong>`;
+        }
+        
         document.getElementById('resultado').style.display = 'block';
 
-        // 3. Activar Semáforo
         document.getElementById('t1').classList.remove('activo');
         document.getElementById('t2').classList.remove('activo');
         document.getElementById('t3').classList.remove('activo');
@@ -163,10 +175,9 @@
         else if (semanas <= 27) document.getElementById('t2').classList.add('activo');
         else document.getElementById('t3').classList.add('activo');
 
-        // 4. Calendario
         const fISO = fpp.toISOString().replace(/-|:|\.\d\d\d/g, "").split("T")[0];
         document.getElementById('btn-calendar').onclick = () => {
-            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=Mi+Fecha+de+Parto+👶&dates=${fISO}/${fISO}&details=Estimación+Maternity+Global.+Consulta+a+tu+médico.&sf=true&output=xml`, '_blank');
+            window.open(`https://www.google.com/calendar/render?action=TEMPLATE&text=Mi+Fecha+Probable+de+Parto+👶&dates=${fISO}/${fISO}&details=Calculado+en+Maternity+Global.+Recuerda+confirmar+con+tu+médico.&sf=true&output=xml`, '_blank');
         };
     }
 </script>
