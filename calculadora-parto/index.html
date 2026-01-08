@@ -3,164 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora FPP Profesional</title>
+    <title>Calculadora de Parto | Maternity Global</title>
     <style>
         :root {
-            --azul-regal: #0f1c3f;
-            --dorado-premium: #c5a059;
-            --dorado-luz: #f5d68a;
+            --azul-marino: #0a192f;
+            --dorado: #c5a059;
+            --dorado-claro: #f5d68a;
             --blanco: #ffffff;
+            --fondo-gris: #f4f7f6;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fondo-gris);
             margin: 0;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
         }
 
-        .calc-container {
-            background: var(--azul-regal);
-            color: var(--blanco);
-            width: 90%;
-            max-width: 420px;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 1px solid var(--dorado-premium);
-            text-align: center;
+        .calc-wrapper {
+            background: var(--azul-marino);
+            color: white;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 25px;
+            border: 2px solid var(--dorado);
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        h2 {
-            color: var(--dorado-premium);
-            font-weight: 300;
-            letter-spacing: 1px;
-            margin-top: 0;
+        .header-section {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid var(--dorado);
         }
 
-        .input-box {
-            margin: 25px 0;
-            text-align: left;
+        h2 { color: var(--dorado); margin-top: 0; font-weight: 300; letter-spacing: 1px; }
+
+        .disclaimer-box {
+            background: rgba(197, 160, 89, 0.1);
+            border-left: 4px solid var(--dorado);
+            padding: 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e0e0e0;
         }
 
-        label {
+        .importante {
+            color: var(--dorado-claro);
+            font-weight: bold;
             display: block;
             margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: var(--dorado-luz);
+            text-transform: uppercase;
+            font-size: 0.8rem;
         }
+
+        .main-content { padding: 40px; text-align: center; }
+
+        label { display: block; margin-bottom: 15px; color: var(--dorado-claro); font-size: 1.1rem; }
 
         input[type="date"] {
             width: 100%;
             padding: 15px;
             border-radius: 12px;
-            border: 1px solid var(--dorado-premium);
+            border: 1px solid var(--dorado);
             background: rgba(255,255,255,0.05);
             color: white;
-            font-size: 1rem;
-            outline: none;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             box-sizing: border-box;
+            outline: none;
+            transition: 0.3s;
         }
 
+        input[type="date"]:focus { border-color: var(--dorado-claro); background: rgba(255,255,255,0.1); }
+
         button {
-            background: linear-gradient(135deg, var(--dorado-premium), #a68545);
-            color: var(--azul-regal);
+            background: linear-gradient(135deg, var(--dorado), #a68545);
+            color: var(--azul-marino);
             border: none;
-            padding: 16px;
-            width: 100%;
+            padding: 18px;
             border-radius: 12px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s ease;
+            width: 100%;
             font-size: 1rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
         }
 
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
-            filter: brightness(1.1);
-        }
+        button:hover { transform: translateY(-2px); filter: brightness(1.1); box-shadow: 0 5px 15px rgba(197, 160, 89, 0.3); }
 
-        .result-area {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 15px;
+        #resultado {
+            margin-top: 35px;
             display: none;
-            border-left: 4px solid var(--dorado-premium);
+            animation: fadeIn 1.2s ease-out;
         }
 
-        .fpp-date {
-            font-size: 1.6rem;
-            color: var(--dorado-luz);
-            margin: 10px 0;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fpp-resultado {
+            font-size: 2rem;
+            color: var(--dorado-claro);
+            margin: 15px 0;
             font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .back-link {
-            display: inline-block;
+        .emocional-card {
+            background: rgba(197, 160, 89, 0.15);
+            border: 1px solid var(--dorado);
+            padding: 20px;
+            border-radius: 15px;
             margin-top: 25px;
-            color: var(--dorado-premium);
-            text-decoration: none;
-            font-size: 0.85rem;
-            opacity: 0.8;
         }
 
-        .back-link:hover { opacity: 1; text-decoration: underline; }
+        .emocional-card p { font-style: italic; font-size: 1rem; margin: 0; line-height: 1.5; color: var(--dorado-claro); }
+
+        .footer-link {
+            display: block;
+            text-align: center;
+            padding: 25px;
+            color: var(--dorado);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .footer-link:hover { color: var(--dorado-claro); text-decoration: underline; }
+
+        ul { padding-left: 20px; margin: 0; }
+        li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
 
-<div class="calc-container">
-    <h2>Calculadora de Parto</h2>
-    <p style="font-size: 0.9rem; opacity: 0.8;">Ingresa la fecha de tu última menstruación para obtener tu fecha probable.</p>
-    
-    <div class="input-box">
-        <label for="furDate">Fecha de última regla (FUR):</label>
-        <input type="date" id="furDate">
+<div class="calc-wrapper">
+    <div class="header-section">
+        <h2>Fecha Probable de Parto</h2>
+        <div class="disclaimer-box">
+            <span class="importante">⚠️ Consideraciones Médicas:</span>
+            <ul>
+                <li><strong>El médico es la autoridad:</strong> Esta calculadora es una herramienta educativa; la mejor fuente de información siempre será tu ginecólogo.</li>
+                <li><strong>Método USG:</strong> La confirmación por ultrasonido (USG) en el primer trimestre es el estándar de oro para determinar la edad gestacional.</li>
+                <li><strong>Ciclos Regulares:</strong> Este cálculo (Regla de Naegele) es ideal para mujeres con ciclos regulares de 28 días.</li>
+                <li><strong>Referencia:</strong> Solo el 4% de los partos ocurren exactamente en la fecha calculada.</li>
+            </ul>
+        </div>
     </div>
 
-    <button onclick="calculateFPP()">Calcular Fecha Probable</button>
+    <div class="main-content">
+        <label for="furInput">Ingresa el primer día de tu última regla:</label>
+        <input type="date" id="furInput">
+        <button onclick="generarFPP()">Descubrir Fecha Estimada</button>
 
-    <div id="result" class="result-area">
-        <div style="font-size: 0.9rem; color: #ddd;">Tu fecha probable de parto es:</div>
-        <div id="fppValue" class="fpp-date"></div>
-        <div id="weeksInfo" style="font-size: 0.85rem; color: var(--dorado-luz);"></div>
+        <div id="resultado">
+            <p style="margin:0; font-size: 0.9rem; color: #ccc;">Tu fecha estimada de encuentro es:</p>
+            <div id="fppTexto" class="fpp-resultado"></div>
+            
+            <div class="emocional-card">
+                <p>
+                    "Este número es solo el inicio de una gran historia. Aunque la medicina nos da una guía, recuerda que cada bebé tiene su propio tiempo para llegar al mundo. ¡Disfruta la magia de este viaje!"
+                </p>
+            </div>
+            <p style="font-size: 0.75rem; color: #888; margin-top: 20px;">
+                Consulta estos resultados con tu profesional de salud en tu próxima cita prenatal.
+            </p>
+        </div>
     </div>
 
-    <a href="../index.html" class="back-link">← Regresar al portal principal</a>
+    <a href="../index.html" class="footer-link">← Volver al Portal de Maternity Global</a>
 </div>
 
 <script>
-    function calculateFPP() {
-        const input = document.getElementById('furDate').value;
-        if (!input) return;
+    function generarFPP() {
+        const input = document.getElementById('furInput').value;
+        if (!input) {
+            alert("Por favor, selecciona una fecha válida.");
+            return;
+        }
 
         const fur = new Date(input);
+        const fpp = new Date(fur);
         
-        // Regla de Naegele (Estándar médico)
-        let fpp = new Date(fur);
+        // Regla de Naegele: +7 días, +9 meses
         fpp.setDate(fpp.getDate() + 7);
         fpp.setMonth(fpp.getMonth() + 9);
 
-        // Formatear fecha
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('fppValue').innerText = fpp.toLocaleDateString('es-ES', options);
-
-        // Calcular semanas actuales
-        const today = new Date();
-        const diffInMs = today - fur;
-        const weeks = Math.floor(diffInMs / (1000 * 60 * 60 * 24 * 7));
-
-        if(weeks >= 0 && weeks <= 42) {
-            document.getElementById('weeksInfo').innerText = `Te encuentras en la semana ${weeks} de gestación aproximadamente.`;
-        }
-
-        document.getElementById('result').style.display = 'block';
+        const formato = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        document.getElementById('fppTexto').innerText = fpp.toLocaleDateString('es-ES', formato);
+        
+        document.getElementById('resultado').style.display = 'block';
+        
+        // Desplazamiento suave al resultado
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
 </script>
 
