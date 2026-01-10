@@ -1,17 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendario Menstrual Inteligente | Maternity Global</title>
+  <title>Calendario Menstrual Pro | Maternity Global</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#f7f9fb; --card:#ffffff; --text:#1f2933; --muted:#6b7280;
       --brand:#005eb8; --line:#d1d5db; --shadow:0 10px 25px rgba(15,23,42,.06);
-      --radius:14px;
+      --radius:14px; --danger:#ff4d4d;
     }
     *{box-sizing:border-box; transition: all 0.3s ease;}
     body{font-family:"Nunito",sans-serif; margin:0; background:var(--bg); color:var(--text); line-height:1.6;}
@@ -41,12 +40,22 @@
     .btn-calc {
         background: var(--brand); color: white; border: none; padding: 1.2rem;
         width: 100%; border-radius: 12px; font-weight: 700; cursor: pointer; margin-top: 2rem;
-        font-size: 1rem;
+        font-size: 1rem; box-shadow: 0 4px 12px rgba(0,94,184,0.2);
     }
+    .btn-calc:hover{ background:#004a91; transform: translateY(-2px); }
 
-    #resultado-menstrual {
-      margin-top: 2rem; padding: 1.5rem; border-radius: 12px; 
-      background: #ffffff; border: 2px solid var(--brand); display: none;
+    #resultado-menstrual { margin-top: 2rem; display: none; }
+
+    /* Estilo de Alerta de Retraso */
+    .alerta-retraso {
+        background: #fff5f5; border: 2px dashed var(--danger); padding: 15px;
+        border-radius: 12px; margin-bottom: 1.5rem; display: none;
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.01); }
+        100% { transform: scale(1); }
     }
 
     .status-box {
@@ -75,61 +84,68 @@
 </header>
 
 <main class="container">
-    <div class="kicker">Análisis de Salud Bio-Hormonal</div>
+    <div class="kicker">Bio-Inteligencia Menstrual</div>
     <h1 class="title">Calendario Menstrual Pro</h1>
-    <p style="color:var(--muted); margin-bottom: 2rem;">Monitoreo avanzado de fases, energía y bienestar nutricional.</p>
+    <p style="color:var(--muted); margin-bottom: 2rem;">Seguimiento clínico de fases, energía y alertas de retraso.</p>
 
     <div class="grid-calc">
         <div class="card">
-            <span class="ai-badge">SISTEMA DIAGNÓSTICO IA</span>
+            <span class="ai-badge">SISTEMA ANALÍTICO V3.0</span>
             
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
                 <div>
-                    <label>Última Regla:</label>
+                    <label>Último Periodo:</label>
                     <input type="date" id="ultimo-periodo">
                 </div>
                 <div>
-                    <label>Duración Ciclo:</label>
-                    <input type="number" id="ciclo-dias" value="28" min="20" max="45">
+                    <label>Ciclo Promedio:</label>
+                    <input type="number" id="ciclo-dias" value="28">
                 </div>
             </div>
 
-            <label>Síntoma o Estado de Ánimo:</label>
+            <label>¿Cómo te sientes hoy?</label>
             <select id="sintoma">
                 <option value="normal">Estable / Normal</option>
                 <option value="cansancio">Cansancio / Letargo</option>
                 <option value="dolor">Dolor / Cólicos</option>
-                <option value="ansiedad">Ansiedad / Irritabilidad</option>
-                <option value="activo">Mucha Energía / Libido Alta</option>
+                <option value="ansiedad">Ansiedad / SPM</option>
+                <option value="activo">Energía Alta / Radiante</option>
             </select>
 
-            <button class="btn-calc" onclick="ejecutarAnalisis()">Analizar Ciclo y Salud</button>
+            <button class="btn-calc" onclick="ejecutarAnalisis()">Analizar Mi Estado Actual</button>
 
             <div id="resultado-menstrual">
-                <div style="text-align:center; margin-bottom:1.5rem;">
-                    <small style="color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Próximo Periodo Estimado</small>
-                    <h2 id="fecha-prox" style="margin:5px 0; color:var(--brand); font-size:2rem;"></h2>
+                
+                <div id="alerta-retraso" class="alerta-retraso">
+                    <strong style="color:var(--danger); display:block;">⚠️ NOTIFICACIÓN DE RETRASO</strong>
+                    <p id="texto-retraso" style="font-size:0.85rem; margin:5px 0; color:#b91c1c;"></p>
+                    <p style="font-size:0.75rem; margin:0; opacity:0.8;">Considera un test si hubo riesgo o consulta por estrés/cambios hormonales.</p>
+                </div>
+
+                <div style="text-align:center; margin-bottom:1.5rem; background:#fff; border:1px solid var(--line); padding:15px; border-radius:12px;">
+                    <small style="color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Próximo Periodo Esperado</small>
+                    <h2 id="fecha-prox" style="margin:5px 0; color:var(--brand); font-size:1.8rem;"></h2>
+                    <div id="dias-cuenta" style="font-size:0.85rem; font-weight:700;"></div>
                 </div>
 
                 <div class="status-box">
-                    <strong id="titulo-ia">Insight de Salud:</strong>
+                    <strong id="titulo-ia">Análisis IA:</strong>
                     <p id="analisis-ia" style="margin:5px 0; font-size:0.9rem;"></p>
                 </div>
 
                 <div style="background:#f8fafc; padding:15px; border-radius:10px; border:1px solid var(--line);">
-                    <strong style="font-size:0.8rem; color:var(--brand);">🥗 NUTRICIÓN FUNCIONAL:</strong>
+                    <strong style="font-size:0.8rem; color:var(--brand);">🥗 APOYO NUTRICIONAL:</strong>
                     <p id="nutricion-ia" style="margin:5px 0; font-size:0.85rem;"></p>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);">
-            <h3 style="font-size:1.1rem; margin-top:0; color:var(--brand);">Dashboard Hormonal</h3>
-            <p style="font-size:0.85rem; color:var(--muted);">Visualización en tiempo real de tu capacidad biológica hoy.</p>
-
+        <div class="card" style="background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);">
+            <h3 style="font-size:1.1rem; margin-top:0; color:var(--brand);">Estado Biológico</h3>
+            
             <div style="margin:1.5rem 0;">
                 <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700;">
-                    <span>Capacidad de Energía</span>
+                    <span>Nivel de Energía Física</span>
                     <span id="pct-energia">0%</span>
                 </div>
                 <div class="energy-bar-bg">
@@ -140,91 +156,102 @@
             <div class="semaforo-container" style="margin-top:2rem; border-top:1px solid var(--line); padding-top:1.5rem;">
                 <div id="f-menstrual" class="fase-row">
                     <div class="circulo" style="background:#ff4d4d;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Fase Menstrual</strong><small>Renovación y Hierro</small></div>
+                    <div><strong style="display:block; font-size:0.85rem;">Fase Menstrual</strong><small>Día 1 al 5</small></div>
                 </div>
                 <div id="f-folicular" class="fase-row">
                     <div class="circulo" style="background:#ffcc00;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Fase Folicular</strong><small>Creatividad y Energía</small></div>
+                    <div><strong style="display:block; font-size:0.85rem;">Fase Folicular</strong><small>Día 6 al 12</small></div>
                 </div>
                 <div id="f-ovulacion" class="fase-row">
                     <div class="circulo" style="background:#2ecc71;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Ovulación</strong><small>Pico Estratégico</small></div>
+                    <div><strong style="display:block; font-size:0.85rem;">Ovulación</strong><small>Día 13 al 16</small></div>
                 </div>
                 <div id="f-lutea" class="fase-row">
                     <div class="circulo" style="background:#005eb8;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Fase Lútea</strong><small>Introspección y Calma</small></div>
+                    <div><strong style="display:block; font-size:0.85rem;">Fase Lútea</strong><small>Día 17 al inicio</small></div>
                 </div>
             </div>
 
-            <div style="margin-top:2rem; padding:10px; border-radius:8px; font-size:0.75rem; color:var(--muted); line-height:1.2;">
-                *Este algoritmo detecta patrones clínicos. No sustituye la consulta médica presencial.
+            <div style="margin-top:2.5rem; padding:12px; background:#fff; border-radius:8px; font-size:0.75rem; color:var(--muted); border:1px solid var(--line);">
+                <strong>Nota Médica:</strong> Este calendario estima procesos biológicos basados en promedios. Si presentas dolor agudo, acude a emergencias.
             </div>
         </div>
     </div>
 </main>
 
 <footer>
-    <div class="container">
-        © 2026 Maternity Global · Salud Femenina Basada en Evidencia científica.
-    </div>
+    <div class="container">© 2026 Maternity Global · Tecnología para la Salud Femenina.</div>
 </footer>
 
 <script>
     function ejecutarAnalisis() {
         const furInput = document.getElementById('ultimo-periodo').value;
         const ciclo = parseInt(document.getElementById('ciclo-dias').value);
-        const sintoma = document.getElementById('sintoma').value;
-
-        if(!furInput) return alert("Por favor, selecciona la fecha de tu última regla.");
+        if(!furInput) return alert("Por favor, selecciona una fecha.");
 
         let fur = new Date(furInput + 'T00:00:00');
         let hoy = new Date();
         hoy.setHours(0,0,0,0);
 
-        // 1. Predicción Próximo Periodo
+        // 1. Cálculo de Próximo Periodo
         let prox = new Date(fur);
         prox.setDate(fur.getDate() + ciclo);
         document.getElementById('fecha-prox').innerText = prox.toLocaleDateString('es-ES', {day:'numeric', month:'long'});
 
-        // 2. Identificación de Fase Actual
+        // 2. Lógica de Alerta de Retraso
+        let divAlerta = document.getElementById('alerta-retraso');
+        let textoRetraso = document.getElementById('texto-retraso');
+        
+        if (hoy > prox) {
+            let diasR = Math.floor((hoy - prox) / (1000*60*60*24));
+            divAlerta.style.display = "block";
+            textoRetraso.innerText = `Tu periodo tiene un retraso de ${diasR} día(s).`;
+            document.getElementById('dias-cuenta').innerText = "Estado: Retraso detectado";
+            document.getElementById('dias-cuenta').style.color = "var(--danger)";
+        } else {
+            divAlerta.style.display = "none";
+            let diasFaltan = Math.ceil((prox - hoy) / (1000*60*60*24));
+            document.getElementById('dias-cuenta').innerText = `Faltan ${diasFaltan} días`;
+            document.getElementById('dias-cuenta').style.color = "var(--brand)";
+        }
+
+        // 3. Análisis de Fase y Biomarcadores
         let diaActual = Math.floor((hoy - fur) / (1000*60*60*24)) + 1;
         let analisis = "";
         let nutricion = "";
         let energia = 0;
 
-        // Reset visual del semáforo
         document.querySelectorAll('.fase-row').forEach(el => el.classList.remove('activo'));
 
-        // Lógica IA de Fases y Síntomas
         if (diaActual <= 5) {
-            analisis = "Fase Menstrual activa. Tu cuerpo está en modo de limpieza. Es normal sentir menor capacidad de respuesta física.";
-            nutricion = "Aumenta el consumo de Hierro (lentejas, carnes) y Vitamina C para evitar la fatiga post-regla.";
-            energia = 20;
+            analisis = "Fase Menstrual: Tu cuerpo está en proceso de renovación. Baja de estrógenos detectada.";
+            nutricion = "Prioriza Caldos minerales, espinacas (Hierro) y descansa 30 min extra.";
+            energia = 25;
             document.getElementById('f-menstrual').classList.add('activo');
         } else if (diaActual <= 12) {
-            analisis = "Fase Folicular: Los estrógenos suben. Tu cerebro está más optimista y tu piel más hidratada.";
-            nutricion = "Consume alimentos fermentados (Kéfir, Chucrut) para ayudar a metabolizar las hormonas crecientes.";
-            energia = 75;
+            analisis = "Fase Folicular: Los estrógenos suben, mejorando tu colágeno y claridad mental.";
+            nutricion = "Alimentos ligeros, ensaladas frescas y grasas saludables (Aguacate).";
+            energia = 80;
             document.getElementById('f-folicular').classList.add('activo');
         } else if (diaActual <= 17) {
-            analisis = "Pico de Ovulación: Tu libido y fuerza física están al máximo. Es el momento de mayor confianza personal.";
-            nutricion = "Vegetales de hoja verde y Zinc (semillas de calabaza) para apoyar la liberación del óvulo.";
+            analisis = "Ovulación: Ventana fértil abierta. Pico máximo de energía y comunicación.";
+            nutricion = "Frutas ricas en antioxidantes y mucha hidratación. Evita procesados.";
             energia = 100;
             document.getElementById('f-ovulacion').classList.add('activo');
         } else {
-            analisis = "Fase Lútea: La progesterona domina. Puedes sentirte más introvertida o notar inflamación leve.";
-            nutricion = "Magnesio (Chocolate negro, nueces) para relajar el sistema nervioso y evitar el antojo de azúcar.";
+            analisis = "Fase Lútea: Progesterona en aumento. Puedes notar sensibilidad o retención de líquidos.";
+            nutricion = "Magnesio (Semillas, Chocolate amargo) para calmar el sistema nervioso.";
             energia = 45;
             document.getElementById('f-lutea').classList.add('activo');
         }
 
-        // 3. Alerta de Irregularidad (Superior a otras Apps)
-        if (ciclo < 24 || ciclo > 35) {
-            document.getElementById('titulo-ia').innerHTML = "⚠️ Alerta de Patrón Atípico:";
-            analisis = "Tu ciclo está fuera del rango óptimo de salud (24-35 días). Considera un chequeo de tiroides o niveles de estrés.";
+        // 4. Alerta de Salud Crítica (Superior a Flo)
+        if (ciclo < 21 || ciclo > 40) {
+            document.getElementById('titulo-ia').innerText = "⚠️ REVISIÓN NECESARIA:";
+            analisis = "Tu ciclo muestra una duración irregular. Esto puede indicar desbalances de tiroides o estrés crónico.";
         }
 
-        // 4. Actualización de UI
+        // Actualizar Dashboard
         document.getElementById('analisis-ia').innerText = analisis;
         document.getElementById('nutricion-ia').innerText = nutricion;
         document.getElementById('barra-energia').style.width = energia + "%";
