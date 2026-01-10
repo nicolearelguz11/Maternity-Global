@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calendario Menstrual Pro | Maternity Global</title>
+  <title>Maternity Global | Biohacking Menstrual Pro</title>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --bg:#f7f9fb; --card:#ffffff; --text:#1f2933; --muted:#6b7280;
-      --brand:#005eb8; --line:#d1d5db; --shadow:0 10px 25px rgba(15,23,42,.06);
-      --radius:14px; --danger:#ff4d4d;
+      --brand:#005eb8; --line:#e2e8f0; --shadow:0 10px 25px rgba(15,23,42,.06);
+      --radius:16px; --danger:#ff4d4d; --success:#2ecc71;
     }
     *{box-sizing:border-box; transition: all 0.3s ease;}
     body{font-family:"Nunito",sans-serif; margin:0; background:var(--bg); color:var(--text); line-height:1.6;}
@@ -21,7 +21,7 @@
     
     main{padding:2.5rem 0 3.5rem;}
     .kicker{font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); font-weight:800;}
-    .title{margin:.3rem 0 .5rem; font-size:2.2rem; line-height:1.2;}
+    .title{margin:.3rem 0 .5rem; font-size:2.2rem; line-height:1.2; color:#0f172a;}
     
     .grid-calc{display:grid; grid-template-columns: 1.2fr 0.8fr; gap:2rem;}
     .card{background:var(--card); border-radius:var(--radius); padding:2rem; box-shadow:var(--shadow); border:1px solid var(--line); height: fit-content;}
@@ -31,10 +31,10 @@
       padding:5px 15px; border-radius:20px; font-size:0.7rem; font-weight:800; letter-spacing:1px; margin-bottom:1.5rem;
     }
 
-    label{font-weight:700; color:var(--brand); font-size:0.9rem; display:block; margin-top:1rem;}
+    label{font-weight:700; color:var(--brand); font-size:0.9rem; display:block; margin-top:1.2rem;}
     input, select {
-      width: 100%; padding: 1rem; border-radius: 10px; border: 1px solid var(--line);
-      font-family: inherit; font-size: 1rem; margin-top: 0.5rem; outline: none;
+      width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid var(--line);
+      font-family: inherit; font-size: 1rem; margin-top: 0.5rem; outline: none; background: #fcfdfe;
     }
 
     .btn-calc {
@@ -46,32 +46,36 @@
 
     #resultado-menstrual { margin-top: 2rem; display: none; }
 
-    /* Estilo de Alerta de Retraso */
+    /* Alerta de Retraso Animada */
     .alerta-retraso {
-        background: #fff5f5; border: 2px dashed var(--danger); padding: 15px;
-        border-radius: 12px; margin-bottom: 1.5rem; display: none;
+        background: #fff1f1; border: 2px dashed var(--danger); padding: 18px;
+        border-radius: 14px; margin-bottom: 1.5rem; display: none;
         animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.01); }
-        100% { transform: scale(1); }
-    }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-    .status-box {
-      background: #f0f7ff; padding: 15px; border-radius: 10px; margin: 15px 0; border-left: 4px solid var(--brand);
-    }
+    /* Grid de Biohacking */
+    .health-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; }
+    .health-item { background: #f8fafc; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0; }
+    .health-item strong { display: block; color: var(--brand); margin-bottom: 5px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .health-item span { font-size: 0.9rem; color: #334155; font-weight: 600; line-height: 1.4; display: block; }
 
-    .fase-row { display: flex; align-items: center; gap: 12px; margin-bottom: 15px; opacity: 0.3; }
+    /* Restricciones */
+    .restriction-box { background: #fff1f1; border: 1px solid #ffcccc; padding: 15px; border-radius: 12px; margin-top: 20px; }
+    .restriction-box strong { color: #d32f2f; font-size: 0.85rem; display: block; margin-bottom: 5px; }
+    .restriction-box p { font-size: 0.85rem; margin: 0; color: #7f1d1d; }
+
+    /* Dashboard Derecho */
+    .fase-row { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; opacity: 0.25; transition: 0.4s; }
     .circulo { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
-    .activo { opacity: 1 !important; transform: translateX(5px); font-weight: 700; }
+    .activo { opacity: 1 !important; transform: translateX(8px); font-weight: 700; }
 
-    .energy-bar-bg { width:100%; background:#e2e8f0; height:8px; border-radius:10px; margin:10px 0; overflow:hidden; }
-    .energy-bar-fill { height:100%; background:var(--brand); width:0%; transition: width 1s ease-in-out; }
+    .energy-bar-bg { width:100%; background:#e2e8f0; height:10px; border-radius:10px; margin:10px 0; overflow:hidden; }
+    .energy-bar-fill { height:100%; background: linear-gradient(90deg, var(--brand), #60a5fa); width:0%; transition: width 1.5s ease-in-out; }
 
-    footer{text-align: center; padding: 3rem 0; color: var(--muted); font-size: 0.85rem;}
+    footer{text-align: center; padding: 4rem 0; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 3rem;}
 
-    @media(max-width:850px){ .grid-calc{grid-template-columns: 1fr;} }
+    @media(max-width:850px){ .grid-calc{grid-template-columns: 1fr;} .health-grid{grid-template-columns: 1fr;} }
   </style>
 </head>
 <body>
@@ -79,184 +83,196 @@
 <header>
   <div class="container nav">
     <a href="../index.html" class="logo">Maternity Global</a>
-    <a href="../index.html" style="text-decoration:none; color:var(--brand); font-weight:700;">← Volver</a>
+    <a href="../index.html" style="text-decoration:none; color:var(--brand); font-weight:700;">← Inicio</a>
   </div>
 </header>
 
 <main class="container">
-    <div class="kicker">Bio-Inteligencia Menstrual</div>
+    <div class="kicker">Bio-Engineering & Performance</div>
     <h1 class="title">Calendario Menstrual Pro</h1>
-    <p style="color:var(--muted); margin-bottom: 2rem;">Seguimiento clínico de fases, energía y alertas de retraso.</p>
+    <p style="color:var(--muted); margin-bottom: 2rem; max-width: 600px;">Optimización de neuroplasticidad, suplementación avanzada DHA/EPA y protocolo de estilo de vida funcional.</p>
 
     <div class="grid-calc">
         <div class="card">
-            <span class="ai-badge">SISTEMA ANALÍTICO V3.0</span>
+            <span class="ai-badge">SISTEMA BIOHACKING V4.5</span>
             
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
                 <div>
-                    <label>Último Periodo:</label>
+                    <label>Inició el último periodo:</label>
                     <input type="date" id="ultimo-periodo">
                 </div>
                 <div>
-                    <label>Ciclo Promedio:</label>
-                    <input type="number" id="ciclo-dias" value="28">
+                    <label>Días del ciclo (promedio):</label>
+                    <input type="number" id="ciclo-dias" value="28" min="20" max="45">
                 </div>
             </div>
 
-            <label>¿Cómo te sientes hoy?</label>
-            <select id="sintoma">
-                <option value="normal">Estable / Normal</option>
-                <option value="cansancio">Cansancio / Letargo</option>
-                <option value="dolor">Dolor / Cólicos</option>
-                <option value="ansiedad">Ansiedad / SPM</option>
-                <option value="activo">Energía Alta / Radiante</option>
-            </select>
-
-            <button class="btn-calc" onclick="ejecutarAnalisis()">Analizar Mi Estado Actual</button>
+            <button class="btn-calc" onclick="ejecutarAnalisis()">Generar Protocolo de Salud</button>
 
             <div id="resultado-menstrual">
                 
                 <div id="alerta-retraso" class="alerta-retraso">
-                    <strong style="color:var(--danger); display:block;">⚠️ NOTIFICACIÓN DE RETRASO</strong>
-                    <p id="texto-retraso" style="font-size:0.85rem; margin:5px 0; color:#b91c1c;"></p>
-                    <p style="font-size:0.75rem; margin:0; opacity:0.8;">Considera un test si hubo riesgo o consulta por estrés/cambios hormonales.</p>
+                    <strong>⚠️ ALERTA DE RETRASO DETECTADA</strong>
+                    <p id="texto-retraso" style="font-size:0.9rem; margin:5px 0;"></p>
+                    <p style="font-size:0.75rem; color:#b91c1c; font-weight:700;">Recomendación: Test de embarazo o revisión de niveles de cortisol (estrés).</p>
                 </div>
 
-                <div style="text-align:center; margin-bottom:1.5rem; background:#fff; border:1px solid var(--line); padding:15px; border-radius:12px;">
-                    <small style="color:var(--muted); text-transform:uppercase; letter-spacing:1px;">Próximo Periodo Esperado</small>
-                    <h2 id="fecha-prox" style="margin:5px 0; color:var(--brand); font-size:1.8rem;"></h2>
-                    <div id="dias-cuenta" style="font-size:0.85rem; font-weight:700;"></div>
+                <div style="text-align:center; margin-bottom:2rem; background:#f8fafc; border:1px solid var(--line); padding:20px; border-radius:16px;">
+                    <small style="color:var(--muted); text-transform:uppercase; font-weight:800; letter-spacing:1px;">Próximo Periodo Esperado</small>
+                    <h2 id="fecha-prox" style="margin:8px 0; color:var(--brand); font-size:2.2rem;"></h2>
                 </div>
 
-                <div class="status-box">
-                    <strong id="titulo-ia">Análisis IA:</strong>
-                    <p id="analisis-ia" style="margin:5px 0; font-size:0.9rem;"></p>
+                <div class="health-grid">
+                    <div class="health-item">
+                        <strong>🏋️ Actividad Física</strong>
+                        <span id="label-deporte"></span>
+                    </div>
+                    <div class="health-item">
+                        <strong>🧠 Neuroplasticidad</strong>
+                        <span id="label-neuro"></span>
+                    </div>
+                    <div class="health-item">
+                        <strong>💊 Suplementación</strong>
+                        <span id="label-suplemento"></span>
+                    </div>
+                    <div class="health-item">
+                        <strong>☕ Nutrición & Bebidas</strong>
+                        <span id="label-bebida"></span>
+                    </div>
                 </div>
 
-                <div style="background:#f8fafc; padding:15px; border-radius:10px; border:1px solid var(--line);">
-                    <strong style="font-size:0.8rem; color:var(--brand);">🥗 APOYO NUTRICIONAL:</strong>
-                    <p id="nutricion-ia" style="margin:5px 0; font-size:0.85rem;"></p>
+                <div class="restriction-box">
+                    <strong>🚫 RESTRICCIONES CRÍTICAS (Evitar Hoy):</strong>
+                    <p id="label-evitar"></p>
+                    <p style="font-size: 0.75rem; margin-top: 10px; border-top: 1px solid #ffcccc; padding-top: 5px;">
+                        *PROHIBICIÓN ESTÁNDAR: Alcohol, Tabaco, Vapes y Drogas. Destruyen la neuroplasticidad y el balance de progesterona.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="background: linear-gradient(180deg, #ffffff 0%, #f4f9ff 100%);">
-            <h3 style="font-size:1.1rem; margin-top:0; color:var(--brand);">Estado Biológico</h3>
+        <div class="card" style="background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);">
+            <h3 style="font-size:1.1rem; margin-top:0; color:var(--brand);">Dashboard de Rendimiento</h3>
             
-            <div style="margin:1.5rem 0;">
-                <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700;">
-                    <span>Nivel de Energía Física</span>
+            <div style="margin:2rem 0;">
+                <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:800;">
+                    <span>Capacidad Cognitiva y Enfoque</span>
                     <span id="pct-energia">0%</span>
                 </div>
                 <div class="energy-bar-bg">
                     <div id="barra-energia" class="energy-bar-fill"></div>
                 </div>
+                <p id="desc-energia" style="font-size:0.75rem; color:var(--muted); margin-top:8px;"></p>
             </div>
 
-            <div class="semaforo-container" style="margin-top:2rem; border-top:1px solid var(--line); padding-top:1.5rem;">
+            <div class="semaforo-container" style="margin-top:2.5rem; border-top:1px solid var(--line); padding-top:2rem;">
                 <div id="f-menstrual" class="fase-row">
                     <div class="circulo" style="background:#ff4d4d;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Fase Menstrual</strong><small>Día 1 al 5</small></div>
+                    <div><strong>Fase Menstrual</strong><small style="display:block; color:var(--muted);">Día 1-5 · Renovación celular</small></div>
                 </div>
                 <div id="f-folicular" class="fase-row">
                     <div class="circulo" style="background:#ffcc00;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Fase Folicular</strong><small>Día 6 al 12</small></div>
+                    <div><strong>Fase Folicular</strong><small style="display:block; color:var(--muted);">Día 6-12 · Pico de aprendizaje</small></div>
                 </div>
                 <div id="f-ovulacion" class="fase-row">
                     <div class="circulo" style="background:#2ecc71;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Ovulación</strong><small>Día 13 al 16</small></div>
+                    <div><strong>Fase Ovulatoria</strong><small style="display:block; color:var(--muted);">Día 13-16 · Máxima vitalidad</small></div>
                 </div>
                 <div id="f-lutea" class="fase-row">
                     <div class="circulo" style="background:#005eb8;"></div>
-                    <div><strong style="display:block; font-size:0.85rem;">Fase Lútea</strong><small>Día 17 al inicio</small></div>
+                    <div><strong>Fase Lútea</strong><small style="display:block; color:var(--muted);">Día 17-Fin · Análisis y calma</small></div>
                 </div>
             </div>
 
-            <div style="margin-top:2.5rem; padding:12px; background:#fff; border-radius:8px; font-size:0.75rem; color:var(--muted); border:1px solid var(--line);">
-                <strong>Nota Médica:</strong> Este calendario estima procesos biológicos basados en promedios. Si presentas dolor agudo, acude a emergencias.
+            <div style="margin-top:2rem; padding:15px; background:white; border-radius:12px; font-size:0.8rem; border:1px solid var(--line);">
+                <strong>💡 Tip de Salud:</strong> La exposición a la luz solar (Vitamina D) antes de las 10 AM sincroniza tu ritmo circadiano y mejora la producción de progesterona.
             </div>
         </div>
     </div>
 </main>
 
 <footer>
-    <div class="container">© 2026 Maternity Global · Tecnología para la Salud Femenina.</div>
+    <div class="container">© 2026 Maternity Global · Biohacking Aplicado a la Salud Femenina.</div>
 </footer>
 
 <script>
     function ejecutarAnalisis() {
         const furInput = document.getElementById('ultimo-periodo').value;
         const ciclo = parseInt(document.getElementById('ciclo-dias').value);
-        if(!furInput) return alert("Por favor, selecciona una fecha.");
+        if(!furInput) return alert("Por favor, ingresa la fecha de tu último periodo.");
 
         let fur = new Date(furInput + 'T00:00:00');
         let hoy = new Date();
         hoy.setHours(0,0,0,0);
 
-        // 1. Cálculo de Próximo Periodo
         let prox = new Date(fur);
         prox.setDate(fur.getDate() + ciclo);
-        document.getElementById('fecha-prox').innerText = prox.toLocaleDateString('es-ES', {day:'numeric', month:'long'});
+        document.getElementById('fecha-prox').innerText = prox.toLocaleDateString('es-ES', {day:'numeric', month:'long', year:'numeric'});
 
-        // 2. Lógica de Alerta de Retraso
+        let diaActual = Math.floor((hoy - fur) / (1000*60*60*24)) + 1;
+        let energia = 0;
+        let descEnergia = "";
+
+        // Reset
+        document.querySelectorAll('.fase-row').forEach(el => el.classList.remove('activo'));
         let divAlerta = document.getElementById('alerta-retraso');
-        let textoRetraso = document.getElementById('texto-retraso');
-        
+
+        // Lógica de Retraso
         if (hoy > prox) {
             let diasR = Math.floor((hoy - prox) / (1000*60*60*24));
             divAlerta.style.display = "block";
-            textoRetraso.innerText = `Tu periodo tiene un retraso de ${diasR} día(s).`;
-            document.getElementById('dias-cuenta').innerText = "Estado: Retraso detectado";
-            document.getElementById('dias-cuenta').style.color = "var(--danger)";
+            document.getElementById('texto-retraso').innerText = `Tu periodo tiene un retraso de ${diasR} día(s).`;
         } else {
             divAlerta.style.display = "none";
-            let diasFaltan = Math.ceil((prox - hoy) / (1000*60*60*24));
-            document.getElementById('dias-cuenta').innerText = `Faltan ${diasFaltan} días`;
-            document.getElementById('dias-cuenta').style.color = "var(--brand)";
         }
 
-        // 3. Análisis de Fase y Biomarcadores
-        let diaActual = Math.floor((hoy - fur) / (1000*60*60*24)) + 1;
-        let analisis = "";
-        let nutricion = "";
-        let energia = 0;
-
-        document.querySelectorAll('.fase-row').forEach(el => el.classList.remove('activo'));
-
+        // PROTOCOLO DE BIOHACKING POR FASES
         if (diaActual <= 5) {
-            analisis = "Fase Menstrual: Tu cuerpo está en proceso de renovación. Baja de estrógenos detectada.";
-            nutricion = "Prioriza Caldos minerales, espinacas (Hierro) y descansa 30 min extra.";
-            energia = 25;
+            energia = 30;
+            descEnergia = "Fase de limpieza: El cerebro requiere descanso profundo y bajo estímulo.";
             document.getElementById('f-menstrual').classList.add('activo');
+            document.getElementById('label-deporte').innerText = "Caminatas ligeras al aire libre. Evitar Gym pesado.";
+            document.getElementById('label-neuro').innerText = "Escritura creativa (Journaling). Alta conexión intuitiva.";
+            document.getElementById('label-suplemento').innerText = "Omega 3 (2g DHA/EPA) para inflamación + Hierro.";
+            document.getElementById('label-bebida').innerText = "Infusión de Cúrcuma o Jengibre. Cero Café (aumenta dolor).";
+            document.getElementById('label-evitar').innerText = "Lácteos, Azúcar refinada y Sal (evita retención).";
         } else if (diaActual <= 12) {
-            analisis = "Fase Folicular: Los estrógenos suben, mejorando tu colágeno y claridad mental.";
-            nutricion = "Alimentos ligeros, ensaladas frescas y grasas saludables (Aguacate).";
-            energia = 80;
+            energia = 90;
+            descEnergia = "Fase de poder: Los estrógenos optimizan la memoria y el aprendizaje.";
             document.getElementById('f-folicular').classList.add('activo');
-        } else if (diaActual <= 17) {
-            analisis = "Ovulación: Ventana fértil abierta. Pico máximo de energía y comunicación.";
-            nutricion = "Frutas ricas en antioxidantes y mucha hidratación. Evita procesados.";
+            document.getElementById('label-deporte').innerText = "Entrenamiento de fuerza y cardio HIIT. Máxima potencia.";
+            document.getElementById('label-neuro').innerText = "Aprender idiomas o software. Máxima neuroplasticidad.";
+            document.getElementById('label-suplemento').innerText = "Vitamina D3 + Complejo B + Magnesio Malato.";
+            document.getElementById('label-bebida').innerText = "Té Verde o Café orgánico. Potencia el enfoque cognitivo.";
+            document.getElementById('label-evitar').innerText = "Alimentos ultraprocesados. Mantén glucosa estable.";
+        } else if (diaActual <= 16) {
             energia = 100;
+            descEnergia = "Pico hormonal: Máxima capacidad de oratoria y fuerza física.";
             document.getElementById('f-ovulacion').classList.add('activo');
+            document.getElementById('label-deporte').innerText = "Pesas pesadas (PR). Tu cuerpo está en su punto más fuerte.";
+            document.getElementById('label-neuro').innerText = "Relaciones sociales y liderazgo. Alta dopamina.";
+            document.getElementById('label-suplemento').innerText = "Zinc y Selenio para salud folicular.";
+            document.getElementById('label-bebida').innerText = "Agua mineral con limón y una pizca de sal marina.";
+            document.getElementById('label-evitar').innerText = "Evitar Alcohol 100% (interfiere con la ovulación sana).";
         } else {
-            analisis = "Fase Lútea: Progesterona en aumento. Puedes notar sensibilidad o retención de líquidos.";
-            nutricion = "Magnesio (Semillas, Chocolate amargo) para calmar el sistema nervioso.";
             energia = 45;
+            descEnergia = "Fase analítica: La progesterona invita a la organización y el orden.";
             document.getElementById('f-lutea').classList.add('activo');
+            document.getElementById('label-deporte').innerText = "Pilates, Yoga o Natación. Evitar sobreentrenamiento.";
+            document.getElementById('label-neuro').innerText = "Tareas de lógica, auditoría o planificación. Cerebro enfocado.";
+            document.getElementById('label-suplemento').innerText = "Magnesio Bisglicinato + Omega 3 (DHA/EPA) dosis alta.";
+            document.getElementById('label-bebida').innerText = "Té de Manzanilla o Rooibos. Evitar cafeína (causa ansiedad).";
+            document.getElementById('label-evitar').innerText = "Azúcares finos y harinas blancas (causan irritabilidad).";
         }
 
-        // 4. Alerta de Salud Crítica (Superior a Flo)
-        if (ciclo < 21 || ciclo > 40) {
-            document.getElementById('titulo-ia').innerText = "⚠️ REVISIÓN NECESARIA:";
-            analisis = "Tu ciclo muestra una duración irregular. Esto puede indicar desbalances de tiroides o estrés crónico.";
-        }
-
-        // Actualizar Dashboard
-        document.getElementById('analisis-ia').innerText = analisis;
-        document.getElementById('nutricion-ia').innerText = nutricion;
+        // UI Updates
         document.getElementById('barra-energia').style.width = energia + "%";
         document.getElementById('pct-energia').innerText = energia + "%";
+        document.getElementById('desc-energia').innerText = descEnergia;
         document.getElementById('resultado-menstrual').style.display = 'block';
+        
+        // Scroll suave al resultado
+        window.scrollTo({ top: document.getElementById('resultado-menstrual').offsetTop - 50, behavior: 'smooth' });
     }
 </script>
 
