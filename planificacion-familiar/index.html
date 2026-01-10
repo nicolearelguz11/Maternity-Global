@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maternity Global | Ultimate Biohacking Engine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --brand:#005eb8;
+      --accent:#7c3aed; --fertility:#ec4899; --success:#10b981;
+      --danger:#ef4444; --line:#e2e8f0; --radius:24px;
+    }
+    *{box-sizing:border-box; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);}
+    body{font-family:'Plus Jakarta Sans',sans-serif; margin:0; background:var(--bg); color:var(--text); overflow-x:hidden;}
+    
+    .container{max-width:1200px; margin:0 auto; padding:0 1.5rem;}
+    header{padding:1.5rem 0; background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:100;}
+    .nav{display:flex; justify-content:space-between; align-items:center;}
+    
+    .grid-main{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:2rem; margin:2rem 0;}
+    .card{background:var(--card); border-radius:var(--radius); padding:2rem; border:1px solid var(--line); box-shadow:0 4px 20px rgba(0,0,0,0.03);}
+    
+    /* IA Performance Badges */
+    .badge-ia{background:linear-gradient(90deg, var(--brand), var(--accent)); color:white; padding:6px 14px; border-radius:30px; font-size:0.7rem; font-weight:800; letter-spacing:1px; margin-bottom:1rem; display:inline-block;}
+    
+    input, select{width:100%; padding:1rem; border-radius:14px; border:1px solid var(--line); font-size:1rem; margin-top:0.5rem; outline:none; background:#fcfdfe;}
+    input:focus{border-color:var(--brand); ring:3px rgba(0,94,184,0.1);}
+
+    .btn-main{background:var(--text); color:white; border:none; padding:1.2rem; width:100%; border-radius:16px; font-weight:700; cursor:pointer; margin-top:1.5rem; font-size:1.1rem;}
+    .btn-main:hover{transform:translateY(-3px); box-shadow:0 10px 20px rgba(0,0,0,0.1);}
+
+    /* Protocol Boxes */
+    .protocol-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:1.5rem;}
+    .protocol-card{background:#f8fafc; padding:1.2rem; border-radius:18px; border:1px solid var(--line);}
+    .protocol-card strong{display:block; font-size:0.65rem; text-transform:uppercase; color:var(--muted); margin-bottom:4px; letter-spacing:1px;}
+    .protocol-card p{margin:0; font-weight:700; font-size:0.9rem; color:var(--text);}
+
+    /* Productivity Insight */
+    .insight-box{background:rgba(124,58,237,0.05); border:1px solid rgba(124,58,237,0.1); padding:1.5rem; border-radius:20px; margin-top:1.5rem;}
+    .insight-box h4{margin:0 0 8px; color:var(--accent); font-size:1rem;}
+
+    /* Warning UV & Lifestyle */
+    .warning-uv{background:#fff7ed; border:1px solid #ffedd5; padding:1rem; border-radius:16px; margin-top:1rem; font-size:0.8rem;}
+    .no-go{background:#fef2f2; border:1px solid #fee2e2; padding:1rem; border-radius:16px; margin-top:1rem; font-size:0.8rem; color:var(--danger);}
+
+    /* Visual Dashboard */
+    .phase-pill{display:flex; align-items:center; gap:12px; padding:1rem; border-radius:14px; margin-bottom:10px; opacity:0.2;}
+    .phase-pill.active{opacity:1; background:#f1f5f9; border-left:5px solid var(--brand);}
+    .dot{width:10px; height:10px; border-radius:50%;}
+
+    .energy-meter{height:12px; background:#e2e8f0; border-radius:10px; margin:10px 0; overflow:hidden;}
+    .energy-fill{height:100%; width:0%; background:linear-gradient(90deg, var(--brand), var(--fertility));}
+
+    @media(max-width:850px){ .grid-main{grid-template-columns:1fr;} .protocol-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="#" style="text-decoration:none; font-weight:900; color:var(--brand); font-size:1.5rem;">MATERNITY GLOBAL</a>
+        <div style="font-size:0.7rem; font-weight:800; background:#eee; padding:5px 10px; border-radius:10px;">PRO LEVEL IA V.2026</div>
+    </div>
+</header>
+
+<main class="container">
+    <div style="background:#fffbeb; border:1px solid #fde68a; padding:12px; border-radius:14px; font-size:0.75rem; margin-bottom:20px; color:#92400e;">
+        <strong>DISCLAIMER BIO-MÉDICO:</strong> Este sistema calcula parámetros basados en promedios biológicos. El uso de Omega-3, Vitamina D y bloqueador solar es responsabilidad del usuario. Prohibido el uso de sustancias tóxicas.
+    </div>
+
+    <div class="grid-main">
+        <div class="card">
+            <span class="badge-ia">SISTEMA DE OPTIMIZACIÓN HUMANA</span>
+            <h1 style="margin:0; font-size:2.2rem; letter-spacing:-1px;">Tu Estado Biológico</h1>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-top:1.5rem;">
+                <div>
+                    <label>Inició Último Periodo</label>
+                    <input type="date" id="fecha-inicio">
+                </div>
+                <div>
+                    <label>Duración Ciclo</label>
+                    <input type="number" id="duracion-ciclo" value="28">
+                </div>
+            </div>
+
+            <button class="btn-main" onclick="activarIA()">CALCULAR PROTOCOLO MAESTRO</button>
+
+            <div id="resultados" style="display:none; margin-top:2rem;">
+                <div style="background:#f1f5f9; padding:20px; border-radius:20px; text-align:center; border:1px solid var(--line);">
+                    <small style="text-transform:uppercase; font-weight:800; color:var(--muted);">Ventana Fértil Estimada</small>
+                    <h2 id="res-fertil" style="margin:5px 0; color:var(--fertility);"></h2>
+                </div>
+
+                <div class="protocol-grid">
+                    <div class="protocol-card">
+                        <strong>⚡ Deporte & Flow</strong>
+                        <p id="p-deporte"></p>
+                    </div>
+                    <div class="protocol-card">
+                        <strong>🧪 Suplementación</strong>
+                        <p id="p-suple"></p>
+                    </div>
+                    <div class="protocol-card">
+                        <strong>🎬 Mente & Ocio</strong>
+                        <p id="p-ocio"></p>
+                    </div>
+                    <div class="protocol-card">
+                        <strong>🍦 Evitar (Toxicidad)</strong>
+                        <p id="p-evitar"></p>
+                    </div>
+                </div>
+
+                <div class="insight-box">
+                    <h4>🚀 Business & Productivity Insight</h4>
+                    <p id="p-insight" style="font-size:0.9rem; margin:0; font-weight:600;"></p>
+                </div>
+
+                <div class="warning-uv">
+                    <strong>☀️ UV SHIELD:</strong> Radiación extrema. Bloqueador solar SPF 50+ es obligatorio hoy. Evita el sol entre 11am y 4pm.
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background:linear-gradient(180deg, #ffffff, #f8fafc);">
+            <h3 style="margin:0 0 1.5rem; font-size:1.3rem;">Performance Dashboard</h3>
+            
+            <div style="margin-bottom:2rem;">
+                <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:800;">
+                    <span>Energía Metabólica</span>
+                    <span id="pct-val">0%</span>
+                </div>
+                <div class="energy-meter"><div id="energy-bar" class="energy-fill"></div></div>
+                <p id="status-text" style="font-size:0.75rem; color:var(--muted); margin:5px 0;"></p>
+            </div>
+
+            <div class="phases">
+                <div id="f1" class="phase-pill"><div class="dot" style="background:var(--danger)"></div><div><strong>Fase Menstrual</strong><br><small>Danza suave y Películas</small></div></div>
+                <div id="f2" class="phase-pill"><div class="dot" style="background:var(--accent)"></div><div><strong>Fase Folicular</strong><br><small>Padel, Ciclismo y Gym</small></div></div>
+                <div id="f3" class="phase-pill"><div class="dot" style="background:var(--success)"></div><div><strong>Ovulación</strong><br><small>Tennis, Running y HIIT</small></div></div>
+                <div id="f4" class="phase-pill"><div class="dot" style="background:var(--brand)"></div><div><strong>Fase Lútea</strong><br><small>Randonnée y Pesas</small></div></div>
+            </div>
+
+            <div class="no-go">
+                <strong>🚫 ZERO TOLERANCE:</strong> Alcohol, Tabaco, Vapes y Azúcar refinada destruyen la neuroplasticidad y el colágeno hoy.
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>© 2026 Maternity Global. La IA aplicada al bienestar humano.</footer>
+
+<script>
+    function activarIA() {
+        const fecha = document.getElementById('fecha-inicio').value;
+        const ciclo = parseInt(document.getElementById('duracion-ciclo').value);
+        if(!fecha) return alert("Ingresa tu fecha biológica.");
+
+        const hoy = new Date();
+        const fur = new Date(fecha + 'T00:00:00');
+        const diaActual = Math.floor((hoy - fur) / (1000*60*60*24)) + 1;
+        
+        const ovulacion = ciclo - 14;
+        const inicioF = new Date(fur); inicioF.setDate(fur.getDate() + ovulacion - 4);
+        const finF = new Date(fur); finF.setDate(fur.getDate() + ovulacion + 1);
+
+        document.getElementById('res-fertil').innerText = `${inicioF.toLocaleDateString()} - ${finF.toLocaleDateString()}`;
+        document.querySelectorAll('.phase-pill').forEach(p => p.classList.remove('active'));
+
+        let energia = 0;
+        let info = {};
+
+        if(diaActual <= 5) {
+            energia = 30;
+            document.getElementById('f1').classList.add('active');
+            info = {
+                dep: "Danza, estiramientos o caminar.",
+                sup: "Omega 3 (DHA/EPA) + Magnesio.",
+                ocio: "Ver películas relajantes.",
+                evitar: "Lácteos y Cafeína.",
+                ins: "Semana de revisión. Evita lanzar proyectos nuevos. Prioriza el descanso profundo."
+            };
+        } else if(diaActual <= 12) {
+            energia = 85;
+            document.getElementById('f2').classList.add('active');
+            info = {
+                dep: "Padel, Ciclismo, Zumba, Gym.",
+                sup: "Vitamina D + Complejo B.",
+                ocio: "Escuchar música UP y Networking.",
+                evitar: "Grasas saturadas.",
+                ins: "Máximo enfoque cognitivo. Ideal para negociaciones, ventas y aprendizaje acelerado."
+            };
+        } else if(diaActual <= 17) {
+            energia = 100;
+            document.getElementById('f3').classList.add('active');
+            info = {
+                dep: "Tennis, Running, HIIT, CrossFit.",
+                sup: "Electrolitos + Vitamina D.",
+                ocio: "Eventos sociales masivos.",
+                evitar: "Alcohol (afecta la ovulación).",
+                ins: "Pico de carisma. El mejor momento del mes para hablar en público o liderar equipos."
+            };
+        } else {
+            energia = 55;
+            document.getElementById('f4').classList.add('active');
+            info = {
+                dep: "Randonnée, Pesas, Senderismo.",
+                sup: "Omega 3 + Zinc + Magnesio.",
+                ocio: "Escuchar Podcasts o lectura.",
+                evitar: "Azúcares finos y Vapes.",
+                ins: "Cerebro analítico. Excelente para auditorías, orden de finanzas y tareas administrativas."
+            };
+        }
+
+        document.getElementById('p-deporte').innerText = info.dep;
+        document.getElementById('p-suple').innerText = info.sup;
+        document.getElementById('p-ocio').innerText = info.ocio;
+        document.getElementById('p-evitar').innerText = info.evitar;
+        document.getElementById('p-insight').innerText = info.ins;
+        document.getElementById('energy-bar').style.width = energia + "%";
+        document.getElementById('pct-val').innerText = energia + "%";
+        document.getElementById('resultados').style.display = "block";
+    }
+</script>
+
+</body>
+</html>
