@@ -756,80 +756,68 @@
   <!-- ===================== -->
   <!-- FERTILIDAD Y PLANIFICACIÓN -->
   <!-- ===================== -->
-<section id="fertilidad" style="padding: 100px 0; background: #f4f7f9; font-family: 'Plus Jakarta Sans', sans-serif;">
-  <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+<section id="fertilidad" style="padding: 100px 0; background: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     
-    <div style="margin-bottom: 50px;">
-      <span style="background: #005eb8; color: white; padding: 6px 14px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">Bio-Intelligence Unit</span>
-      <h2 style="font-size: clamp(2rem, 4vw, 3rem); color: #0f172a; margin: 20px 0 10px; font-weight: 800; letter-spacing: -0.02em;">
-        Sincroniza tu Vida, Empoderada <br> por la Ciencia
+    <div style="max-width: 800px; margin-bottom: 60px;">
+      <span style="text-transform: uppercase; letter-spacing: 2px; color: #005eb8; font-weight: 800; font-size: 0.7rem; background: #f0f7ff; padding: 6px 12px; border-radius: 8px;">Bio-Intelligence Unit</span>
+      <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; color: #0f172a; letter-spacing: -0.04em; margin: 20px 0;">
+        Gestión avanzada de la <br>
+        <span style="background: linear-gradient(90deg, #005eb8, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">salud reproductiva.</span>
       </h2>
-      <p style="font-size: 1.15rem; color: #475569; max-width: 600px; line-height: 1.5;">
-        Tu plataforma todo uno para bienestar hormonal, fertilidad y salud en cada etapa.
-      </p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; align-items: start;">
+    <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
       
-      <article style="background: #1a1a2e; border-radius: 30px; padding: 40px; color: white; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; overflow: hidden;">
-        <h3 style="font-size: 1.5rem; margin-bottom: 30px; font-weight: 700;">Monitor de Ciclo &<br>Energía</h3>
+      <article onclick="abrirAnalisis()" style="grid-column: span 12; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); background: #0f172a; border-radius: 40px; overflow: hidden; min-height: 450px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); cursor: pointer;">
         
-        <div style="display: flex; justify-content: center; align-items: center; margin: 40px 0; position: relative;">
-          <div style="position: absolute; top: -20px; font-size: 2.5rem; opacity: 0.8;">🛡️</div>
-          <div style="width: 180px; height: 180px; border: 8px solid #2d2d44; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; border-top-color: #7c3aed; border-right-color: #7c3aed; transform: rotate(-45deg);">
-            <div style="transform: rotate(45deg); text-align: center;">
-              <span style="font-size: 2.5rem; font-weight: 800; display: block;">85%</span>
-              <span style="font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8;">Energía Alta</span>
-            </div>
+        <div style="padding: 60px; display: flex; flex-direction: column; justify-content: center; z-index: 2; background: linear-gradient(90deg, #0f172a 30%, transparent 100%);">
+          <span style="color: #ec4899; font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">AI PREDICTIVE SYSTEM</span>
+          <h3 style="font-size: 2.5rem; color: #ffffff; margin-bottom: 25px;">Planificación Familiar <br>& Bio-Ritmos</h3>
+          <p style="color: #94a3b8; margin-bottom: 35px; max-width: 420px;">Haz clic para desplegar el análisis predictivo de tu ventana fértil.</p>
+          <div style="background: #ffffff; color: #0f172a; padding: 18px 38px; border-radius: 16px; font-weight: 800; width: fit-content; display: flex; align-items: center; gap: 12px;">
+            Ver Mi Diagnóstico IA
           </div>
         </div>
 
-        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 30px;">
-          <div style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.1);">
-            <span style="font-size: 0.9rem;">Ovulación</span>
-            <span style="color: #7c3aed;">→</span>
-          </div>
-          <div style="background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; opacity: 0.6;">
-            <span style="font-size: 0.9rem;">Menstruación</span>
-            <span>→</span>
-          </div>
+        <div style="position: relative; background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #0f172a 0%, transparent 40%);"></div>
         </div>
       </article>
 
-      <div style="background: #ffffff; border-radius: 30px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-        <h3 style="font-size: 1.4rem; color: #0f172a; margin-bottom: 30px; font-weight: 700;">Herramientas Avanzadas</h3>
-        
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-          
-          <div style="border: 2px solid #fce7f3; border-radius: 20px; padding: 20px; position: relative;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: #0f172a;">Calculadora de Fertilidad</h4>
-            <p style="font-size: 0.75rem; color: #64748b; line-height: 1.4;">Optimiza tu ventana fértil con protocolos IA.</p>
-            <div style="margin-top: 15px; background: #005eb8; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; float: right; cursor: pointer;">→</div>
-          </div>
+    </div> 
+  </div>
 
-          <div style="border: 2px solid #dcfce7; border-radius: 20px; padding: 20px;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: #0f172a;">Registro de Síntomas</h4>
-            <p style="font-size: 0.75rem; color: #64748b; line-height: 1.4;">Tracking biométrico dinámico diario.</p>
-            <div style="margin-top: 15px; background: #005eb8; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; float: right; cursor: pointer;">→</div>
-          </div>
-
-          <div style="border: 2px solid #fee2e2; border-radius: 20px; padding: 20px;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: #0f172a;">Protocolos Bio-Sync</h4>
-            <p style="font-size: 0.75rem; color: #64748b; line-height: 1.4;">Nutrición y movimiento por fase.</p>
-            <div style="margin-top: 15px; background: #005eb8; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; float: right; cursor: pointer;">→</div>
-          </div>
-
-          <div style="border: 2px solid #e0f2fe; border-radius: 20px; padding: 20px;">
-            <h4 style="font-size: 0.9rem; margin-bottom: 8px; color: #0f172a;">Soporte Nutricional</h4>
-            <p style="font-size: 0.75rem; color: #64748b; line-height: 1.4;">Guía de suplementación avanzada.</p>
-            <div style="margin-top: 15px; background: #005eb8; width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; float: right; cursor: pointer;">→</div>
-          </div>
-
+  <div id="modalAnalisis" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(10px);">
+    <div style="background: white; width: 90%; max-width: 500px; padding: 40px; border-radius: 30px; position: relative; text-align: center;">
+      <button onclick="cerrarAnalisis()" style="position: absolute; top: 20px; right: 20px; border: none; background: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+      
+      <div style="font-size: 3rem; margin-bottom: 20px;">📊</div>
+      <h3 style="font-size: 1.8rem; color: #0f172a; margin-bottom: 10px;">Análisis Predictivo V.2026</h3>
+      <p style="color: #64748b; margin-bottom: 30px;">Sincronizando con tus biomarcadores actuales...</p>
+      
+      <div style="background: #f8fafc; padding: 20px; border-radius: 20px; text-align: left; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <span>Probabilidad de Concepción:</span>
+          <strong style="color: #10b981;">88% (Alta)</strong>
+        </div>
+        <div style="width: 100%; height: 8px; background: #e2e8f0; border-radius: 4px;">
+          <div style="width: 88%; height: 100%; background: #10b981; border-radius: 4px;"></div>
         </div>
       </div>
 
+      <button onclick="cerrarAnalisis()" style="width: 100%; background: #0f172a; color: white; padding: 15px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer;">Entendido</button>
     </div>
   </div>
+
+  <script>
+    function abrirAnalisis() {
+      document.getElementById('modalAnalisis').style.display = 'flex';
+    }
+    function cerrarAnalisis() {
+      document.getElementById('modalAnalisis').style.display = 'none';
+    }
+  </script>
 </section>
   
 <!-- ===================== -->
