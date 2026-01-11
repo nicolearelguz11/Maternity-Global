@@ -756,132 +756,68 @@
   <!-- ===================== -->
   <!-- FERTILIDAD Y PLANIFICACIÓN -->
   <!-- ===================== -->
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap');
+<section id="fertilidad" style="padding: 120px 0; background: #000000; font-family: 'Plus Jakarta Sans', sans-serif; color: white; overflow: hidden; position: relative;">
   
-  .bio-modal-overlay {
-    display: none; position: fixed; inset: 0; background: rgba(15, 23, 42, 0.9); 
-    backdrop-filter: blur(12px); z-index: 10000; align-items: center; justify-content: center; padding: 20px;
-  }
-  .bio-modal-content {
-    background: white; width: 100%; max-width: 600px; border-radius: 40px; padding: 50px; 
-    position: relative; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); transform: translateY(20px); transition: 0.3s;
-  }
-  .bio-modal-overlay.active { display: flex; animation: fadeIn 0.3s ease forwards; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-  .close-bio { position: absolute; top: 25px; right: 25px; cursor: pointer; opacity: 0.5; transition: 0.3s; }
-  .close-bio:hover { opacity: 1; transform: rotate(90deg); }
-</style>
+  <div style="position: absolute; top: -10%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,94,184,0.15) 0%, transparent 70%);"></div>
+  <div style="position: absolute; bottom: -10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);"></div>
 
-<section id="fertilidad" style="padding: 100px 0; background: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">
-  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+  <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 2;">
     
-    <div style="max-width: 800px; margin-bottom: 60px;">
-      <span style="text-transform: uppercase; letter-spacing: 2px; color: #005eb8; font-weight: 800; font-size: 0.7rem; background: #f0f7ff; padding: 6px 12px; border-radius: 8px;">Bio-Intelligence Unit</span>
-      <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; color: #0f172a; letter-spacing: -0.04em; margin: 20px 0;">
-        Gestión avanzada de la <br>
-        <span style="background: linear-gradient(90deg, #005eb8, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">salud reproductiva.</span>
+    <div style="text-align: center; margin-bottom: 80px;">
+      <h2 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1; margin: 0;">
+        Bio-Intelligence <span style="color: #64748b;">Unit.</span>
       </h2>
-      <p style="font-size: 1.1rem; color: #64748b; line-height: 1.6; max-width: 550px;">
-        Protocolos médicos de alta precisión diseñados para armonizar su biología con un estilo de vida de alto rendimiento.
-      </p>
+      <p style="color: #94a3b8; font-size: 1.2rem; margin-top: 20px; font-weight: 400;">Protocolos de sincronización hormonal avanzada.</p>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;">
+    <div style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px;">
       
-      <article onclick="openBioModal('monitor')" style="grid-column: span 12; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); background: #0f172a; border-radius: 40px; overflow: hidden; min-height: 480px; box-shadow: 0 30px 60px rgba(0,0,0,0.15); cursor: pointer; transition: 0.4s;">
-        <div style="padding: 60px; display: flex; flex-direction: column; justify-content: center; z-index: 2;">
-          <span style="color: #ec4899; font-weight: 800; font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">AI PREDICTIVE SYSTEM</span>
-          <h3 style="font-size: 2.5rem; color: #ffffff; margin-bottom: 25px; letter-spacing: -0.03em;">Monitor de Energía <br>& Bio-Ritmos</h3>
-          <p style="color: #94a3b8; font-size: 1.1rem; line-height: 1.6; margin-bottom: 35px; max-width: 420px;">
-            Acceda al análisis en tiempo real de su ventana fértil y niveles de progesterona.
-          </p>
-          <div style="background: #ffffff; color: #0f172a; padding: 18px 38px; border-radius: 16px; font-weight: 800; width: fit-content; font-size: 1rem; display: flex; align-items: center; gap: 12px;">
-            Consultar Diagnóstico IA
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      <article onclick="void(0)" style="grid-column: span 7; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 40px; padding: 60px; backdrop-filter: blur(20px); transition: 0.5s;" onmouseover="this.style.background='rgba(255,255,255,0.05)'" onmouseout="this.style.background='rgba(255,255,255,0.03)'">
+        <div style="display: flex; flex-direction: column; height: 100%; justify-content: space-between;">
+          <div>
+            <span style="font-size: 0.7rem; font-weight: 800; color: #ec4899; letter-spacing: 3px; text-transform: uppercase;">Core Algorithm</span>
+            <h3 style="font-size: 2.5rem; margin: 15px 0; font-weight: 700;">Gestión de <br>Bio-Ritmos</h3>
+            <p style="color: #94a3b8; line-height: 1.6; max-width: 320px;">Sincronice su ventana fértil con su rendimiento cognitivo y físico.</p>
+          </div>
+          
+          <div style="margin-top: 50px;">
+            <a href="planificacion-familiar/index.html" style="display: inline-flex; align-items: center; gap: 15px; color: white; text-decoration: none; font-weight: 700; font-size: 1.1rem; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; transition: 0.3s;" onmouseover="this.style.borderBottomColor='white'">
+              Activar Monitor IA 
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
           </div>
         </div>
-        <div style="background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80') center/cover; position: relative;">
-          <div style="position: absolute; inset: 0; background: linear-gradient(90deg, #0f172a 0%, transparent 50%);"></div>
-        </div>
       </article>
 
-      <article onclick="openBioModal('ovulacion')" style="grid-column: span 4; background: #ffffff; padding: 40px; border-radius: 35px; border: 1px solid #f1f5f9; box-shadow: 0 15px 35px rgba(0,0,0,0.03); cursor: pointer; transition: 0.4s;">
-        <div style="background: #fdf4ff; width: 50px; height: 50px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; font-size: 1.5rem;">✨</div>
-        <h4 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 15px; font-weight: 700;">Ovulación</h4>
-        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 30px;">Análisis de picos hormonales LH.</p>
-        <span style="font-weight: 800; font-size: 0.9rem; color: #7c3aed;">Abrir Herramienta →</span>
-      </article>
+      <div style="grid-column: span 5; display: grid; grid-template-rows: repeat(3, 1fr); gap: 20px;">
+        
+        <a href="ovulacion/index.html" style="text-decoration: none; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; padding: 30px; display: flex; align-items: center; justify-content: space-between; transition: 0.4s;" onmouseover="this.style.borderColor='rgba(124,58,237,0.5)'; this.style.transform='translateX(10px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateX(0)'">
+          <div>
+            <h4 style="color: white; margin: 0; font-size: 1.1rem; font-weight: 600;">Ovulación</h4>
+            <p style="color: #64748b; margin: 5px 0 0; font-size: 0.8rem;">Picos hormonales</p>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white;">→</div>
+        </a>
 
-      <article onclick="openBioModal('menstruacion')" style="grid-column: span 4; background: #ffffff; padding: 40px; border-radius: 35px; border: 1px solid #f1f5f9; box-shadow: 0 15px 35px rgba(0,0,0,0.03); cursor: pointer; transition: 0.4s;">
-        <div style="background: #f0f7ff; width: 50px; height: 50px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; font-size: 1.5rem;">📅</div>
-        <h4 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 15px; font-weight: 700;">Menstruación</h4>
-        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 30px;">Registro dinámico de biomarcadores.</p>
-        <span style="font-weight: 800; font-size: 0.9rem; color: #005eb8;">Ver Calendario →</span>
-      </article>
+        <a href="calendario-menstrual/index.html" style="text-decoration: none; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; padding: 30px; display: flex; align-items: center; justify-content: space-between; transition: 0.4s;" onmouseover="this.style.borderColor='rgba(0,94,184,0.5)'; this.style.transform='translateX(10px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateX(0)'">
+          <div>
+            <h4 style="color: white; margin: 0; font-size: 1.1rem; font-weight: 600;">Ciclo</h4>
+            <p style="color: #64748b; margin: 5px 0 0; font-size: 0.8rem;">Registro biométrico</p>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white;">→</div>
+        </a>
 
-      <article onclick="openBioModal('gestacion')" style="grid-column: span 4; background: #ffffff; padding: 40px; border-radius: 35px; border: 1px solid #f1f5f9; box-shadow: 0 15px 35px rgba(0,0,0,0.03); cursor: pointer; transition: 0.4s;">
-        <div style="background: #f0fdf4; width: 50px; height: 50px; border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; font-size: 1.5rem;">🍼</div>
-        <h4 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 15px; font-weight: 700;">Gestación</h4>
-        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 30px;">Cálculo de fecha probable de parto.</p>
-        <span style="font-weight: 800; font-size: 0.9rem; color: #10b981;">Calcular Pro →</span>
-      </article>
+        <a href="calculadora-parto/index.html" style="text-decoration: none; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 30px; padding: 30px; display: flex; align-items: center; justify-content: space-between; transition: 0.4s;" onmouseover="this.style.borderColor='rgba(16,185,129,0.5)'; this.style.transform='translateX(10px)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.08)'; this.style.transform='translateX(0)'">
+          <div>
+            <h4 style="color: white; margin: 0; font-size: 1.1rem; font-weight: 600;">Gestación</h4>
+            <p style="color: #64748b; margin: 5px 0 0; font-size: 0.8rem;">Calculadora Pro</p>
+          </div>
+          <div style="width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; color: white;">→</div>
+        </a>
 
-    </div> 
-  </div>
-
-  <div id="bioModal" class="bio-modal-overlay" onclick="closeBioModal()">
-    <div class="bio-modal-content" onclick="event.stopPropagation()">
-      <div class="close-bio" onclick="closeBioModal()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
       </div>
-      <div id="modalBodyContent">
-        </div>
     </div>
   </div>
-
-  <script>
-    const data = {
-      monitor: {
-        title: "Monitor Bio-Predictivo",
-        text: "Sincronizando con su biometría actual... Su ventana de máxima energía y fertilidad comenzará en 48 horas.",
-        icon: "📊", color: "#0f172a"
-      },
-      ovulacion: {
-        title: "Calculadora de Fertilidad",
-        text: "Introduzca la fecha de su último ciclo para identificar el pico de la hormona luteinizante.",
-        icon: "✨", color: "#7c3aed"
-      },
-      menstruacion: {
-        title: "Calendario de Biomarcadores",
-        text: "Registro de flujo, temperatura basal y estados de ánimo para el reporte médico mensual.",
-        icon: "📅", color: "#005eb8"
-      },
-      gestacion: {
-        title: "Protocolo de Gestación",
-        text: "Estimación precisa de semanas de embarazo y hitos de desarrollo del primer trimestre.",
-        icon: "🍼", color: "#10b981"
-      }
-    };
-
-    function openBioModal(type) {
-      const content = data[type];
-      document.getElementById('modalBodyContent').innerHTML = `
-        <div style="font-size: 3rem; margin-bottom: 20px;">${content.icon}</div>
-        <h3 style="font-size: 2rem; color: #0f172a; margin-bottom: 15px;">${content.title}</h3>
-        <p style="color: #64748b; font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px;">${content.text}</p>
-        <div style="background: #f8fafc; border-radius: 20px; padding: 25px; border-left: 5px solid ${content.color}">
-          <small style="text-transform: uppercase; font-weight: 800; opacity: 0.5;">Estatus del Sistema</small>
-          <p style="margin: 5px 0 0; font-weight: 600;">Listo para procesar nuevos datos.</p>
-        </div>
-      `;
-      document.getElementById('bioModal').classList.add('active');
-    }
-
-    function closeBioModal() {
-      document.getElementById('bioModal').classList.remove('active');
-    }
-  </script>
 </section>
   
 <!-- ===================== -->
