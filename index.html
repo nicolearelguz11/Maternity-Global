@@ -754,49 +754,83 @@
     </section>
 <main>
   <!-- ===================== -->
-  <!-- FERTILIDAD Y PLANIFICACIÓN -->
-  <!-- ===================== -->
-<section id="fertilidad" style="padding: 60px 0; background: #000; font-family: 'Plus Jakarta Sans', sans-serif; color: white;">
-  <div style="max-width: 950px; margin: 0 auto; padding: 0 20px;">
-    
-    <div style="margin-bottom: 40px; text-align: left;">
-      <h2 style="font-size: 3.2rem; font-weight: 800; letter-spacing: -2px; line-height: 1; margin: 0;">
-        Bio-Intelligence <span style="color: #64748b;">Unit</span>
-      </h2>
-      <p style="font-size: 1.4rem; color: #94a3b8; margin-top: 10px; font-weight: 500;">Sincronización hormonal de alta precisión.</p>
-    </div>
+<!-- FERTILIDAD Y PLANIFICACIÓN (PRO) -->
+<!-- ===================== -->
+<section id="fertilidad" class="fertilidad-pro">
+  <div class="fertilidad-wrap">
 
-    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 15px;">
-      
-      <article style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 40px; display: flex; flex-direction: column; justify-content: center;">
-        <span style="font-size: 0.8rem; font-weight: 800; color: #ec4899; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">Monitor IA</span>
-        <h3 style="font-size: 2.2rem; margin: 0 0 20px 0; line-height: 1.1; font-weight: 700;">Gestión de Bio-Ritmos</h3>
-        
-        <a href="planificacion-familiar/index.html" style="display: flex; align-items: center; gap: 10px; color: white; text-decoration: none; font-size: 1.2rem; font-weight: 700; background: #005eb8; width: fit-content; padding: 12px 25px; border-radius: 12px; transition: 0.3s;">
-          Activar
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+    <header class="fertilidad-head">
+      <div class="fertilidad-kicker">Salud reproductiva</div>
+      <h2 class="fertilidad-title">Fertilidad y planificación</h2>
+      <p class="fertilidad-subtitle">
+        Herramientas y orientación para el ciclo, la ovulación y el seguimiento del embarazo.
+      </p>
+    </header>
+
+    <div class="fertilidad-grid">
+      <!-- CARD PRINCIPAL -->
+      <article class="fertilidad-feature">
+        <div class="feature-top">
+          <span class="feature-badge">Herramienta</span>
+          <span class="feature-note">Actualizado</span>
+        </div>
+
+        <h3 class="feature-title">Seguimiento del ciclo y ventanas fértiles</h3>
+        <p class="feature-text">
+          Registro simple y estimaciones orientativas para ayudar a planificar, comprender síntomas
+          y preparar consultas médicas.
+        </p>
+
+        <div class="feature-actions">
+          <a class="btn-primary" href="planificacion-familiar/index.html">
+            Abrir herramienta
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a class="btn-secondary" href="#vacunas">Ver prevención</a>
+        </div>
+
+        <div class="feature-foot">
+          <div class="mini">
+            <div class="mini-title">Enfoque</div>
+            <div class="mini-text">Orientativo · salud pública</div>
+          </div>
+          <div class="mini">
+            <div class="mini-title">Privacidad</div>
+            <div class="mini-text">Sin datos personales</div>
+          </div>
+        </div>
       </article>
 
-      <div style="display: flex; flex-direction: column; gap: 10px;">
-        
-        <a href="ovulacion/index.html" style="text-decoration: none; background: rgba(255,255,255,0.05); border-radius: 20px; padding: 22px; display: flex; align-items: center; justify-content: space-between; transition: 0.3s; border: 1px solid transparent;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='transparent'">
-          <span style="color: white; font-size: 1.3rem; font-weight: 600;">Ovulación</span>
-          <span style="color: #94a3b8; font-size: 1.5rem;">→</span>
+      <!-- ACCESOS -->
+      <nav class="fertilidad-links" aria-label="Accesos de fertilidad">
+        <a class="link-card" href="ovulacion/index.html">
+          <div class="link-left">
+            <div class="link-title">Ovulación</div>
+            <div class="link-text">Señales, ventanas fértiles y dudas frecuentes</div>
+          </div>
+          <span class="link-arrow">→</span>
         </a>
 
-        <a href="calendario-menstrual/index.html" style="text-decoration: none; background: rgba(255,255,255,0.05); border-radius: 20px; padding: 22px; display: flex; align-items: center; justify-content: space-between; transition: 0.3s; border: 1px solid transparent;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='transparent'">
-          <span style="color: white; font-size: 1.3rem; font-weight: 600;">Ciclo</span>
-          <span style="color: #94a3b8; font-size: 1.5rem;">→</span>
+        <a class="link-card" href="calendario-menstrual/index.html">
+          <div class="link-left">
+            <div class="link-title">Ciclo</div>
+            <div class="link-text">Duración, variaciones y registro de síntomas</div>
+          </div>
+          <span class="link-arrow">→</span>
         </a>
 
-        <a href="calculadora-parto/index.html" style="text-decoration: none; background: rgba(255,255,255,0.05); border-radius: 20px; padding: 22px; display: flex; align-items: center; justify-content: space-between; transition: 0.3s; border: 1px solid transparent;" onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'" onmouseout="this.style.borderColor='transparent'">
-          <span style="color: white; font-size: 1.3rem; font-weight: 600;">Gestación</span>
-          <span style="color: #94a3b8; font-size: 1.5rem;">→</span>
+        <a class="link-card" href="calculadora-parto/index.html">
+          <div class="link-left">
+            <div class="link-title">Gestación</div>
+            <div class="link-text">Cálculo de semanas y fecha probable de parto</div>
+          </div>
+          <span class="link-arrow">→</span>
         </a>
-
-      </div>
+      </nav>
     </div>
+
   </div>
 </section>
 <!-- ===================== -->
