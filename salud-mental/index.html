@@ -3,24 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Salud mental | Maternity Global</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+:root{
+--blue:#005eb8;
+--green:#2a9d8f;
+--bg:#f6f8fb;
+--text:#1f2933;
+--muted:#6b7280;
+}
+
 body{
-font-family:"Nunito",sans-serif;
 margin:0;
-background:#f4f7fb;
-color:#1f2933;
+font-family:"Nunito",sans-serif;
+background:var(--bg);
+color:var(--text);
 }
 
 header{
-background:#005eb8;
-color:white;
-padding:18px;
+background:white;
+border-bottom:1px solid #e5e7eb;
 }
 
 .container{
@@ -33,49 +39,62 @@ padding:0 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+padding:18px 0;
 }
 
 .logo{
 font-weight:700;
 font-size:20px;
+color:var(--blue);
 }
 
 nav a{
-color:white;
-text-decoration:none;
 margin-left:20px;
+text-decoration:none;
+color:var(--muted);
 font-weight:600;
+}
+
+nav a:hover{
+color:var(--green);
 }
 
 main{
 padding:40px 0;
 }
 
+.title{
+font-size:30px;
+margin-bottom:10px;
+}
+
 .grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:20px;
+margin-top:30px;
 }
 
 .card{
 background:white;
-border-radius:10px;
 padding:22px;
-border:1px solid #d1d5db;
-transition:0.2s;
+border-radius:10px;
+border:1px solid #e5e7eb;
+transition:.2s;
 }
 
 .card:hover{
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
+border-color:var(--green);
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
 }
 
 .card h3{
 margin-top:0;
-color:#005eb8;
+color:var(--blue);
 }
 
 .card p{
-color:#6b7280;
+color:var(--muted);
 }
 
 .card a{
@@ -85,11 +104,11 @@ display:block;
 }
 
 footer{
-background:white;
 border-top:1px solid #e5e7eb;
 padding:20px;
 text-align:center;
-color:#6b7280;
+color:var(--muted);
+background:white;
 }
 
 @media(max-width:900px){
@@ -121,7 +140,7 @@ color:#6b7280;
 <main>
 <div class="container">
 
-<h1>Salud mental y migración</h1>
+<h1 class="title">Salud mental y migración</h1>
 
 <div class="grid">
 
@@ -135,7 +154,7 @@ color:#6b7280;
 <div class="card">
 <a href="#">
 <h3>Soledad y aislamiento</h3>
-<p>Impacto de la desconexión social en el bienestar psicológico.</p>
+<p>Impacto de la desconexión social en el bienestar emocional.</p>
 </a>
 </div>
 
