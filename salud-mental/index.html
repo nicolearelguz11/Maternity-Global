@@ -12,162 +12,117 @@
 <style>
 
 :root{
-
 --blueOMS:#0077c8;
 --greenWarm:#2a9d8f;
 --white:#ffffff;
 --text:#1f2933;
 --muted:#6b7280;
-
 }
 
 body{
-
 margin:0;
 font-family:"Nunito",sans-serif;
 background:var(--blueOMS);
 color:var(--text);
-
 }
 
 header{
-
-background:var(--blueOMS);
+background:var(--greenWarm);
 color:white;
-border-bottom:1px solid rgba(255,255,255,0.2);
-
 }
 
 .container{
-
 max-width:1100px;
 margin:auto;
 padding:0 20px;
-
 }
 
 .nav{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 0;
-
 }
 
 .logo{
-
 font-weight:700;
 font-size:22px;
 color:white;
-
 }
 
 nav a{
-
 color:white;
 text-decoration:none;
 margin-left:20px;
 font-weight:600;
-
 }
 
 nav a:hover{
-
-color:#c7f3e8;
-
+opacity:0.8;
 }
 
 main{
-
 padding:50px 0;
-
 }
 
 .title{
-
 color:white;
 font-size:32px;
 margin-bottom:10px;
-
 }
 
 .subtitle{
-
 color:#e3f2fd;
 max-width:700px;
-
 }
 
 .grid{
-
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:22px;
 margin-top:40px;
-
 }
 
 .card{
-
 background:var(--white);
 padding:25px;
 border-radius:12px;
 transition:0.25s;
 box-shadow:0 6px 15px rgba(0,0,0,0.08);
-
 }
 
 .card:hover{
-
 transform:translateY(-4px);
 box-shadow:0 10px 25px rgba(0,0,0,0.15);
-
 }
 
 .card h3{
-
 margin-top:0;
 color:var(--greenWarm);
-
 }
 
 .card p{
-
 color:var(--muted);
-
 }
 
 .card a{
-
 text-decoration:none;
 color:inherit;
 display:block;
-
 }
 
 footer{
-
 text-align:center;
 padding:20px;
 color:#e3f2fd;
-
 }
 
 @media(max-width:900px){
-
-.grid{
-grid-template-columns:1fr 1fr;
-}
-
+.grid{grid-template-columns:1fr 1fr;}
 }
 
 @media(max-width:600px){
-
-.grid{
-grid-template-columns:1fr;
-}
-
+.grid{grid-template-columns:1fr;}
 }
 
 </style>
@@ -261,9 +216,7 @@ Los contenidos están organizados en módulos breves para facilitar la comprensi
 </footer>
 
 <script>
-
 document.getElementById("year").textContent=new Date().getFullYear();
-
 </script>
 
 </body>
