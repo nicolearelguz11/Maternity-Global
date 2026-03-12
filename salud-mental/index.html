@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Salud mental | Maternity Global</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -10,137 +12,197 @@
 <style>
 
 :root{
---blue:#005eb8;
---green:#2a9d8f;
---bg:#f6f8fb;
+
+--blueOMS:#0077c8;
+--greenWarm:#2a9d8f;
+--white:#ffffff;
 --text:#1f2933;
 --muted:#6b7280;
+
 }
 
 body{
+
 margin:0;
 font-family:"Nunito",sans-serif;
-background:var(--bg);
+background:var(--blueOMS);
 color:var(--text);
+
 }
 
 header{
-background:white;
-border-bottom:1px solid #e5e7eb;
+
+background:var(--blueOMS);
+color:white;
+border-bottom:1px solid rgba(255,255,255,0.2);
+
 }
 
 .container{
+
 max-width:1100px;
 margin:auto;
 padding:0 20px;
+
 }
 
 .nav{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 0;
+padding:20px 0;
+
 }
 
 .logo{
+
 font-weight:700;
-font-size:20px;
-color:var(--blue);
+font-size:22px;
+color:white;
+
 }
 
 nav a{
-margin-left:20px;
+
+color:white;
 text-decoration:none;
-color:var(--muted);
+margin-left:20px;
 font-weight:600;
+
 }
 
 nav a:hover{
-color:var(--green);
+
+color:#c7f3e8;
+
 }
 
 main{
-padding:40px 0;
+
+padding:50px 0;
+
 }
 
 .title{
-font-size:30px;
+
+color:white;
+font-size:32px;
 margin-bottom:10px;
+
+}
+
+.subtitle{
+
+color:#e3f2fd;
+max-width:700px;
+
 }
 
 .grid{
+
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:30px;
+gap:22px;
+margin-top:40px;
+
 }
 
 .card{
-background:white;
-padding:22px;
-border-radius:10px;
-border:1px solid #e5e7eb;
-transition:.2s;
+
+background:var(--white);
+padding:25px;
+border-radius:12px;
+transition:0.25s;
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+
 }
 
 .card:hover{
-border-color:var(--green);
-box-shadow:0 6px 15px rgba(0,0,0,0.05);
+
+transform:translateY(-4px);
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+
 }
 
 .card h3{
+
 margin-top:0;
-color:var(--blue);
+color:var(--greenWarm);
+
 }
 
 .card p{
+
 color:var(--muted);
+
 }
 
 .card a{
+
 text-decoration:none;
 color:inherit;
 display:block;
+
 }
 
 footer{
-border-top:1px solid #e5e7eb;
-padding:20px;
+
 text-align:center;
-color:var(--muted);
-background:white;
+padding:20px;
+color:#e3f2fd;
+
 }
 
 @media(max-width:900px){
-.grid{grid-template-columns:1fr 1fr;}
+
+.grid{
+grid-template-columns:1fr 1fr;
+}
+
 }
 
 @media(max-width:600px){
-.grid{grid-template-columns:1fr;}
+
+.grid{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <div class="container nav">
 
 <div class="logo">Maternity Global</div>
 
 <nav>
+
 <a href="../index.html">Inicio</a>
 <a href="../index.html#areas">Áreas</a>
+
 </nav>
 
 </div>
+
 </header>
 
 <main>
+
 <div class="container">
 
 <h1 class="title">Salud mental y migración</h1>
+
+<p class="subtitle">
+Información clara sobre bienestar emocional en procesos migratorios, embarazo y adaptación cultural.
+Los contenidos están organizados en módulos breves para facilitar la comprensión.
+</p>
 
 <div class="grid">
 
@@ -154,7 +216,7 @@ background:white;
 <div class="card">
 <a href="#">
 <h3>Soledad y aislamiento</h3>
-<p>Impacto de la desconexión social en el bienestar emocional.</p>
+<p>Impacto de la desconexión social en el bienestar psicológico.</p>
 </a>
 </div>
 
@@ -189,14 +251,19 @@ background:white;
 </div>
 
 </div>
+
 </main>
 
 <footer>
+
 © <span id="year"></span> Maternity Global
+
 </footer>
 
 <script>
+
 document.getElementById("year").textContent=new Date().getFullYear();
+
 </script>
 
 </body>
