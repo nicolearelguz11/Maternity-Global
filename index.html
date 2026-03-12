@@ -14,26 +14,20 @@
       --primary: #1e7bb5;
       --primary-light: #d8ecff;
       --accent: #2f9e8f;
-
       --bg-top: #2a89c8;
       --bg-mid: #1e7bb5;
       --bg-bottom: #165e9c;
-
       --text-main: #1f2933;
       --text-muted: #6b7280;
       --text-soft: rgba(255, 255, 255, 0.88);
-
       --card-bg: #ffffff;
       --danger: #b91c1c;
-
       --border-soft: rgba(255, 255, 255, 0.22);
       --border-light: rgba(255, 255, 255, 0.42);
-
       --radius: 14px;
       --radius-lg: 18px;
       --shadow-soft: 0 18px 45px rgba(4, 28, 45, 0.14);
       --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.10);
-
       --container: 1120px;
     }
 
@@ -74,7 +68,6 @@
       padding: 0 1.5rem;
     }
 
-    /* Layout base */
     header {
       background-color: var(--accent);
       border-bottom: 1px solid rgba(255,255,255,.18);
@@ -223,7 +216,6 @@
       box-shadow: 0 18px 36px rgba(0,0,0,0.10);
     }
 
-    /* Hero */
     .hero {
       background:
         radial-gradient(circle at top left, rgba(255,255,255,.10), transparent 18%),
@@ -298,8 +290,8 @@
 
     .hero-card {
       background-color: rgba(255,255,255,.96);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
+      border-radius: 18px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.10);
       padding: 1.6rem 1.35rem;
       display: grid;
       gap: 0.9rem;
@@ -372,7 +364,6 @@
       margin-top: 0.2rem;
     }
 
-    /* Secciones principales */
     section {
       padding: 2.7rem 0;
     }
@@ -539,7 +530,6 @@
       background-color: #f3f4f6;
     }
 
-    /* Llamado a la acción final */
     .cta {
       background: linear-gradient(135deg, #0f766e, #0f172a);
       color: #ecfeff;
@@ -614,7 +604,6 @@
       text-decoration: underline;
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .hero-inner {
         grid-template-columns: minmax(0, 1fr);
