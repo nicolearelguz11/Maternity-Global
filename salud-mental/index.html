@@ -5,223 +5,112 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Salud mental | Maternity Global</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-:root{
---bg:#f7f9fb;
---card:#fff;
---text:#1f2933;
---muted:#6b7280;
---brand:#005eb8;
---line:#d1d5db;
---shadow:0 10px 25px rgba(15,23,42,.06);
---radius:14px;
-}
-
-*{box-sizing:border-box;}
 
 body{
-font-family:"Nunito",system-ui,sans-serif;
 margin:0;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
+font-family:Inter, sans-serif;
+background:#f6f6f6;
+color:#1f2933;
 }
 
 header{
-background:var(--card);
-border-bottom:1px solid var(--line);
-}
-
-.container{
-max-width:1120px;
-margin:0 auto;
-padding:0 1.5rem;
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:1rem 0;
+background:white;
+border-bottom:1px solid #e5e7eb;
+padding:20px;
 }
 
 .logo{
-font-weight:800;
-color:var(--brand);
+font-family:"Libre Baskerville", serif;
+font-size:22px;
+font-weight:700;
+color:#8b0000;
 }
 
-nav a{
-margin-left:1rem;
-text-decoration:none;
-color:var(--muted);
-}
-
-main{
-padding:2.5rem 0 3.5rem;
-}
-
-.kicker{
-font-size:.82rem;
-letter-spacing:.12em;
-text-transform:uppercase;
-color:var(--brand);
-font-weight:800;
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px 20px;
 }
 
 .title{
-margin:.3rem 0 .5rem;
-font-size:2rem;
+font-family:"Libre Baskerville", serif;
+font-size:32px;
+margin-bottom:10px;
 }
 
-.subtitle{
-color:var(--muted);
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:30px;
 }
 
 .card{
-background:var(--card);
-border-radius:var(--radius);
-padding:1.5rem;
-box-shadow:var(--shadow);
-border:1px solid rgba(209,213,219,.35);
-}
-
-.grid-3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:1rem;
-}
-
-.section-title{
-margin:2rem 0 1rem;
-font-size:1.1rem;
-}
-
-.badge{
-font-size:.75rem;
-font-weight:700;
-padding:.25rem .5rem;
-border-radius:999px;
-border:1px solid var(--line);
-display:inline-block;
-}
-
-.topic{
-display:flex;
-flex-direction:column;
-gap:.5rem;
-}
-
-.btn{
-display:inline-block;
-padding:.6rem 1rem;
+background:white;
+padding:25px;
 border-radius:10px;
-border:1px solid var(--line);
-text-decoration:none;
-font-weight:600;
+border:1px solid #e5e7eb;
 }
 
-footer{
-background:#fff;
-border-top:1px solid var(--line);
-padding:2rem 0;
-text-align:center;
-color:var(--muted);
+.card h3{
+margin-top:0;
 }
 
-@media(max-width:900px){
-.grid-3{grid-template-columns:1fr 1fr;}
+.card p{
+color:#6b7280;
 }
 
-@media(max-width:600px){
-.grid-3{grid-template-columns:1fr;}
-}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
 <div class="logo">Maternity Global</div>
-
-<nav>
-<a href="../index.html">Inicio</a>
-<a href="../index.html#areas">Áreas</a>
-<a href="../index.html#acceso">Gratis vs Plus</a>
-</nav>
-
-</div>
 </header>
 
-<main>
 <div class="container">
 
+<h1 class="title">Salud mental y migración</h1>
+
+<div class="grid">
+
 <div class="card">
-<div class="kicker">Área</div>
-<h1 class="title">Salud mental</h1>
-
-<p class="subtitle">
-Acceso claro y práctico a temas emocionales frecuentes en la migración, el embarazo y la maternidad.
-</p>
-</div>
-
-<h2 class="section-title">Temas principales</h2>
-
-<section class="grid-3">
-
-<div class="card topic">
-<span class="badge">Gratis</span>
 <h3>Duelo migratorio</h3>
-<p>Proceso emocional normal por pérdidas múltiples durante la migración.</p>
+<p>Pérdidas emocionales asociadas al cambio de país y adaptación cultural.</p>
 </div>
 
-<div class="card topic">
-<span class="badge">Gratis</span>
+<div class="card">
 <h3>Soledad y aislamiento</h3>
-<p>Cómo se manifiesta la soledad cuando se vive lejos del país de origen.</p>
+<p>Impacto de la desconexión social en el bienestar psicológico.</p>
 </div>
 
-<div class="card topic">
-<span class="badge">Gratis</span>
+<div class="card">
 <h3>Estrés y ansiedad migratoria</h3>
-<p>Reacciones emocionales frecuentes ante los cambios y la adaptación.</p>
+<p>Respuesta emocional frente a la incertidumbre y adaptación.</p>
 </div>
 
-<div class="card topic">
-<span class="badge">Gratis</span>
+<div class="card">
 <h3>Embarazo y salud mental</h3>
-<p>Cambios emocionales y necesidades de apoyo durante el embarazo.</p>
+<p>Cambios emocionales durante el embarazo en contextos migratorios.</p>
 </div>
 
-<div class="card topic">
-<span class="badge">Gratis</span>
+<div class="card">
 <h3>Señales de alerta</h3>
-<p>Cuándo puede ser importante buscar ayuda profesional.</p>
+<p>Indicadores que sugieren la necesidad de apoyo profesional.</p>
 </div>
 
-<div class="card topic">
-<span class="badge">Gratis</span>
+<div class="card">
 <h3>Trauma y migración</h3>
-<p>Impacto de experiencias difíciles vividas antes o durante la migración.</p>
+<p>Experiencias traumáticas que pueden afectar la salud mental.</p>
 </div>
 
-</section>
+</div>
 
 </div>
-</main>
-
-<footer>
-© <span id="year"></span> Maternity Global
-</footer>
-
-<script>
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
 
 </body>
 </html>
