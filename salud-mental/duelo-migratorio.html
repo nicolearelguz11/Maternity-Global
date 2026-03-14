@@ -208,6 +208,7 @@
       letter-spacing:-.03em;
       color:var(--blue-4);
       max-width:900px;
+      font-weight:800;
     }
 
     .gradient-word{
@@ -298,35 +299,18 @@
     .highlight{
       position:relative;
       z-index:1;
-      display:grid;
-      grid-template-columns:54px 1fr;
-      gap:16px;
-      align-items:start;
       background:linear-gradient(180deg, rgba(232,247,242,.95), rgba(255,255,255,.98));
       border:1px solid rgba(255,255,255,.95);
       border-left:6px solid var(--green-5);
       border-radius:24px;
-      padding:20px 22px;
+      padding:22px 24px;
       margin:28px 0 18px;
       box-shadow:var(--shadow-sm);
     }
 
-    .highlight-icon{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(135deg, var(--green-5), #49b7a8);
-      color:#fff;
-      font-size:1.45rem;
-      font-weight:800;
-      box-shadow:0 10px 20px rgba(47,158,143,.22);
-    }
-
     .highlight strong{
       display:block;
-      margin-bottom:6px;
+      margin-bottom:8px;
       color:var(--blue-4);
       font-size:1.35rem;
       line-height:1.2;
@@ -350,10 +334,11 @@
 
     .section h2{
       margin:0 0 16px;
-      color:var(--blue-1);
-      font-size:clamp(1.7rem, 2.4vw, 2.35rem);
-      line-height:1.1;
-      letter-spacing:-.02em;
+      color:var(--green-5);
+      font-size:clamp(1.85rem, 2.7vw, 2.5rem);
+      line-height:1.06;
+      letter-spacing:-.03em;
+      font-weight:800;
     }
 
     .section p{
@@ -599,10 +584,6 @@
         padding:24px;
       }
 
-      .highlight{
-        grid-template-columns:1fr;
-      }
-
       .visual-band{
         min-height:360px;
       }
@@ -685,7 +666,6 @@
           </p>
 
           <div class="highlight">
-            <div class="highlight-icon">✦</div>
             <div>
               <strong>El duelo no significa debilidad.</strong>
               <p>
