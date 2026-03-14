@@ -1,48 +1,479 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Duelo migratorio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duelo migratorio | Maternity Global</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7fbff;
-      color: #1f2933;
-      margin: 0;
-      padding: 40px;
+    :root{
+      --green-1:#dff5ef;
+      --green-2:#ccefe6;
+      --green-3:#b7e5d9;
+      --green-4:#2f9e8f;
+      --blue-1:#0b6fb8;
+      --blue-2:#0a82d1;
+      --blue-3:#0f5f9c;
+      --white:#ffffff;
+      --text:#163042;
+      --muted:#5f7385;
+      --card:#f9fffd;
+      --shadow:0 18px 45px rgba(9, 38, 38, .10);
+      --shadow-soft:0 12px 30px rgba(9, 38, 38, .08);
+      --radius-xl:28px;
+      --radius-lg:22px;
+      --max:1180px;
     }
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
+
+    *{
+      box-sizing:border-box;
     }
-    h1 {
-      color: #0f6fc2;
-      font-size: 42px;
+
+    html{
+      scroll-behavior:smooth;
     }
-    p {
-      font-size: 20px;
-      line-height: 1.8;
+
+    body{
+      margin:0;
+      font-family:"Nunito",system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.45), transparent 16%),
+        radial-gradient(circle at top right, rgba(255,255,255,.28), transparent 18%),
+        linear-gradient(180deg, var(--green-1) 0%, var(--green-2) 45%, var(--green-3) 100%);
+      min-height:100vh;
     }
-    a {
-      color: #158a7a;
-      font-weight: bold;
-      text-decoration: none;
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(12px);
+      background:rgba(47, 158, 143, .92);
+      border-bottom:1px solid rgba(255,255,255,.18);
+    }
+
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      text-decoration:none;
+      color:#fff;
+      font-weight:800;
+      font-size:1.15rem;
+      letter-spacing:.01em;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      padding:10px 14px;
+      border-radius:999px;
+      transition:.22s ease;
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,.14);
+      transform:translateY(-1px);
+    }
+
+    main{
+      padding:52px 0 88px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:28px;
+      align-items:start;
+      margin-bottom:34px;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(11,111,184,.10);
+      color:var(--blue-1);
+      font-weight:800;
+      font-size:.84rem;
+      letter-spacing:.02em;
+      margin-bottom:18px;
+    }
+
+    h1{
+      margin:0 0 16px;
+      color:var(--blue-1);
+      font-size:clamp(2.1rem, 4vw, 3.4rem);
+      line-height:1.06;
+      letter-spacing:-.02em;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--text);
+      font-size:1.08rem;
+      line-height:1.8;
+      max-width:800px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.58));
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:30px;
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card .label{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#eef8ff;
+      color:var(--blue-1);
+      font-size:.82rem;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+    .hero-card h3{
+      margin:0 0 10px;
+      color:var(--blue-1);
+      font-size:1.18rem;
+    }
+
+    .hero-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.98rem;
+    }
+
+    .content-grid{
+      display:grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+      gap:26px;
+      align-items:start;
+    }
+
+    .article-card{
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:var(--radius-xl);
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+
+    .article-card p{
+      margin:0 0 18px;
+      color:var(--text);
+      font-size:1.04rem;
+      line-height:1.9;
+    }
+
+    .article-card p:last-child{
+      margin-bottom:0;
+    }
+
+    .section{
+      margin-top:34px;
+      padding-top:30px;
+      border-top:1px solid rgba(11,111,184,.10);
+    }
+
+    .section h2{
+      margin:0 0 14px;
+      color:var(--blue-1);
+      font-size:1.65rem;
+      line-height:1.15;
+      letter-spacing:-.01em;
+    }
+
+    .highlight{
+      background:linear-gradient(180deg, rgba(223,245,239,.9), rgba(255,255,255,.92));
+      border-left:5px solid var(--green-4);
+      border-radius:18px;
+      padding:18px 20px;
+      margin:24px 0;
+      color:var(--text);
+      font-weight:700;
+      line-height:1.75;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .sidebar{
+      display:grid;
+      gap:20px;
+    }
+
+    .side-box{
+      background:rgba(255,255,255,.84);
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:24px;
+      padding:24px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .side-box h3{
+      margin:0 0 12px;
+      color:var(--blue-1);
+      font-size:1.2rem;
+      line-height:1.2;
+    }
+
+    .side-box p,
+    .side-box li{
+      color:var(--muted);
+      line-height:1.7;
+      font-size:.98rem;
+    }
+
+    .side-box ul{
+      padding-left:18px;
+      margin:0;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      color:var(--blue-1);
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    footer{
+      padding:40px 0 52px;
+      text-align:center;
+      color:var(--blue-3);
+      font-weight:700;
+    }
+
+    @media (max-width: 1020px){
+      .hero,
+      .content-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
+      .container{
+        padding:0 18px;
+      }
+
+      .nav{
+        min-height:auto;
+        padding:14px 0;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .article-card{
+        padding:24px;
+      }
+
+      main{
+        padding-top:34px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Duelo migratorio</h1>
-    <p>
-      El duelo migratorio ocurre cuando una persona deja atrás su país, su idioma, su cultura,
-      sus vínculos y partes importantes de su identidad.
-    </p>
-    <p>
-      Esta sección explicará la ciencia del duelo migratorio y ofrecerá herramientas educativas
-      para comprender mejor este proceso.
-    </p>
-    <p><a href="../index.html">Volver al inicio</a></p>
-  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="../index.html">Maternity Global</a>
+
+      <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="index.html">Salud mental</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <a class="back-link" href="index.html">← Volver a Salud mental</a>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Duelo • vínculo • resiliencia humana</div>
+          <h1>El duelo: la ciencia del amor, la pérdida y la resiliencia humana</h1>
+          <p class="lead">
+            El duelo es una de las experiencias más universales de la vida. Aparece cuando perdemos a alguien que amamos,
+            cuando una relación termina, cuando debemos abandonar nuestro hogar, cuando dejamos atrás una parte de nuestra
+            identidad o incluso cuando nos vemos obligados a separarnos de un animal que era parte de nuestra familia.
+          </p>
+        </div>
+
+        <aside class="hero-card">
+          <div class="label">Mirada científica y humana</div>
+          <h3>Duelo migratorio y emocional</h3>
+          <p>
+            Aunque muchas veces se percibe únicamente como tristeza, la ciencia ha demostrado que el duelo es un proceso
+            mucho más complejo. Involucra cambios en el cerebro, en el cuerpo y en la forma en que interpretamos el mundo.
+          </p>
+        </aside>
+      </section>
+
+      <section class="content-grid">
+        <article class="article-card">
+          <p>
+            Sentir dolor ante una pérdida no es una señal de debilidad. Es la consecuencia natural de haber creado un vínculo significativo.
+          </p>
+
+          <div class="highlight">
+            El duelo no significa que una persona esté fallando. Significa que existió amor, apego, identidad compartida
+            o una relación profunda con alguien, con un lugar, con una etapa vital o con una forma de vida.
+          </div>
+
+          <section class="section">
+            <h2>¿Qué es realmente el duelo?</h2>
+            <p>
+              El duelo es una respuesta emocional, cognitiva y física frente a la pérdida. No ocurre solamente tras la muerte
+              de un ser querido. También puede aparecer después de una migración, un divorcio, una ruptura afectiva,
+              la infertilidad, la pérdida del hogar, la separación de los hijos, el distanciamiento familiar o la despedida
+              de un animal de compañía.
+            </p>
+            <p>
+              Desde la psicología, el duelo se entiende como un proceso de adaptación. La mente necesita reorganizar la realidad
+              cuando aquello que daba estabilidad, pertenencia o sentido ya no está de la misma manera.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>¿Qué ocurre en el cerebro durante el duelo?</h2>
+            <p>
+              La neurociencia ha mostrado que el duelo activa circuitos relacionados con el apego, la memoria, la emoción y el dolor.
+              El cerebro no solo recuerda a quien o a lo que se perdió: también sigue esperando su presencia. Por eso al inicio
+              puede sentirse una especie de incredulidad, confusión o búsqueda constante.
+            </p>
+            <p>
+              Regiones cerebrales vinculadas al dolor emocional, como la corteza cingulada anterior, la ínsula y estructuras del sistema límbico,
+              pueden participar en esta experiencia. Además, el estrés prolongado puede influir en el sueño, el apetito,
+              la concentración, la regulación emocional y la sensación de energía.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Duelo migratorio: perder sin desaparecer</h2>
+            <p>
+              En la migración, la pérdida suele ser múltiple. No solo se deja un país: también se deja una lengua cotidiana,
+              una red familiar, una forma de ser entendida, comidas, paisajes, rituales, referencias culturales y, en muchos casos,
+              una identidad profesional o social.
+            </p>
+            <p>
+              Esto puede generar tristeza, nostalgia, irritabilidad, culpa, ansiedad, cansancio emocional o sensación de no pertenecer
+              del todo ni al lugar de origen ni al nuevo lugar. Es un duelo complejo porque muchas de esas pérdidas no son visibles
+              para los demás, pero se sienten intensamente en la vida diaria.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>También se puede hacer duelo por un animal</h2>
+            <p>
+              Para muchas personas, un animal de compañía no es solo una mascota: es familia, refugio emocional, rutina, compañía
+              y seguridad afectiva. Tener que dejarlo atrás por migración, trámites, dificultades económicas o cambios vitales
+              puede producir un dolor real y profundo.
+            </p>
+            <p>
+              Este tipo de duelo a veces se minimiza socialmente, pero desde la salud mental debe ser reconocido y validado.
+              El vínculo con un animal puede activar apego, consuelo y sentido de hogar, especialmente en personas que viven solas
+              o han atravesado otras pérdidas previas.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>¿Por qué cada persona vive el duelo de manera distinta?</h2>
+            <p>
+              No existe una sola forma correcta de vivir una pérdida. Influyen la historia personal, la cultura, la infancia,
+              el tipo de vínculo, la red de apoyo, la personalidad, el contexto migratorio, la estabilidad económica y la presencia
+              o ausencia de otras cargas emocionales.
+            </p>
+            <p>
+              Algunas personas lloran mucho. Otras se sienten desconectadas. Algunas necesitan hablar; otras primero requieren silencio.
+              Ninguna reacción, por sí sola, define la profundidad del amor ni el valor de la relación perdida.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>La resiliencia no es olvidar</h2>
+            <p>
+              Hablar de resiliencia no significa negar el dolor ni “superar rápido” una pérdida. La resiliencia consiste en la capacidad
+              humana de reorganizarse, encontrar sentido, reconstruir vínculos y seguir viviendo sin traicionar lo que fue importante.
+            </p>
+            <p>
+              Con el tiempo, el duelo puede transformarse. No siempre desaparece por completo, pero muchas veces deja de sentirse
+              como una herida abierta y se convierte en una memoria integrada. Recordar sin quebrarse cada vez también es una forma de sanar.
+            </p>
+          </section>
+        </article>
+
+        <aside class="sidebar">
+          <div class="side-box">
+            <h3>Ideas clave</h3>
+            <ul>
+              <li>El duelo es una respuesta natural a la pérdida.</li>
+              <li>No solo ocurre ante la muerte.</li>
+              <li>Puede afectar el cerebro, el cuerpo y la percepción del mundo.</li>
+              <li>El duelo migratorio implica pérdidas múltiples y silenciosas.</li>
+              <li>La resiliencia no borra el vínculo: lo transforma.</li>
+            </ul>
+          </div>
+
+          <div class="side-box">
+            <h3>Mensaje central</h3>
+            <p>
+              Sentir dolor por perder a alguien, un lugar, una relación, una etapa o un animal querido no es exagerar.
+              Es una expresión profundamente humana del apego y del amor.
+            </p>
+          </div>
+
+          <div class="side-box">
+            <h3>Volver a explorar</h3>
+            <p>
+              Esta página forma parte de la sección de salud mental y migración de Maternity Global. Puedes volver a la portada
+              para explorar otros temas relacionados con maternidad, estrés migratorio y bienestar emocional.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Maternity Global
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
