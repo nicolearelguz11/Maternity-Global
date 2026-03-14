@@ -287,41 +287,21 @@
       pointer-events:none;
     }
 
-    .intro-line{
-      font-size:1.12rem;
-      line-height:1.9;
-      margin:0 0 20px;
-      color:var(--blue-4);
+    .feature-image-box{
       position:relative;
       z-index:1;
+      margin:10px 0 28px;
+      border-radius:28px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,255,252,.88));
+      border:1px solid rgba(255,255,255,.92);
+      box-shadow:var(--shadow-md);
     }
 
-    .highlight{
-      position:relative;
-      z-index:1;
-      background:linear-gradient(180deg, rgba(232,247,242,.95), rgba(255,255,255,.98));
-      border:1px solid rgba(255,255,255,.95);
-      border-left:6px solid var(--green-5);
-      border-radius:24px;
-      padding:22px 24px;
-      margin:28px 0 18px;
-      box-shadow:var(--shadow-sm);
-    }
-
-    .highlight strong{
+    .feature-image{
+      width:100%;
       display:block;
-      margin-bottom:8px;
-      color:var(--blue-4);
-      font-size:1.35rem;
-      line-height:1.2;
-    }
-
-    .highlight p{
-      margin:0;
-      color:var(--text);
-      font-size:1.05rem;
-      line-height:1.8;
-      font-weight:700;
+      border-radius:28px;
     }
 
     .section{
@@ -491,6 +471,11 @@
       box-shadow:var(--shadow-md);
     }
 
+    .side-box-featured{
+      background:linear-gradient(180deg, rgba(232,247,242,.96), rgba(255,255,255,.98));
+      border-left:6px solid var(--green-5);
+    }
+
     .side-box h3{
       margin:0 0 14px;
       color:var(--green-5);
@@ -533,8 +518,18 @@
     }
 
     .side-note{
-      font-weight:700;
+      margin:0 0 10px;
+      font-weight:800;
       color:var(--blue-4);
+      font-size:1.15rem;
+      line-height:1.3;
+    }
+
+    .side-divider{
+      border:none;
+      height:1px;
+      background:rgba(11,111,184,.10);
+      margin:16px 0;
     }
 
     .side-badge{
@@ -661,18 +656,9 @@
 
       <section class="content-grid">
         <article class="article-card">
-          <p class="intro-line">
-            Sentir dolor ante una pérdida no es una señal de debilidad. Es la consecuencia natural de haber creado un vínculo significativo.
-          </p>
 
-          <div class="highlight">
-            <div>
-              <strong>El duelo no significa debilidad.</strong>
-              <p>
-                Significa que existió amor, apego, identidad compartida o una relación profunda con alguien, con un lugar,
-                con una etapa vital o con una forma de vida.
-              </p>
-            </div>
+          <div class="feature-image-box">
+            <img src="img/duelo-migratorio.png.png" alt="Ilustración sobre duelo migratorio y cerebro" class="feature-image">
           </div>
 
           <section class="section">
@@ -803,13 +789,36 @@
             </ul>
           </div>
 
+          <div class="side-box side-box-featured">
+            <div class="side-badge">Reflexión central</div>
+
+            <p class="side-note">
+              Sentir dolor ante una pérdida no es una señal de debilidad.
+            </p>
+
+            <p>
+              Es la consecuencia natural de haber creado un vínculo significativo.
+            </p>
+
+            <hr class="side-divider">
+
+            <p class="side-note">
+              El duelo no significa debilidad.
+            </p>
+
+            <p>
+              Significa que existió amor, apego, identidad compartida o una relación profunda con alguien,
+              con un lugar, con una etapa vital o con una forma de vida.
+            </p>
+          </div>
+
           <div class="side-box">
             <div class="side-badge">Mensaje central</div>
             <p class="side-note">
-              Sentir dolor por perder a alguien, un lugar, una relación, una etapa o un animal querido no es exagerar.
+              El duelo expresa la profundidad del vínculo.
             </p>
             <p>
-              Es una expresión profundamente humana del apego, del amor y de la necesidad de pertenencia.
+              Comprenderlo desde la ciencia permite vivirlo con más humanidad, menos culpa y más compasión.
             </p>
           </div>
 
