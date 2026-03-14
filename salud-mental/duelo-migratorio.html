@@ -19,16 +19,15 @@
       --white:#ffffff;
       --text:#163042;
       --muted:#6d7f8f;
-      --card-border:rgba(255,255,255,.22);
-      --shadow:0 20px 50px rgba(4, 28, 45, .16);
-      --shadow-hover:0 24px 60px rgba(4, 28, 45, .22);
+      --shadow:0 18px 45px rgba(4, 28, 45, .14);
+      --shadow-hover:0 22px 55px rgba(4, 28, 45, .20);
       --radius-xl:24px;
-      --radius-lg:18px;
-      --radius-md:14px;
       --max:1180px;
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+    }
 
     html{
       scroll-behavior:smooth;
@@ -40,8 +39,8 @@
       color:var(--text);
       background:
         radial-gradient(circle at top left, rgba(255,255,255,.10), transparent 18%),
-        radial-gradient(circle at top right, rgba(255,255,255,.08), transparent 16%),
-        linear-gradient(180deg, var(--blue-2) 0%, var(--blue-1) 42%, var(--blue-3) 100%);
+        radial-gradient(circle at top right, rgba(255,255,255,.07), transparent 16%),
+        linear-gradient(180deg, var(--blue-2) 0%, var(--blue-1) 48%, var(--blue-3) 100%);
       min-height:100vh;
     }
 
@@ -54,14 +53,14 @@
     header{
       position:sticky;
       top:0;
-      z-index:50;
+      z-index:100;
       backdrop-filter:blur(12px);
       background:rgba(47, 158, 143, .92);
       border-bottom:1px solid rgba(255,255,255,.14);
     }
 
     .nav{
-      min-height:78px;
+      min-height:76px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -69,25 +68,11 @@
     }
 
     .logo{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      color:#fff;
       text-decoration:none;
+      color:#fff;
       font-weight:800;
-      font-size:1.1rem;
+      font-size:1.15rem;
       letter-spacing:.01em;
-    }
-
-    .logo-mark{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:rgba(255,255,255,.16);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.22);
-      font-size:1.05rem;
     }
 
     nav{
@@ -104,7 +89,6 @@
       padding:10px 14px;
       border-radius:999px;
       transition:.22s ease;
-      opacity:.96;
     }
 
     nav a:hover{
@@ -113,225 +97,108 @@
     }
 
     main{
-      padding:52px 0 90px;
+      padding:54px 0 90px;
     }
 
-    .hero{
+    .intro{
       display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:28px;
-      align-items:stretch;
-      margin-bottom:34px;
+      grid-template-columns:1.15fr .85fr;
+      gap:26px;
+      align-items:start;
+      margin-bottom:38px;
     }
 
-    .hero-copy{
-      padding:24px 0 8px;
+    .intro-copy{
+      padding-top:4px;
     }
 
     .eyebrow{
       display:inline-flex;
       align-items:center;
-      gap:8px;
-      padding:8px 12px;
+      padding:8px 14px;
       border-radius:999px;
       background:rgba(255,255,255,.14);
       color:#eaf7ff;
       font-weight:800;
-      font-size:.82rem;
-      letter-spacing:.03em;
+      font-size:.84rem;
+      letter-spacing:.02em;
       margin-bottom:18px;
     }
 
-    .hero h1{
+    h1{
       margin:0 0 14px;
       color:#fff;
-      font-size:clamp(2rem, 4vw, 3.4rem);
+      font-size:clamp(2rem, 4vw, 3.25rem);
       line-height:1.08;
       letter-spacing:-.02em;
-      max-width:760px;
     }
 
-    .hero p{
+    .lead{
       margin:0;
       color:rgba(255,255,255,.92);
       font-size:1.08rem;
-      line-height:1.65;
-      max-width:760px;
+      line-height:1.7;
+      max-width:780px;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:26px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      text-decoration:none;
-      border:none;
-      cursor:pointer;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:800;
-      font-size:.96rem;
-      transition:.22s ease;
-    }
-
-    .btn-primary{
-      background:#fff;
-      color:var(--blue-1);
-      box-shadow:0 14px 30px rgba(8,34,52,.18);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      box-shadow:0 18px 34px rgba(8,34,52,.24);
-    }
-
-    .btn-secondary{
-      background:rgba(255,255,255,.12);
-      color:#fff;
+    .side-panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.10));
       border:1px solid rgba(255,255,255,.18);
-    }
-
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.18);
-      transform:translateY(-2px);
-    }
-
-    .hero-panel{
-      position:relative;
-      border-radius:30px;
+      border-radius:28px;
       padding:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
-      border:1px solid rgba(255,255,255,.18);
       box-shadow:var(--shadow);
-      overflow:hidden;
-      min-height:300px;
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-    }
-
-    .hero-panel::before{
-      content:"";
-      position:absolute;
-      width:180px;
-      height:180px;
-      right:-40px;
-      top:-36px;
-      border-radius:50%;
-      background:rgba(255,255,255,.10);
-      filter:blur(4px);
-    }
-
-    .hero-panel::after{
-      content:"";
-      position:absolute;
-      width:120px;
-      height:120px;
-      left:-18px;
-      bottom:-30px;
-      border-radius:50%;
-      background:rgba(223,245,239,.28);
-      filter:blur(10px);
-    }
-
-    .panel-card{
-      position:relative;
-      z-index:1;
-      background:rgba(255,255,255,.90);
-      border:1px solid rgba(255,255,255,.45);
-      border-radius:20px;
-      padding:18px;
-      backdrop-filter:blur(8px);
-      box-shadow:0 16px 35px rgba(14, 41, 57, .10);
+      backdrop-filter:blur(12px);
     }
 
     .panel-label{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      color:var(--green);
-      background:var(--green-soft);
+      display:inline-block;
+      padding:8px 12px;
       border-radius:999px;
-      padding:7px 11px;
+      background:var(--green-soft);
+      color:var(--green);
       font-size:.82rem;
       font-weight:800;
-      margin-bottom:12px;
+      margin-bottom:14px;
     }
 
     .panel-title{
-      margin:0 0 8px;
-      font-size:1.15rem;
-      color:var(--text);
+      margin:0 0 10px;
+      color:#fff;
+      font-size:1.2rem;
       font-weight:800;
     }
 
     .panel-text{
       margin:0;
-      color:var(--muted);
-      line-height:1.6;
-      font-size:.96rem;
-    }
-
-    .mini-stats{
-      position:relative;
-      z-index:1;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .mini-box{
-      background:rgba(255,255,255,.16);
-      border:1px solid rgba(255,255,255,.16);
-      color:#fff;
-      border-radius:18px;
-      padding:14px;
-      backdrop-filter:blur(8px);
-    }
-
-    .mini-box strong{
-      display:block;
-      font-size:1rem;
-      margin-bottom:4px;
-    }
-
-    .mini-box span{
-      font-size:.9rem;
       color:rgba(255,255,255,.88);
+      line-height:1.65;
+      font-size:.98rem;
+    }
+
+    .panel-link{
+      display:inline-block;
+      margin-top:16px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:800;
+      border-bottom:1px solid rgba(255,255,255,.45);
+      padding-bottom:2px;
     }
 
     .section-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:16px;
-      margin:12px 0 18px;
+      margin-bottom:18px;
     }
 
     .section-head h2{
       margin:0;
       color:#fff;
-      font-size:1.45rem;
+      font-size:1.6rem;
       letter-spacing:-.01em;
-    }
-
-    .section-head p{
-      margin:0;
-      color:rgba(255,255,255,.84);
-      max-width:520px;
     }
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(3, 1fr);
       gap:22px;
     }
 
@@ -340,7 +207,7 @@
       display:block;
       text-decoration:none;
       background:rgba(255,255,255,.97);
-      border:1px solid rgba(255,255,255,.45);
+      border:1px solid rgba(255,255,255,.38);
       border-radius:var(--radius-xl);
       padding:24px;
       color:inherit;
@@ -359,33 +226,22 @@
     .topic-card::after{
       content:"";
       position:absolute;
-      inset:auto -30px -30px auto;
+      right:-30px;
+      bottom:-30px;
       width:120px;
       height:120px;
       border-radius:50%;
       background:linear-gradient(180deg, rgba(47,158,143,.10), rgba(47,158,143,.03));
     }
 
-    .icon-wrap{
-      width:54px;
-      height:54px;
-      border-radius:16px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg, #ebfaf6, #dcf4ee);
-      color:var(--green);
-      font-size:1.35rem;
-      font-weight:800;
-      margin-bottom:16px;
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.75);
-    }
-
     .topic-card h3{
-      margin:0 0 10px;
-      font-size:1.38rem;
+      margin:0 0 12px;
+      font-size:1.28rem;
       line-height:1.2;
       color:var(--green);
       letter-spacing:-.01em;
+      position:relative;
+      z-index:1;
     }
 
     .topic-card p{
@@ -393,68 +249,37 @@
       color:var(--muted);
       line-height:1.65;
       font-size:1rem;
-      max-width:94%;
+      max-width:95%;
+      position:relative;
+      z-index:1;
     }
 
     .topic-arrow{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      margin-top:16px;
+      margin-top:18px;
       color:var(--blue-1);
       font-weight:800;
       font-size:.95rem;
-    }
-
-    .helper-strip{
-      margin-top:34px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      border-radius:28px;
-      padding:24px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      backdrop-filter:blur(10px);
-    }
-
-    .helper-box{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:22px;
-      padding:18px;
-      color:#fff;
-    }
-
-    .helper-box strong{
-      display:block;
-      margin-bottom:8px;
-      font-size:1rem;
-    }
-
-    .helper-box p{
-      margin:0;
-      color:rgba(255,255,255,.86);
-      line-height:1.55;
-      font-size:.95rem;
+      position:relative;
+      z-index:1;
     }
 
     footer{
-      padding:38px 0 50px;
+      padding:40px 0 52px;
       text-align:center;
       color:rgba(255,255,255,.86);
       font-weight:700;
     }
 
     @media (max-width: 1020px){
-      .hero{
+      .intro{
         grid-template-columns:1fr;
       }
+
       .grid{
         grid-template-columns:1fr 1fr;
-      }
-      .helper-strip{
-        grid-template-columns:1fr;
       }
     }
 
@@ -462,40 +287,24 @@
       .container{
         padding:0 18px;
       }
+
       .nav{
         min-height:auto;
         padding:14px 0;
+        flex-direction:column;
         align-items:flex-start;
-        flex-direction:column;
       }
-      nav{
-        gap:6px;
-      }
-      .hero{
-        margin-bottom:24px;
-      }
-      .hero-copy{
-        padding-top:8px;
-      }
-      .hero-actions{
-        flex-direction:column;
-        align-items:stretch;
-      }
-      .btn{
-        width:100%;
-      }
-      .section-head{
-        align-items:flex-start;
-        flex-direction:column;
-      }
+
       .grid{
         grid-template-columns:1fr;
       }
-      .mini-stats{
-        grid-template-columns:1fr;
-      }
+
       .topic-card{
         min-height:auto;
+      }
+
+      main{
+        padding-top:34px;
       }
     }
   </style>
@@ -504,10 +313,7 @@
 
   <header>
     <div class="container nav">
-      <a class="logo" href="../index.html">
-        <span class="logo-mark">✦</span>
-        <span>Maternity Global</span>
-      </a>
+      <a class="logo" href="../index.html">Maternity Global</a>
 
       <nav>
         <a href="../index.html">Inicio</a>
@@ -519,55 +325,33 @@
   <main>
     <div class="container">
 
-      <section class="hero">
-        <div class="hero-copy">
+      <section class="intro">
+        <div class="intro-copy">
           <div class="eyebrow">Bienestar emocional • migración • maternidad</div>
           <h1>Salud mental y migración</h1>
-          <p>
-            Comprender el bienestar emocional durante la migración, el embarazo y los cambios de vida.
-            Los contenidos están organizados en módulos breves, claros y humanos para facilitar la comprensión sin agobio.
+          <p class="lead">
+            Información clara y humana sobre bienestar emocional en procesos migratorios, embarazo y maternidad.
+            Esta sección reúne temas frecuentes para orientar, acompañar y facilitar el acceso a contenido útil sin sobrecarga.
           </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#temas">Explorar contenidos</a>
-            <a class="btn btn-secondary" href="duelo-migratorio.html">Ir a duelo migratorio</a>
-          </div>
         </div>
 
-        <div class="hero-panel">
-          <div class="panel-card">
-            <div class="panel-label">🧠 Enfoque claro</div>
-            <h3 class="panel-title">Información médica comprensible</h3>
-            <p class="panel-text">
-              Un espacio para entender procesos emocionales frecuentes en migración y maternidad con lenguaje accesible, sensibilidad clínica y estructura visual simple.
-            </p>
-          </div>
-
-          <div class="mini-stats">
-            <div class="mini-box">
-              <strong>6 temas clave</strong>
-              <span>Organizados para lectura rápida</span>
-            </div>
-            <div class="mini-box">
-              <strong>Acceso simple</strong>
-              <span>Contenido fácil de explorar</span>
-            </div>
-          </div>
-        </div>
+        <aside class="side-panel">
+          <div class="panel-label">Canal de YouTube</div>
+          <h3 class="panel-title">@NicoleArel</h3>
+          <p class="panel-text">
+            Próximamente encontrarás videos sobre salud mental, migración, embarazo y bienestar emocional.
+            Este espacio conectará el contenido escrito con explicaciones en formato audiovisual.
+          </p>
+          <a class="panel-link" href="#">Próximamente</a>
+        </aside>
       </section>
 
-      <div class="section-head" id="temas">
-        <div>
-          <h2>Temas principales</h2>
-        </div>
-        <p>
-          Explora cada tema como una puerta de entrada. El objetivo es orientar, acompañar y ofrecer información útil con claridad visual.
-        </p>
+      <div class="section-head">
+        <h2>Temas principales</h2>
       </div>
 
       <section class="grid">
         <a class="topic-card" href="duelo-migratorio.html">
-          <div class="icon-wrap">🧠</div>
           <h3>Duelo migratorio</h3>
           <p>
             Pérdidas emocionales asociadas al cambio de país, la distancia afectiva y la adaptación cultural.
@@ -576,7 +360,6 @@
         </a>
 
         <a class="topic-card" href="#">
-          <div class="icon-wrap">👥</div>
           <h3>Soledad y aislamiento</h3>
           <p>
             Impacto de la desconexión social en el bienestar psicológico y en el sentido de pertenencia.
@@ -585,7 +368,6 @@
         </a>
 
         <a class="topic-card" href="#">
-          <div class="icon-wrap">⚡</div>
           <h3>Estrés y ansiedad migratoria</h3>
           <p>
             Respuesta emocional frente a la incertidumbre, la adaptación y la presión del cambio.
@@ -594,7 +376,6 @@
         </a>
 
         <a class="topic-card" href="#">
-          <div class="icon-wrap">🤰</div>
           <h3>Embarazo y salud mental</h3>
           <p>
             Cambios emocionales durante el embarazo y factores de vulnerabilidad en contextos migratorios.
@@ -603,7 +384,6 @@
         </a>
 
         <a class="topic-card" href="#">
-          <div class="icon-wrap">⚠️</div>
           <h3>Señales de alerta</h3>
           <p>
             Indicadores emocionales o conductuales que sugieren la necesidad de apoyo profesional.
@@ -612,30 +392,12 @@
         </a>
 
         <a class="topic-card" href="#">
-          <div class="icon-wrap">🧩</div>
           <h3>Trauma y migración</h3>
           <p>
             Cómo experiencias traumáticas previas o vividas durante la migración pueden afectar la salud mental.
           </p>
           <div class="topic-arrow">Próximamente →</div>
         </a>
-      </section>
-
-      <section class="helper-strip">
-        <div class="helper-box">
-          <strong>Lectura clara</strong>
-          <p>Contenido visualmente ligero, con bloques breves para reducir sobrecarga emocional.</p>
-        </div>
-
-        <div class="helper-box">
-          <strong>Enfoque humano</strong>
-          <p>Lenguaje cercano, respetuoso y útil para acompañar experiencias complejas.</p>
-        </div>
-
-        <div class="helper-box">
-          <strong>Ruta práctica</strong>
-          <p>Cada tema puede convertirse en una guía, video explicativo o herramienta de apoyo.</p>
-        </div>
       </section>
 
     </div>
