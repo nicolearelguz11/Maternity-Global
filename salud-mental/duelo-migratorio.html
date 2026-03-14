@@ -32,6 +32,9 @@
       --shadow-md:0 14px 36px rgba(15, 51, 62, .10);
       --shadow-sm:0 10px 24px rgba(15, 51, 62, .08);
 
+      --radius-xl:30px;
+      --radius-lg:24px;
+      --radius-md:18px;
       --max:1220px;
     }
 
@@ -166,6 +169,16 @@
       margin-bottom:28px;
     }
 
+    .hero-shell::before{
+      content:"";
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(47,158,143,.12), rgba(47,158,143,0));
+    }
+
     .hero{
       display:grid;
       grid-template-columns:1.18fr .72fr;
@@ -263,6 +276,17 @@
       box-shadow:var(--shadow-lg);
     }
 
+    .article-card::after{
+      content:"";
+      position:absolute;
+      left:-120px;
+      bottom:-160px;
+      width:520px;
+      height:320px;
+      background:radial-gradient(circle, rgba(183,229,217,.28), rgba(183,229,217,0));
+      pointer-events:none;
+    }
+
     .feature-image-box{
       position:relative;
       z-index:1;
@@ -272,111 +296,12 @@
       background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,255,252,.88));
       border:1px solid rgba(255,255,255,.92);
       box-shadow:var(--shadow-md);
-      padding:28px;
     }
 
-    .brain-hero{
-      position:relative;
-      min-height:330px;
-      border-radius:24px;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 50% 50%, rgba(78,194,171,.24), rgba(78,194,171,0) 28%),
-        radial-gradient(circle at 20% 78%, rgba(47,158,143,.13), rgba(47,158,143,0) 20%),
-        radial-gradient(circle at 82% 22%, rgba(11,111,184,.10), rgba(11,111,184,0) 18%),
-        linear-gradient(180deg, rgba(238,248,244,.96), rgba(220,240,233,.96));
-      border:1px solid rgba(255,255,255,.85);
-    }
-
-    .brain-shape{
-      position:absolute;
-      left:50%;
-      top:50%;
-      transform:translate(-50%,-50%);
-      width:320px;
-      height:220px;
-      border-radius:58% 42% 52% 48% / 52% 48% 52% 48%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.75), rgba(255,255,255,0) 24%),
-        linear-gradient(135deg, rgba(112,219,202,.88), rgba(76,181,193,.72));
-      box-shadow:0 18px 42px rgba(47,158,143,.18);
-      border:4px solid rgba(255,255,255,.65);
-    }
-
-    .brain-shape::before{
-      content:"";
-      position:absolute;
-      left:50%;
-      top:16px;
-      bottom:16px;
-      width:3px;
-      transform:translateX(-50%);
-      background:rgba(255,255,255,.46);
-      border-radius:999px;
-    }
-
-    .brain-line{
-      position:absolute;
-      height:3px;
-      background:rgba(255,255,255,.65);
-      border-radius:999px;
-    }
-
-    .brain-line.l1{ width:82px; top:42px; left:38px; transform:rotate(18deg); }
-    .brain-line.l2{ width:90px; top:78px; left:28px; transform:rotate(-10deg); }
-    .brain-line.l3{ width:80px; top:120px; left:44px; transform:rotate(14deg); }
-    .brain-line.l4{ width:82px; top:42px; right:38px; transform:rotate(-18deg); }
-    .brain-line.l5{ width:90px; top:78px; right:28px; transform:rotate(10deg); }
-    .brain-line.l6{ width:80px; top:120px; right:44px; transform:rotate(-14deg); }
-
-    .brain-node{
-      position:absolute;
-      width:18px;
-      height:18px;
-      border-radius:50%;
-      background:#fff;
-      box-shadow:0 0 0 7px rgba(255,255,255,.16);
-    }
-
-    .n1{ top:34px; left:88px; }
-    .n2{ top:88px; left:64px; }
-    .n3{ top:136px; left:106px; }
-    .n4{ top:34px; right:88px; }
-    .n5{ top:88px; right:64px; }
-    .n6{ top:136px; right:106px; }
-
-    .brain-caption{
-      position:absolute;
-      background:rgba(255,255,255,.74);
-      border:1px solid rgba(255,255,255,.82);
-      border-radius:22px;
-      box-shadow:var(--shadow-sm);
-      padding:16px 18px;
-      max-width:240px;
-    }
-
-    .brain-caption h4{
-      margin:0 0 8px;
-      color:var(--green-5);
-      font-size:1.08rem;
-      line-height:1.2;
-    }
-
-    .brain-caption p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.65;
-      font-size:.96rem;
-    }
-
-    .brain-caption.left{
-      left:18px;
-      top:18px;
-    }
-
-    .brain-caption.right{
-      right:18px;
-      bottom:18px;
+    .feature-image{
+      width:100%;
+      display:block;
+      border-radius:28px;
     }
 
     .section{
@@ -407,6 +332,130 @@
       margin-bottom:0;
     }
 
+    .visual-band{
+      position:relative;
+      z-index:1;
+      margin:34px 0 8px;
+      min-height:320px;
+      border-radius:30px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 52% 54%, rgba(78,194,171,.36), rgba(78,194,171,0) 26%),
+        radial-gradient(circle at 18% 68%, rgba(47,158,143,.18), rgba(47,158,143,0) 22%),
+        radial-gradient(circle at 83% 67%, rgba(11,111,184,.10), rgba(11,111,184,0) 18%),
+        linear-gradient(180deg, rgba(238,248,244,.9), rgba(216,239,231,.9));
+      border:1px solid rgba(255,255,255,.85);
+      box-shadow:var(--shadow-md);
+    }
+
+    .visual-band .wave{
+      position:absolute;
+      left:-4%;
+      right:-4%;
+      bottom:-78px;
+      height:170px;
+      background:#ffffffd8;
+      border-radius:50% 50% 0 0 / 100% 100% 0 0;
+    }
+
+    .brain-circle{
+      position:absolute;
+      left:50%;
+      top:54%;
+      transform:translate(-50%,-50%);
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.70), rgba(255,255,255,0) 28%),
+        radial-gradient(circle at 50% 50%, rgba(79,194,171,.55), rgba(79,194,171,.16) 60%, rgba(79,194,171,0) 75%),
+        linear-gradient(135deg, rgba(130,224,205,.65), rgba(83,171,211,.38));
+      border:8px solid rgba(255,255,255,.74);
+      box-shadow:0 20px 50px rgba(47,158,143,.18);
+    }
+
+    .brain-circle::before,
+    .brain-circle::after{
+      content:"";
+      position:absolute;
+      inset:22px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.38);
+    }
+
+    .brain-dot{
+      position:absolute;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:#ffffff;
+      box-shadow:0 0 0 6px rgba(255,255,255,.22);
+    }
+
+    .dot-1{ top:40px; left:52px; }
+    .dot-2{ top:74px; right:44px; }
+    .dot-3{ bottom:54px; left:72px; }
+    .dot-4{ bottom:68px; right:70px; }
+    .dot-5{ top:102px; left:104px; }
+
+    .line{
+      position:absolute;
+      height:2px;
+      background:rgba(255,255,255,.7);
+      transform-origin:left center;
+    }
+
+    .line-1{ width:74px; top:74px; left:64px; transform:rotate(18deg); }
+    .line-2{ width:76px; top:122px; left:84px; transform:rotate(-12deg); }
+    .line-3{ width:58px; top:126px; right:68px; transform:rotate(25deg); }
+
+    .mini-card{
+      position:absolute;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.82);
+      box-shadow:var(--shadow-sm);
+      border-radius:22px;
+      padding:16px 18px;
+      max-width:240px;
+    }
+
+    .mini-card h4{
+      margin:0 0 8px;
+      color:var(--green-5);
+      font-size:1.08rem;
+      line-height:1.2;
+    }
+
+    .mini-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:.96rem;
+    }
+
+    .mini-card.left{
+      left:24px;
+      top:28px;
+      width:250px;
+    }
+
+    .mini-card.right{
+      right:22px;
+      bottom:24px;
+      width:250px;
+    }
+
+    .symbol{
+      position:absolute;
+      color:rgba(47,158,143,.38);
+      font-size:2rem;
+      font-weight:800;
+    }
+
+    .sym-1{ left:28px; bottom:36px; }
+    .sym-2{ right:40px; top:34px; }
+    .sym-3{ left:280px; top:46px; }
+
     .sidebar{
       display:grid;
       gap:20px;
@@ -424,7 +473,7 @@
 
     .side-box-featured{
       background:linear-gradient(180deg, rgba(232,247,242,.96), rgba(255,255,255,.98));
-      border-left:2px solid rgba(47,158,143,.35);
+      border-left:6px solid var(--green-5);
     }
 
     .side-box h3{
@@ -530,27 +579,28 @@
         padding:24px;
       }
 
-      .feature-image-box{
-        padding:16px;
+      .visual-band{
+        min-height:360px;
       }
 
-      .brain-hero{
-        min-height:420px;
-      }
-
-      .brain-shape{
-        width:230px;
+      .brain-circle{
+        width:170px;
         height:170px;
       }
 
-      .brain-caption{
+      .mini-card{
         position:relative;
         left:auto !important;
         right:auto !important;
         top:auto !important;
         bottom:auto !important;
+        width:auto !important;
         max-width:none;
-        margin:14px;
+        margin:16px;
+      }
+
+      .symbol{
+        display:none;
       }
     }
   </style>
@@ -562,6 +612,7 @@
   <header>
     <div class="container nav">
       <a class="logo" href="../index.html">Maternity Global</a>
+
       <nav>
         <a href="../index.html">Inicio</a>
         <a href="index.html">Salud mental</a>
@@ -606,35 +657,9 @@
       <section class="content-grid">
         <article class="article-card">
 
-          <div class="feature-image-box">
-            <div class="brain-hero">
-              <div class="brain-caption left">
-                <h4>Duelo migratorio</h4>
-                <p>Migrar puede implicar pérdidas múltiples: familia, idioma, costumbres, red de apoyo y pertenencia.</p>
-              </div>
-
-              <div class="brain-shape">
-                <div class="brain-line l1"></div>
-                <div class="brain-line l2"></div>
-                <div class="brain-line l3"></div>
-                <div class="brain-line l4"></div>
-                <div class="brain-line l5"></div>
-                <div class="brain-line l6"></div>
-
-                <div class="brain-node n1"></div>
-                <div class="brain-node n2"></div>
-                <div class="brain-node n3"></div>
-                <div class="brain-node n4"></div>
-                <div class="brain-node n5"></div>
-                <div class="brain-node n6"></div>
-              </div>
-
-              <div class="brain-caption right">
-                <h4>Vínculo y resiliencia</h4>
-                <p>El dolor no anula la capacidad de sanar. La mente puede reorganizarse sin borrar el amor.</p>
-              </div>
-            </div>
-          </div>
+        <div class="feature-image-box">
+  <img src="duelo-migratorio.png" alt="Ilustración sobre duelo migratorio y cerebro" class="feature-image">
+</div>
 
           <section class="section">
             <h2>¿Qué es realmente el duelo?</h2>
@@ -663,6 +688,40 @@
               la concentración, la regulación emocional y la sensación de energía.
             </p>
           </section>
+
+          <div class="visual-band">
+            <div class="mini-card left">
+              <h4>Duelo migratorio</h4>
+              <p>
+                Migrar puede implicar pérdidas múltiples: familia, idioma, costumbres, paisajes, red de apoyo y sensación de pertenencia.
+              </p>
+            </div>
+
+            <div class="brain-circle">
+              <div class="brain-dot dot-1"></div>
+              <div class="brain-dot dot-2"></div>
+              <div class="brain-dot dot-3"></div>
+              <div class="brain-dot dot-4"></div>
+              <div class="brain-dot dot-5"></div>
+
+              <div class="line line-1"></div>
+              <div class="line line-2"></div>
+              <div class="line line-3"></div>
+            </div>
+
+            <div class="mini-card right">
+              <h4>Vínculo y resiliencia</h4>
+              <p>
+                El dolor no anula la capacidad de sanar. Con el tiempo, la mente puede reorganizarse e integrar la pérdida sin borrar el amor.
+              </p>
+            </div>
+
+            <div class="symbol sym-1">✿</div>
+            <div class="symbol sym-2">✦</div>
+            <div class="symbol sym-3">♡</div>
+
+            <div class="wave"></div>
+          </div>
 
           <section class="section">
             <h2>Duelo migratorio: perder sin desaparecer</h2>
@@ -732,10 +791,21 @@
 
           <div class="side-box side-box-featured">
             <div class="side-badge">Reflexión central</div>
-            <p class="side-note">Sentir dolor ante una pérdida no es una señal de debilidad.</p>
-            <p>Es la consecuencia natural de haber creado un vínculo significativo.</p>
+
+            <p class="side-note">
+              Sentir dolor ante una pérdida no es una señal de debilidad.
+            </p>
+
+            <p>
+              Es la consecuencia natural de haber creado un vínculo significativo.
+            </p>
+
             <hr class="side-divider">
-            <p class="side-note">El duelo no significa debilidad.</p>
+
+            <p class="side-note">
+              El duelo no significa debilidad.
+            </p>
+
             <p>
               Significa que existió amor, apego, identidad compartida o una relación profunda con alguien,
               con un lugar, con una etapa vital o con una forma de vida.
@@ -744,7 +814,9 @@
 
           <div class="side-box">
             <div class="side-badge">Mensaje central</div>
-            <p class="side-note">El duelo expresa la profundidad del vínculo.</p>
+            <p class="side-note">
+              El duelo expresa la profundidad del vínculo.
+            </p>
             <p>
               Comprenderlo desde la ciencia permite vivirlo con más humanidad, menos culpa y más compasión.
             </p>
@@ -773,4 +845,3 @@
   </script>
 </body>
 </html>
-
