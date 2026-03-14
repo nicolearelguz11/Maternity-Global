@@ -1,1 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bitácora emocional | Maternity Global</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#1e7bb5;
+      --primary-light:#d8ecff;
+      --accent:#2f9e8f;
+      --bg-top:#2a89c8;
+      --bg-mid:#1e7bb5;
+      --bg-bottom:#165e9c;
+      --text-main:#1f2933;
+      --text-muted:#6b7280;
+      --card-bg:rgba(255,255,255,.96);
+      --danger:#c62828;
+      --border-soft:rgba(255,255,255,.22);
+      --radius:18px;
+      --shadow-soft:0 18px 45px rgba(4,28,45,.14);
+      --shadow-card:0 20px 40px rgba(0,0,0,.10);
+      --container:1100px;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:"Nunito",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.14), transparent 18%),
+        radial-gradient(circle at top right, rgba(255,255,255,.08), transparent 18%),
+        linear-gradient(180deg,var(--bg-top) 0%,var(--bg-mid) 48%,var(--bg-bottom) 100%);
+      color:var(--text-main);
+      line-height:1.6;
+      min-height:100vh;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      max-width:var(--container);
+      margin:0 auto;
+      padding:0 1.5rem;
+    }
+
+    header{
+      background-color:var(--accent);
+      border-bottom:1px solid rgba(255,255,255,.18);
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(8px);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 0;
+      gap:1rem;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:.65rem;
+    }
+
+    .logo-mark{
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--accent);
+      font-size:.9rem;
+      font-weight:800;
+      flex-shrink:0;
+    }
+
+    .logo-text-title{
+      font-weight:800;
+      color:#fff;
+      font-size:1rem;
+      line-height:1.1;
+    }
+
+    .logo-text-subtitle{
+      font-size:.8rem;
+      color:rgba(255,255,255,.82);
+      line-height:1.1;
+      margin-top:.08rem;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:1.25rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .nav-links a{
+      color:#fff;
+      opacity:.92;
+      font-weight:600;
+    }
+
+    .nav-links a:hover{
+      opacity:.72;
+    }
+
+    .hero{
+      padding:3.2rem 0 2rem;
+    }
+
+    .hero-inner{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:2rem;
+      align-items:start;
+    }
+
+    .hero-label{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      background-color:rgba(255,255,255,.16);
+      color:#fff;
+      padding:.38rem .9rem;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:700;
+      margin-bottom:1rem;
+    }
+
+    .hero-title{
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1.14;
+      margin-bottom:.9rem;
+      color:#fff;
+      letter-spacing:-.03em;
+      font-weight:800;
+    }
+
+    .hero-title span{
+      color:#b7f0d9;
+    }
+
+    .hero-subtitle{
+      font-size:1rem;
+      color:rgba(255,255,255,.92);
+      max-width:42rem;
+    }
+
+    .hero-card{
+      background-color:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.15);
+      backdrop-filter:blur(8px);
+      border-radius:22px;
+      padding:1.35rem 1.2rem;
+      box-shadow:var(--shadow-card);
+      color:#fff;
+    }
+
+    .hero-card h3{
+      font-size:1rem;
+      margin-bottom:.45rem;
+      font-weight:800;
+    }
+
+    .hero-card p{
+      color:rgba(255,255,255,.88);
+      font-size:.95rem;
+    }
+
+    .page{
+      padding:0 0 2.5rem;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:1.5rem;
+      align-items:start;
+    }
+
+    .card{
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-soft);
+      padding:1.35rem;
+    }
+
+    .section-title{
+      font-size:1.25rem;
+      font-weight:800;
+      color:#111827;
+      margin-bottom:.25rem;
+    }
+
+    .section-subtitle{
+      color:var(--text-muted);
+      font-size:.95rem;
+      margin-bottom:1rem;
+    }
+
+    .field{
+      margin-bottom:1rem;
+    }
+
+    .field label{
+      display:block;
+      font-weight:700;
+      margin-bottom:.45rem;
+      color:#1f2933;
+    }
+
+    .input,
+    .textarea,
+    select{
+      width:100%;
+      border:1px solid #dbe4ea;
+      border-radius:14px;
+      padding:.9rem 1rem;
+      font-family:inherit;
+      font-size:.95rem;
+      color:#1f2933;
+      background:#fff;
+      outline:none;
+    }
+
+    .input:focus,
+    .textarea:focus,
+    select:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 4px rgba(30,123,181,.12);
+    }
+
+    .textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.6rem;
+    }
+
+    .chip{
+      border:none;
+      border-radius:999px;
+      padding:.7rem 1rem;
+      font-family:inherit;
+      font-weight:700;
+      cursor:pointer;
+      background:#eef4f8;
+      color:#355065;
+      transition:.18s ease;
+    }
+
+    .chip:hover{
+      transform:translateY(-1px);
+    }
+
+    .chip.active{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .range-wrap{
+      display:grid;
+      gap:.35rem;
+    }
+
+    .range-label{
+      display:flex;
+      justify-content:space-between;
+      font-size:.9rem;
+      color:var(--text-muted);
+    }
+
+    input[type="range"]{
+      width:100%;
+      accent-color:var(--accent);
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1rem;
+    }
+
+    .btn-row{
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      margin-top:.5rem;
+    }
+
+    .btn{
+      border:none;
+      border-radius:999px;
+      padding:.75rem 1.15rem;
+      font-family:inherit;
+      font-weight:800;
+      cursor:pointer;
+      transition:.18s ease;
+    }
+
+    .btn-primary{
+      background:#fff;
+      color:var(--accent);
+      box-shadow:0 10px 22px rgba(0,0,0,.12);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn-light{
+      background:#edf5fa;
+      color:#355065;
+    }
+
+    .summary-box{
+      background:#f7fbfe;
+      border:1px solid #dbeaf6;
+      border-radius:16px;
+      padding:1rem;
+      color:#355065;
+      font-size:.95rem;
+    }
+
+    .mini-card{
+      background:#f8fbfd;
+      border:1px solid #e4edf3;
+      border-radius:16px;
+      padding:1rem;
+      margin-bottom:1rem;
+    }
+
+    .mini-card h4{
+      font-size:.95rem;
+      font-weight:800;
+      margin-bottom:.35rem;
+      color:#163042;
+    }
+
+    .mini-card p{
+      font-size:.92rem;
+      color:var(--text-muted);
+    }
+
+    .status{
+      margin-top:.85rem;
+      font-size:.92rem;
+      color:#0f766e;
+      font-weight:700;
+      min-height:1.2rem;
+    }
+
+    .note{
+      font-size:.86rem;
+      color:var(--text-muted);
+      margin-top:.8rem;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.22);
+      padding:1.5rem 0 2rem;
+      font-size:.82rem;
+      color:rgba(255,255,255,.88);
+    }
+
+    @media (max-width: 900px){
+      .hero-inner,
+      .layout,
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+
+      .hero-card{
+        max-width:100%;
+      }
+
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .nav-links{
+        justify-content:flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .hero-title{
+        font-size:1.95rem;
+      }
+
+      .btn-row{
+        flex-direction:column;
+      }
+
+      .btn{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark">MG</div>
+        <div>
+          <div class="logo-text-title">Maternity Global</div>
+          <div class="logo-text-subtitle">Bitácora emocional personalizada</div>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="../index.html">Inicio</a>
+        <a href="index.html">Salud mental</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="hero-label">Espacio privado y humano</div>
+        <h1 class="hero-title">Tu <span>diario emocional</span> personalizado</h1>
+        <p class="hero-subtitle">
+          Un espacio para registrar cómo te sientes, identificar patrones y observar tu evolución emocional de forma sencilla, clara y respetuosa.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <h3>Qué puedes hacer aquí</h3>
+        <p>Registrar emociones del día, escribir lo que estás viviendo, reconocer detonantes y guardar tus entradas de forma local en tu dispositivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="page">
+    <div class="container layout">
+
+      <section class="card">
+        <h2 class="section-title">Entrada del día</h2>
+        <p class="section-subtitle">Completa solo lo que necesites. No tiene que ser perfecto.</p>
+
+        <div class="field">
+          <label for="fecha">Fecha</label>
+          <input class="input" id="fecha" type="date" />
+        </div>
+
+        <div class="field">
+          <label>¿Cómo te sientes hoy?</label>
+          <div class="chips" id="emotionChips">
+            <button class="chip" type="button" data-value="tranquila">Tranquila</button>
+            <button class="chip" type="button" data-value="ansiosa">Ansiosa</button>
+            <button class="chip" type="button" data-value="triste">Triste</button>
+            <button class="chip" type="button" data-value="sola">Sola</button>
+            <button class="chip" type="button" data-value="con esperanza">Con esperanza</button>
+            <button class="chip" type="button" data-value="cansada">Cansada</button>
+            <button class="chip" type="button" data-value="agradecida">Agradecida</button>
+            <button class="chip" type="button" data-value="abrumada">Abrumada</button>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="energia">Nivel de energía</label>
+            <div class="range-wrap">
+              <div class="range-label"><span>Baja</span><span id="energiaValue">5/10</span><span>Alta</span></div>
+              <input id="energia" type="range" min="1" max="10" value="5" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="ansiedad">Nivel de ansiedad</label>
+            <div class="range-wrap">
+              <div class="range-label"><span>Baja</span><span id="ansiedadValue">5/10</span><span>Alta</span></div>
+              <input id="ansiedad" type="range" min="1" max="10" value="5" />
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="texto">Escribe lo que estás viviendo hoy</label>
+          <textarea class="textarea" id="texto" placeholder="Hoy me sentí..."></textarea>
+        </div>
+
+        <div class="field">
+          <label for="detonantes">¿Qué crees que influyó en cómo te sentiste?</label>
+          <input class="input" id="detonantes" type="text" placeholder="Ejemplo: cansancio, soledad, trabajo, una llamada, una buena noticia..." />
+        </div>
+
+        <div class="field">
+          <label for="ayuda">¿Qué te ayudó, aunque fuera un poco?</label>
+          <input class="input" id="ayuda" type="text" placeholder="Ejemplo: caminar, hablar con alguien, descansar, escribir..." />
+        </div>
+
+        <div class="field">
+          <label for="necesito">¿Qué necesito mañana?</label>
+          <input class="input" id="necesito" type="text" placeholder="Ejemplo: más descanso, pedir ayuda, comer mejor, salir un poco..." />
+        </div>
+
+        <div class="btn-row">
+          <button class="btn btn-secondary" id="saveBtn" type="button">Guardar entrada</button>
+          <button class="btn btn-light" id="clearBtn" type="button">Limpiar</button>
+          <button class="btn btn-light" id="summaryBtn" type="button">Generar resumen</button>
+        </div>
+
+        <div class="status" id="statusMsg"></div>
+
+        <div class="field" style="margin-top:1rem;">
+          <label>Resumen personal del día</label>
+          <div class="summary-box" id="summaryBox">
+            Aquí aparecerá un pequeño resumen de tu entrada.
+          </div>
+        </div>
+
+        <p class="note">
+          Esta herramienta no realiza diagnóstico ni sustituye atención profesional. Si atraviesas una situación urgente o de riesgo, busca ayuda profesional inmediata en tu país.
+        </p>
+      </section>
+
+      <aside class="card">
+        <h2 class="section-title">Tu espacio de seguimiento</h2>
+        <p class="section-subtitle">Pequeñas señales también cuentan.</p>
+
+        <div class="mini-card">
+          <h4>Emoción elegida</h4>
+          <p id="emotionPreview">Aún no has seleccionado una emoción.</p>
+        </div>
+
+        <div class="mini-card">
+          <h4>Lo que estás necesitando</h4>
+          <p id="needPreview">Tu respuesta aparecerá aquí para recordarte qué priorizar mañana.</p>
+        </div>
+
+        <div class="mini-card">
+          <h4>Última entrada guardada</h4>
+          <p id="lastSavedPreview">Todavía no hay una entrada guardada en este dispositivo.</p>
+        </div>
+
+        <div class="mini-card">
+          <h4>Recordatorio amable</h4>
+          <p>
+            No necesitas escribir mucho. A veces una sola frase honesta ya es una forma de cuidado.
+          </p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Maternity Global · Bitácora emocional
+    </div>
+  </footer>
+
+  <script>
+    const fecha = document.getElementById("fecha");
+    const energia = document.getElementById("energia");
+    const ansiedad = document.getElementById("ansiedad");
+    const energiaValue = document.getElementById("energiaValue");
+    const ansiedadValue = document.getElementById("ansiedadValue");
+    const texto = document.getElementById("texto");
+    const detonantes = document.getElementById("detonantes");
+    const ayuda = document.getElementById("ayuda");
+    const necesito = document.getElementById("necesito");
+    const summaryBox = document.getElementById("summaryBox");
+    const statusMsg = document.getElementById("statusMsg");
+    const emotionPreview = document.getElementById("emotionPreview");
+    const needPreview = document.getElementById("needPreview");
+    const lastSavedPreview = document.getElementById("lastSavedPreview");
+    const chips = document.querySelectorAll(".chip");
+
+    let currentEmotion = "";
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const today = new Date().toISOString().split("T")[0];
+    fecha.value = today;
+
+    function updateRangeLabels() {
+      energiaValue.textContent = energia.value + "/10";
+      ansiedadValue.textContent = ansiedad.value + "/10";
+    }
+
+    function selectEmotion(value) {
+      currentEmotion = value;
+      chips.forEach(chip => {
+        chip.classList.toggle("active", chip.dataset.value === value);
+      });
+      emotionPreview.textContent = "Hoy te identificaste con: " + value + ".";
+    }
+
+    chips.forEach(chip => {
+      chip.addEventListener("click", () => selectEmotion(chip.dataset.value));
+    });
+
+    energia.addEventListener("input", updateRangeLabels);
+    ansiedad.addEventListener("input", updateRangeLabels);
+
+    necesito.addEventListener("input", () => {
+      needPreview.textContent = necesito.value.trim() || "Tu respuesta aparecerá aquí para recordarte qué priorizar mañana.";
+    });
+
+    function buildSummary() {
+      const pieces = [];
+
+      if (currentEmotion) pieces.push("Hoy te sentiste " + currentEmotion);
+      pieces.push("con una energía de " + energia.value + "/10");
+      pieces.push("y una ansiedad de " + ansiedad.value + "/10.");
+
+      if (detonantes.value.trim()) {
+        pieces.push("Parece que influyeron factores como: " + detonantes.value.trim() + ".");
+      }
+
+      if (ayuda.value.trim()) {
+        pieces.push("Algo que te ayudó fue: " + ayuda.value.trim() + ".");
+      }
+
+      if (necesito.value.trim()) {
+        pieces.push("Para mañana, sería importante priorizar: " + necesito.value.trim() + ".");
+      }
+
+      if (texto.value.trim()) {
+        pieces.push("También dejaste escrita esta experiencia personal para recordar tu proceso.");
+      }
+
+      return pieces.join(" ");
+    }
+
+    document.getElementById("summaryBtn").addEventListener("click", () => {
+      summaryBox.textContent = buildSummary();
+      statusMsg.textContent = "Resumen generado.";
+    });
+
+    document.getElementById("saveBtn").addEventListener("click", () => {
+      const entry = {
+        fecha: fecha.value,
+        emocion: currentEmotion,
+        energia: energia.value,
+        ansiedad: ansiedad.value,
+        texto: texto.value.trim(),
+        detonantes: detonantes.value.trim(),
+        ayuda: ayuda.value.trim(),
+        necesito: necesito.value.trim(),
+        resumen: buildSummary()
+      };
+
+      localStorage.setItem("bitacora_emocional_personalizada", JSON.stringify(entry));
+      summaryBox.textContent = entry.resumen;
+      lastSavedPreview.textContent = "Guardado el " + entry.fecha + (entry.emocion ? " · Emoción: " + entry.emocion : "");
+      statusMsg.textContent = "Entrada guardada correctamente en este dispositivo.";
+    });
+
+    document.getElementById("clearBtn").addEventListener("click", () => {
+      fecha.value = today;
+      energia.value = 5;
+      ansiedad.value = 5;
+      texto.value = "";
+      detonantes.value = "";
+      ayuda.value = "";
+      necesito.value = "";
+      currentEmotion = "";
+      chips.forEach(chip => chip.classList.remove("active"));
+      emotionPreview.textContent = "Aún no has seleccionado una emoción.";
+      needPreview.textContent = "Tu respuesta aparecerá aquí para recordarte qué priorizar mañana.";
+      summaryBox.textContent = "Aquí aparecerá un pequeño resumen de tu entrada.";
+      statusMsg.textContent = "Formulario limpiado.";
+      updateRangeLabels();
+    });
+
+    function loadSavedEntry() {
+      const saved = localStorage.getItem("bitacora_emocional_personalizada");
+      if (!saved) return;
+
+      try {
+        const entry = JSON.parse(saved);
+        fecha.value = entry.fecha || today;
+        energia.value = entry.energia || 5;
+        ansiedad.value = entry.ansiedad || 5;
+        texto.value = entry.texto || "";
+        detonantes.value = entry.detonantes || "";
+        ayuda.value = entry.ayuda || "";
+        necesito.value = entry.necesito || "";
+        summaryBox.textContent = entry.resumen || "Aquí aparecerá un pequeño resumen de tu entrada.";
+        needPreview.textContent = entry.necesito || "Tu respuesta aparecerá aquí para recordarte qué priorizar mañana.";
+        lastSavedPreview.textContent = "Guardado el " + (entry.fecha || today) + (entry.emocion ? " · Emoción: " + entry.emocion : "");
+
+        if (entry.emocion) {
+          selectEmotion(entry.emocion);
+        }
+
+        updateRangeLabels();
+      } catch (e) {
+        console.error("No se pudo cargar la entrada guardada.");
+      }
+    }
+
+    updateRangeLabels();
+    loadSavedEntry();
+  </script>
+</body>
+</html>
