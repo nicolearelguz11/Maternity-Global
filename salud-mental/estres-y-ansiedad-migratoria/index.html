@@ -14,33 +14,22 @@
       --green-1:#eef8f4;
       --green-2:#dff3ec;
       --green-3:#cfe9df;
-      --green-4:#b7ddd0;
       --green-5:#2f9e8f;
       --blue-1:#0b6fb8;
-      --blue-2:#0a82d1;
       --blue-3:#0f5f9c;
       --blue-4:#1b4d73;
       --white:#ffffff;
-      --card:#fcfffd;
       --text:#163042;
       --muted:#607585;
       --line:rgba(11,111,184,.10);
       --shadow-lg:0 24px 60px rgba(15, 51, 62, .12);
       --shadow-md:0 14px 36px rgba(15, 51, 62, .10);
       --shadow-sm:0 10px 24px rgba(15, 51, 62, .08);
-      --radius-xl:30px;
-      --radius-lg:24px;
-      --radius-md:18px;
       --max:1220px;
     }
 
-    *{
-      box-sizing:border-box;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
 
     body{
       margin:0;
@@ -109,7 +98,6 @@
       color:#fff;
       font-weight:800;
       font-size:1.18rem;
-      letter-spacing:.01em;
     }
 
     nav{
@@ -165,16 +153,6 @@
       margin-bottom:28px;
     }
 
-    .hero-shell::before{
-      content:"";
-      position:absolute;
-      inset:auto -80px -80px auto;
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(47,158,143,.12), rgba(47,158,143,0));
-    }
-
     .hero{
       display:grid;
       grid-template-columns:1.18fr .72fr;
@@ -193,7 +171,6 @@
       color:var(--blue-1);
       font-weight:800;
       font-size:.84rem;
-      letter-spacing:.02em;
       margin-bottom:18px;
     }
 
@@ -203,7 +180,6 @@
       line-height:1.04;
       letter-spacing:-.03em;
       color:var(--blue-4);
-      max-width:900px;
       font-weight:800;
     }
 
@@ -263,8 +239,6 @@
     }
 
     .article-card{
-      position:relative;
-      overflow:hidden;
       background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(251,255,253,.86));
       border:1px solid rgba(255,255,255,.88);
       border-radius:32px;
@@ -272,40 +246,16 @@
       box-shadow:var(--shadow-lg);
     }
 
-    .article-card::after{
-      content:"";
-      position:absolute;
-      left:-120px;
-      bottom:-160px;
-      width:520px;
-      height:320px;
-      background:radial-gradient(circle, rgba(183,229,217,.28), rgba(183,229,217,0));
-      pointer-events:none;
-    }
-
-    .feature-image-box{
-      position:relative;
-      z-index:1;
-      margin:10px 0 28px;
-      border-radius:28px;
-      overflow:hidden;
-      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,255,252,.88));
-      border:1px solid rgba(255,255,255,.92);
-      box-shadow:var(--shadow-md);
-    }
-
-    .feature-image{
-      width:100%;
-      display:block;
-      border-radius:28px;
-    }
-
     .section{
-      position:relative;
-      z-index:1;
       margin-top:38px;
       padding-top:34px;
       border-top:1px solid var(--line);
+    }
+
+    .section:first-child{
+      margin-top:0;
+      padding-top:0;
+      border-top:none;
     }
 
     .section h2{
@@ -324,15 +274,8 @@
       line-height:1.95;
     }
 
-    .section p:last-child{
-      margin-bottom:0;
-    }
-
     .visual-band{
-      position:relative;
-      z-index:1;
       margin:34px 0 8px;
-      min-height:320px;
       border-radius:30px;
       overflow:hidden;
       background:
@@ -346,23 +289,9 @@
       grid-template-columns:1fr 1fr;
       gap:18px;
       padding:28px;
-      align-items:end;
-    }
-
-    .visual-band::after{
-      content:"";
-      position:absolute;
-      right:-40px;
-      bottom:-40px;
-      width:180px;
-      height:180px;
-      border-radius:50%;
-      background:rgba(255,255,255,.28);
     }
 
     .visual-text{
-      position:relative;
-      z-index:2;
       background:rgba(255,255,255,.64);
       border:1px solid rgba(255,255,255,.78);
       box-shadow:var(--shadow-sm);
@@ -374,7 +303,6 @@
       margin:0 0 8px;
       color:var(--green-5);
       font-size:1.08rem;
-      line-height:1.2;
     }
 
     .visual-text p{
@@ -402,7 +330,6 @@
     .side-box-featured{
       background:linear-gradient(180deg, rgba(232,247,242,.96), rgba(255,255,255,.98));
       border:1px solid rgba(47,158,143,.14);
-      border-radius:28px;
       box-shadow:0 12px 30px rgba(47,158,143,.08);
     }
 
@@ -411,7 +338,6 @@
       color:var(--green-5);
       font-size:1.7rem;
       line-height:1.1;
-      letter-spacing:-.02em;
     }
 
     .side-box p,
@@ -431,10 +357,6 @@
       position:relative;
       padding-left:28px;
       margin-bottom:14px;
-    }
-
-    .side-box li:last-child{
-      margin-bottom:0;
     }
 
     .side-box li::before{
@@ -511,7 +433,6 @@
 
       .visual-band{
         grid-template-columns:1fr;
-        min-height:auto;
       }
     }
   </style>
@@ -523,7 +444,6 @@
   <header>
     <div class="container nav">
       <a class="logo" href="../../index.html">Maternity Global</a>
-
       <nav>
         <a href="../../index.html">Inicio</a>
         <a href="../index.html">Salud mental</a>
@@ -538,29 +458,26 @@
       <section class="hero-shell">
         <section class="hero">
           <div>
-            <div class="eyebrow">Estrés • ansiedad • adaptación migratoria</div>
+            <div class="eyebrow">Estrés • ansiedad • adaptación • sistema nervioso</div>
 
             <h1>
               Estrés y
-              <span class="gradient-word">ansiedad migratoria:</span><br>
-              comprender la alerta, el cansancio y la adaptación
+              <span class="gradient-word">ansiedad migratoria</span>
             </h1>
 
             <p class="lead">
-              Migrar no implica solamente un cambio geográfico. También puede significar separación de la familia,
-              adaptación cultural, incertidumbre económica, trámites, cambios de idioma, pérdida de referencias
-              y una sensación persistente de tener que estar resolviendo algo. Todo esto puede aumentar el estrés
-              emocional y mantener al cuerpo y al cerebro en un estado de alerta mayor de lo habitual.
+              La migración puede exigir adaptación constante. Cambiar de país, idioma, red de apoyo,
+              rutinas y referencias culturales puede aumentar la sensación de presión, vigilancia y
+              cansancio emocional. Comprender estas respuestas ayuda a mirarlas con menos culpa y más claridad.
             </p>
           </div>
 
           <aside class="hero-card">
             <div class="label">Mirada científica y humana</div>
-            <h3>Estrés migratorio y sistema nervioso</h3>
+            <h3>El cerebro también responde al cambio</h3>
             <p>
-              Sentir tensión, agotamiento, dificultad para relajarse, miedo al futuro o preocupación constante
-              no siempre significa debilidad ni enfermedad. Muchas veces es la forma en la que el cerebro intenta
-              adaptarse a una realidad nueva, incierta y emocionalmente exigente.
+              Sentir tensión, insomnio, irritabilidad, cansancio o preocupación no siempre significa
+              fragilidad. Muchas veces refleja el esfuerzo del sistema nervioso por adaptarse a un entorno nuevo.
             </p>
           </aside>
         </section>
@@ -568,106 +485,101 @@
 
       <section class="content-grid">
         <article class="article-card">
-          <div class="feature-image-box">
-            <img src="estres-ansiedad-migratoria.png" alt="Ilustración sobre estrés y ansiedad migratoria" class="feature-image">
-          </div>
-
           <section class="section">
             <h2>¿Qué es el estrés migratorio?</h2>
             <p>
-              El estrés migratorio es la respuesta emocional y física que puede aparecer cuando una persona debe adaptarse
-              a un entorno nuevo mientras sostiene pérdidas, cambios y exigencias simultáneas. No se trata solo de “estar nerviosa”.
-              Puede incluir cansancio mental, irritabilidad, insomnio, sensación de sobrecarga, preocupación excesiva,
-              dificultad para concentrarse y sensación de no poder descansar del todo.
+              El estrés migratorio es la carga emocional y física que puede aparecer cuando una persona
+              intenta adaptarse a una nueva realidad mientras enfrenta pérdidas, incertidumbre y exigencias
+              prácticas al mismo tiempo. No se limita a “estar nerviosa”: puede sentirse como agotamiento,
+              hipervigilancia, tensión interna o sensación de que la mente nunca descansa del todo.
             </p>
             <p>
-              En muchas ocasiones, el malestar no surge por un solo motivo, sino por la acumulación de varios factores:
-              distancia con la red de apoyo, incertidumbre laboral, presión económica, trámites legales, discriminación,
-              barreras idiomáticas, maternidad en soledad o sensación de no pertenecer por completo.
+              En muchos casos, no hay una sola causa. El malestar puede surgir por la suma de trámites,
+              idioma, trabajo, vivienda, distancia de la familia, cambios culturales, presión económica
+              y sensación de no pertenecer completamente ni al lugar de origen ni al nuevo entorno.
             </p>
           </section>
 
           <section class="section">
-            <h2>¿Qué ocurre en el cerebro durante la ansiedad migratoria?</h2>
+            <h2>¿Por qué la migración puede aumentar la ansiedad?</h2>
             <p>
-              Desde la neurociencia, la ansiedad puede entenderse como un estado de vigilancia aumentado. El cerebro intenta
-              anticipar riesgos, resolver problemas y detectar señales de peligro o incertidumbre. En contextos migratorios,
-              esta respuesta puede activarse con más facilidad porque muchas referencias conocidas desaparecen al mismo tiempo.
+              Porque obliga al cerebro a manejar demasiadas novedades al mismo tiempo. Lo que antes era automático
+              —pedir ayuda, entender códigos sociales, moverse con confianza, leer el contexto, hablar la lengua—
+              puede volverse incierto o demandante. Esa sobrecarga obliga a estar resolviendo continuamente.
             </p>
             <p>
-              Estructuras como la amígdala participan en la respuesta emocional de alerta. El hipocampo compara la realidad actual
-              con recuerdos previos de seguridad, rutina y pertenencia. La corteza prefrontal intenta regular, interpretar
-              y organizar la experiencia. Cuando la carga es muy alta, puede sentirse que la mente no descansa aunque objetivamente
-              “no esté pasando nada grave” en ese momento.
+              Además, muchas personas migran mientras viven otras tensiones paralelas: maternidad lejos de casa,
+              presión por trabajar, soledad, duelos familiares, miedo a no lograr estabilidad o necesidad de demostrar
+              que la decisión de migrar “valió la pena”. Todo eso puede aumentar la ansiedad.
             </p>
           </section>
 
           <div class="visual-band">
             <div class="visual-text">
-              <h4>Incertidumbre constante</h4>
+              <h4>Incertidumbre sostenida</h4>
               <p>
-                Papeles, vivienda, trabajo, idioma o estabilidad emocional pueden mantener a la persona en una sensación de alerta sostenida.
+                Cuando la estabilidad económica, legal o afectiva no está clara, el cuerpo puede permanecer en alerta prolongada.
               </p>
             </div>
 
             <div class="visual-text">
-              <h4>Adaptarse también agota</h4>
+              <h4>Adaptarse también cansa</h4>
               <p>
-                El esfuerzo por encajar, comprender nuevas normas y sostener la vida diaria consume energía emocional y cognitiva.
+                Aprender nuevas reglas, entender otro idioma y sostener la vida diaria consume energía cognitiva y emocional.
               </p>
             </div>
           </div>
 
           <section class="section">
-            <h2>¿Por qué la migración puede aumentar la ansiedad?</h2>
+            <h2>¿Qué ocurre en el cerebro?</h2>
             <p>
-              Porque obliga al cerebro a procesar demasiadas novedades a la vez. Lo que antes era automático —comprender el idioma,
-              pedir ayuda, saber cómo funciona el sistema, moverse con confianza, acudir a la familia, entender códigos sociales—
-              puede volverse incierto o demandante. Esa pérdida de familiaridad exige un esfuerzo continuo de adaptación.
+              La ansiedad puede entenderse como un estado de vigilancia aumentado. El cerebro intenta anticipar riesgos,
+              resolver problemas y recuperar sensación de control. En este proceso participan regiones implicadas en la emoción,
+              la memoria y la regulación, como la amígdala, el hipocampo y la corteza prefrontal.
             </p>
             <p>
-              Además, muchas personas migran atravesando otras cargas paralelas: duelo por separación, presión económica,
-              embarazos lejos de casa, experiencias traumáticas, maternidad sin red de apoyo o miedo a fracasar.
-              El cuerpo puede vivir todo eso como una exigencia prolongada.
-            </p>
-          </section>
-
-          <section class="section">
-            <h2>Manifestaciones frecuentes del estrés y la ansiedad migratoria</h2>
-            <p>
-              No todas las personas lo viven igual, pero es frecuente encontrar síntomas como tensión muscular, insomnio,
-              dolor de cabeza, preocupación excesiva, irritabilidad, llanto fácil, sensación de estar “desbordada”,
-              dificultad para disfrutar, hipervigilancia, agotamiento o sensación de desconexión emocional.
-            </p>
-            <p>
-              Algunas personas también sienten culpa por no adaptarse tan rápido como esperaban, o se juzgan por sentirse cansadas,
-              tristes o confundidas. Sin embargo, adaptarse a una migración importante requiere tiempo, recursos y seguridad.
+              Cuando el entorno se percibe incierto o muy exigente, la amígdala puede aumentar la respuesta de alerta.
+              El hipocampo compara el presente con recuerdos de seguridad, pertenencia o rutina. La corteza prefrontal intenta
+              organizar, interpretar y regular la experiencia. Si la carga dura mucho tiempo, puede aparecer cansancio mental,
+              dificultad para concentrarse o sensación de saturación.
             </p>
           </section>
 
           <section class="section">
-            <h2>Comprender no elimina el dolor, pero reduce la culpa</h2>
+            <h2>Manifestaciones frecuentes</h2>
             <p>
-              Entender que el cerebro humano responde al cambio, a la pérdida y a la incertidumbre puede ayudar a mirar la experiencia
-              con más compasión. No todo malestar significa que algo esté “mal” en la persona. A veces significa que está viviendo
-              mucho al mismo tiempo y que su sistema nervioso está intentando sostener más de lo que parece desde fuera.
+              Algunas personas presentan insomnio, tensión muscular, preocupación constante, pensamientos repetitivos,
+              irritabilidad, sensación de desborde, llanto fácil, cansancio persistente o dificultad para disfrutar.
+              Otras pueden sentirse desconectadas, bloqueadas o culpables por no adaptarse “tan rápido” como esperaban.
             </p>
             <p>
-              Poner nombre a lo que ocurre permite reconocer límites, buscar apoyo, ordenar prioridades y validar que la adaptación
-              migratoria puede ser un proceso emocionalmente intenso incluso cuando la decisión de migrar fue voluntaria.
+              No todas las personas migrantes vivirán esto del mismo modo, pero estas respuestas son frecuentes cuando
+              el sistema nervioso ha estado sometido a cambios, exigencias y pérdidas acumuladas.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Comprenderlo reduce culpa</h2>
+            <p>
+              Entender que el cuerpo y el cerebro responden al cambio, la incertidumbre y la sobrecarga ayuda a mirar
+              la experiencia con más compasión. No todo malestar significa trastorno. A veces significa que la persona
+              ha tenido que sostener demasiado durante demasiado tiempo.
+            </p>
+            <p>
+              Nombrar lo que ocurre no elimina el dolor, pero puede ayudar a organizar prioridades, reconocer límites,
+              buscar apoyo y dejar de interpretar cada síntoma como un fracaso personal.
             </p>
           </section>
 
           <section class="section">
             <h2>Adaptarse no significa dejar de sentir</h2>
             <p>
-              La adaptación saludable no consiste en apagar las emociones, sino en encontrar una forma de seguir avanzando sin negar
-              el impacto de la experiencia. Una persona puede estar construyendo una nueva vida y al mismo tiempo sentir nostalgia,
-              miedo, cansancio o ambivalencia.
+              Una adaptación saludable no consiste en negar el miedo o el cansancio, sino en construir poco a poco nuevas
+              referencias de seguridad. Es posible avanzar y al mismo tiempo sentir nostalgia, incertidumbre o ambivalencia.
             </p>
             <p>
-              Reconocer esa complejidad es una forma de salud emocional. Comprender el estrés migratorio desde la ciencia y desde la humanidad
-              permite acompañarlo mejor, sin minimizarlo ni exagerarlo.
+              Mirar el estrés y la ansiedad migratoria desde la ciencia y desde la humanidad permite acompañarlos mejor,
+              sin dramatizarlos ni minimizarlos.
             </p>
           </section>
         </article>
@@ -676,21 +588,21 @@
           <div class="side-box">
             <h3>Ideas clave</h3>
             <ul>
-              <li>La migración puede mantener al cerebro en un estado de alerta mayor.</li>
+              <li>La migración puede aumentar la carga del sistema nervioso.</li>
               <li>La ansiedad migratoria no siempre significa enfermedad.</li>
               <li>La incertidumbre sostenida agota emocional y físicamente.</li>
-              <li>Adaptarse a un entorno nuevo consume energía cognitiva y afectiva.</li>
-              <li>Comprender la respuesta del sistema nervioso ayuda a reducir culpa.</li>
+              <li>Adaptarse a otro entorno requiere energía cognitiva y afectiva.</li>
+              <li>Comprender estas respuestas ayuda a reducir culpa.</li>
             </ul>
           </div>
 
           <div class="side-box side-box-featured">
             <div class="side-badge">Reflexión central</div>
             <p class="side-note">
-              Sentirte cansada, alerta o sobrepasada no significa que seas débil.
+              Sentirte cansada, alerta o sobrepasada no significa debilidad.
             </p>
             <p>
-              Muchas veces significa que has vivido demasiados cambios, pérdidas y exigencias al mismo tiempo.
+              Muchas veces significa que has tenido que sostener demasiados cambios, presiones y pérdidas al mismo tiempo.
             </p>
 
             <hr class="side-divider">
@@ -699,17 +611,17 @@
               El cerebro también necesita seguridad.
             </p>
             <p>
-              Cuando el entorno es incierto, la mente puede permanecer en vigilancia constante incluso si la persona intenta seguir funcionando con normalidad.
+              Cuando todo cambia, la mente puede mantenerse en vigilancia constante aunque la persona siga funcionando por fuera.
             </p>
           </div>
 
           <div class="side-box">
             <div class="side-badge">Mensaje central</div>
             <p class="side-note">
-              Entender la ansiedad migratoria cambia la forma de mirarla.
+              Comprender la ansiedad migratoria cambia la forma de mirarla.
             </p>
             <p>
-              No para romantizar el sufrimiento, sino para reconocer que muchas respuestas emocionales son humanas, comprensibles y merecen acompañamiento.
+              No para romantizar el sufrimiento, sino para reconocer que muchas respuestas emocionales son humanas y merecen acompañamiento.
             </p>
           </div>
 
@@ -718,7 +630,7 @@
             <p>
               Esta página forma parte de la sección de salud mental y migración de Maternity Global.
               Puedes volver a la portada para explorar otros temas relacionados con duelo migratorio,
-              soledad, embarazo, trauma y bienestar emocional.
+              soledad, trauma, maternidad y bienestar emocional.
             </p>
           </div>
         </aside>
