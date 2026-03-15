@@ -1,1 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duelo migratorio | Maternity Global</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green-1:#eef8f4;
+      --green-2:#dff3ec;
+      --green-3:#cfe9df;
+      --green-4:#b7ddd0;
+      --green-5:#2f9e8f;
+      --blue-1:#0b6fb8;
+      --blue-2:#0a82d1;
+      --blue-3:#0f5f9c;
+      --blue-4:#1b4d73;
+      --white:#ffffff;
+      --card:#fcfffd;
+      --text:#163042;
+      --muted:#607585;
+      --line:rgba(11,111,184,.10);
+      --shadow-lg:0 24px 60px rgba(15, 51, 62, .12);
+      --shadow-md:0 14px 36px rgba(15, 51, 62, .10);
+      --shadow-sm:0 10px 24px rgba(15, 51, 62, .08);
+      --radius-xl:30px;
+      --radius-lg:24px;
+      --radius-md:18px;
+      --max:1220px;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:"Nunito",system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.80), transparent 20%),
+        radial-gradient(circle at top right, rgba(255,255,255,.42), transparent 22%),
+        linear-gradient(180deg, #f2fbf7 0%, var(--green-2) 34%, var(--green-3) 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .bg-orb{
+      position:fixed;
+      z-index:0;
+      pointer-events:none;
+      border-radius:50%;
+      filter:blur(10px);
+      opacity:.45;
+    }
+
+    .bg-orb-1{
+      width:340px;
+      height:340px;
+      left:-110px;
+      top:160px;
+      background:radial-gradient(circle, rgba(47,158,143,.22), rgba(47,158,143,0));
+    }
+
+    .bg-orb-2{
+      width:420px;
+      height:420px;
+      right:-120px;
+      top:260px;
+      background:radial-gradient(circle, rgba(11,111,184,.12), rgba(11,111,184,0));
+    }
+
+    .container{
+      position:relative;
+      z-index:1;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 24px;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
+      background:rgba(47, 158, 143, .88);
+      border-bottom:1px solid rgba(255,255,255,.18);
+    }
+
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      text-decoration:none;
+      color:#fff;
+      font-weight:800;
+      font-size:1.18rem;
+      letter-spacing:.01em;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:#fff;
+      font-weight:700;
+      padding:10px 14px;
+      border-radius:999px;
+      transition:.22s ease;
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,.14);
+      transform:translateY(-1px);
+    }
+
+    main{
+      padding:42px 0 90px;
+    }
+
+    .back-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      color:var(--blue-1);
+      font-weight:800;
+      margin-bottom:20px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.52);
+      border:1px solid rgba(255,255,255,.65);
+      box-shadow:var(--shadow-sm);
+    }
+
+    .hero-shell{
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.70)),
+        linear-gradient(135deg, rgba(223,245,239,.45), rgba(255,255,255,.18));
+      border:1px solid rgba(255,255,255,.75);
+      border-radius:34px;
+      box-shadow:var(--shadow-lg);
+      padding:34px;
+      margin-bottom:28px;
+    }
+
+    .hero-shell::before{
+      content:"";
+      position:absolute;
+      inset:auto -80px -80px auto;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(47,158,143,.12), rgba(47,158,143,0));
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1.18fr .72fr;
+      gap:28px;
+      align-items:start;
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(11,111,184,.10);
+      color:var(--blue-1);
+      font-weight:800;
+      font-size:.84rem;
+      letter-spacing:.02em;
+      margin-bottom:18px;
+    }
+
+    h1{
+      margin:0 0 18px;
+      font-size:clamp(2.2rem, 4.5vw, 4rem);
+      line-height:1.04;
+      letter-spacing:-.03em;
+      color:var(--blue-4);
+      max-width:900px;
+      font-weight:800;
+    }
+
+    .gradient-word{
+      background:linear-gradient(90deg, var(--green-5), #3aaf9f);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .lead{
+      margin:0;
+      color:var(--text);
+      font-size:1.12rem;
+      line-height:1.9;
+      max-width:820px;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(248,255,252,.76));
+      border:1px solid rgba(255,255,255,.85);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-md);
+    }
+
+    .hero-card .label{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#edf8f4;
+      color:var(--green-5);
+      font-size:.82rem;
+      font-weight:800;
+      margin-bottom:14px;
+    }
+
+   .hero-card h3{
+  margin:0 0 12px;
+  color:var(--green-5);
+  font-size:1.42rem;
+  line-height:1.2;
+    }
+
+    .hero-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:1rem;
+    }
+
+    .content-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.25fr) minmax(300px, .75fr);
+      gap:26px;
+      align-items:start;
+    }
+
+    .article-card{
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(251,255,253,.86));
+      border:1px solid rgba(255,255,255,.88);
+      border-radius:32px;
+      padding:36px;
+      box-shadow:var(--shadow-lg);
+    }
+
+    .article-card::after{
+      content:"";
+      position:absolute;
+      left:-120px;
+      bottom:-160px;
+      width:520px;
+      height:320px;
+      background:radial-gradient(circle, rgba(183,229,217,.28), rgba(183,229,217,0));
+      pointer-events:none;
+    }
+
+    .feature-image-box{
+      position:relative;
+      z-index:1;
+      margin:10px 0 28px;
+      border-radius:28px;
+      overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(247,255,252,.88));
+      border:1px solid rgba(255,255,255,.92);
+      box-shadow:var(--shadow-md);
+    }
+
+    .feature-image{
+      width:100%;
+      display:block;
+      border-radius:28px;
+    }
+
+    .section{
+      position:relative;
+      z-index:1;
+      margin-top:38px;
+      padding-top:34px;
+      border-top:1px solid var(--line);
+    }
+
+    .section h2{
+      margin:0 0 16px;
+      color:var(--green-5);
+      font-size:clamp(1.85rem, 2.7vw, 2.5rem);
+      line-height:1.06;
+      letter-spacing:-.03em;
+      font-weight:800;
+    }
+
+    .section p{
+      margin:0 0 18px;
+      color:var(--text);
+      font-size:1.06rem;
+      line-height:1.95;
+    }
+
+    .section p:last-child{
+      margin-bottom:0;
+    }
+
+    .visual-band{
+      position:relative;
+      z-index:1;
+      margin:34px 0 8px;
+      min-height:320px;
+      border-radius:30px;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 52% 54%, rgba(78,194,171,.36), rgba(78,194,171,0) 26%),
+        radial-gradient(circle at 18% 68%, rgba(47,158,143,.18), rgba(47,158,143,0) 22%),
+        radial-gradient(circle at 83% 67%, rgba(11,111,184,.10), rgba(11,111,184,0) 18%),
+        linear-gradient(180deg, rgba(238,248,244,.9), rgba(216,239,231,.9));
+      border:1px solid rgba(255,255,255,.85);
+      box-shadow:var(--shadow-md);
+    }
+
+    .visual-band .wave{
+      position:absolute;
+      left:-4%;
+      right:-4%;
+      bottom:-78px;
+      height:170px;
+      background:#ffffffd8;
+      border-radius:50% 50% 0 0 / 100% 100% 0 0;
+    }
+
+    .brain-circle{
+      position:absolute;
+      left:50%;
+      top:54%;
+      transform:translate(-50%,-50%);
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle at 35% 35%, rgba(255,255,255,.70), rgba(255,255,255,0) 28%),
+        radial-gradient(circle at 50% 50%, rgba(79,194,171,.55), rgba(79,194,171,.16) 60%, rgba(79,194,171,0) 75%),
+        linear-gradient(135deg, rgba(130,224,205,.65), rgba(83,171,211,.38));
+      border:8px solid rgba(255,255,255,.74);
+      box-shadow:0 20px 50px rgba(47,158,143,.18);
+    }
+
+    .brain-circle::before,
+    .brain-circle::after{
+      content:"";
+      position:absolute;
+      inset:22px;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,.38);
+    }
+
+    .brain-dot{
+      position:absolute;
+      width:16px;
+      height:16px;
+      border-radius:50%;
+      background:#ffffff;
+      box-shadow:0 0 0 6px rgba(255,255,255,.22);
+    }
+
+    .dot-1{ top:40px; left:52px; }
+    .dot-2{ top:74px; right:44px; }
+    .dot-3{ bottom:54px; left:72px; }
+    .dot-4{ bottom:68px; right:70px; }
+    .dot-5{ top:102px; left:104px; }
+
+    .line{
+      position:absolute;
+      height:2px;
+      background:rgba(255,255,255,.7);
+      transform-origin:left center;
+    }
+
+    .line-1{ width:74px; top:74px; left:64px; transform:rotate(18deg); }
+    .line-2{ width:76px; top:122px; left:84px; transform:rotate(-12deg); }
+    .line-3{ width:58px; top:126px; right:68px; transform:rotate(25deg); }
+
+    .mini-card{
+      position:absolute;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.82);
+      box-shadow:var(--shadow-sm);
+      border-radius:22px;
+      padding:16px 18px;
+      max-width:240px;
+    }
+
+    .mini-card h4{
+      margin:0 0 8px;
+      color:var(--green-5);
+      font-size:1.08rem;
+      line-height:1.2;
+    }
+
+    .mini-card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:.96rem;
+    }
+
+    .mini-card.left{
+      left:24px;
+      top:28px;
+      width:250px;
+    }
+
+    .mini-card.right{
+      right:22px;
+      bottom:24px;
+      width:250px;
+    }
+
+    .symbol{
+      position:absolute;
+      color:rgba(47,158,143,.38);
+      font-size:2rem;
+      font-weight:800;
+    }
+
+    .sym-1{ left:28px; bottom:36px; }
+    .sym-2{ right:40px; top:34px; }
+    .sym-3{ left:280px; top:46px; }
+
+    .sidebar{
+      display:grid;
+      gap:20px;
+      position:sticky;
+      top:98px;
+    }
+
+    .side-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(252,255,253,.84));
+      border:1px solid rgba(255,255,255,.9);
+      border-radius:28px;
+      padding:24px;
+      box-shadow:var(--shadow-md);
+    }
+
+    .side-box-featured{
+      background:linear-gradient(180deg, rgba(232,247,242,.96), rgba(255,255,255,.98));
+      border:1px solid rgba(47,158,143,.14);
+      border-radius:28px;
+      box-shadow:0 12px 30px rgba(47,158,143,.08);
+    }
+
+    .side-box h3{
+      margin:0 0 14px;
+      color:var(--green-5);
+      font-size:1.7rem;
+      line-height:1.1;
+      letter-spacing:-.02em;
+    }
+
+    .side-box p,
+    .side-box li{
+      color:var(--muted);
+      line-height:1.8;
+      font-size:1rem;
+    }
+
+    .side-box ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    .side-box li{
+      position:relative;
+      padding-left:28px;
+      margin-bottom:14px;
+    }
+
+    .side-box li:last-child{
+      margin-bottom:0;
+    }
+
+    .side-box li::before{
+      content:"●";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--green-5);
+      font-size:1rem;
+      line-height:1.6;
+    }
+
+    .side-note{
+      margin:0 0 10px;
+      font-weight:800;
+      color:var(--blue-4);
+      font-size:1.15rem;
+      line-height:1.3;
+    }
+
+    .side-divider{
+      border:none;
+      height:1px;
+      background:rgba(11,111,184,.10);
+      margin:16px 0;
+    }
+
+    .side-badge{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#edf8f4;
+      color:var(--green-5);
+      font-size:.8rem;
+      font-weight:800;
+    }
+
+    footer{
+      padding:42px 0 54px;
+      text-align:center;
+      color:var(--blue-3);
+      font-weight:700;
+    }
+
+    @media (max-width: 1100px){
+      .hero,
+      .content-grid{
+        grid-template-columns:1fr;
+      }
+
+      .sidebar{
+        position:static;
+      }
+    }
+
+    @media (max-width: 760px){
+      .container{
+        padding:0 18px;
+      }
+
+      .nav{
+        min-height:auto;
+        padding:14px 0;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .hero-shell,
+      .article-card,
+      .side-box{
+        padding:24px;
+      }
+
+      .visual-band{
+        min-height:360px;
+      }
+
+      .brain-circle{
+        width:170px;
+        height:170px;
+      }
+
+      .mini-card{
+        position:relative;
+        left:auto !important;
+        right:auto !important;
+        top:auto !important;
+        bottom:auto !important;
+        width:auto !important;
+        max-width:none;
+        margin:16px;
+      }
+
+      .symbol{
+        display:none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="../index.html">Maternity Global</a>
+
+      <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="index.html">Salud mental</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <a class="back-link" href="index.html">← Volver a Salud mental</a>
+
+      <section class="hero-shell">
+        <section class="hero">
+          <div>
+            <div class="eyebrow">Duelo • vínculo • resiliencia humana</div>
+
+            <h1>
+              El duelo:
+              <span class="gradient-word">la ciencia del amor,</span><br>
+              la pérdida y la resiliencia humana
+            </h1>
+
+            <p class="lead">
+              El duelo es una de las experiencias más universales de la vida. Aparece cuando perdemos a alguien que amamos,
+              cuando una relación termina, cuando debemos abandonar nuestro hogar, cuando dejamos atrás una parte de nuestra
+              identidad o incluso cuando nos vemos obligados a separarnos de un animal que era parte de nuestra familia.
+            </p>
+          </div>
+
+          <aside class="hero-card">
+            <div class="label">Mirada científica y humana</div>
+            <h3>Duelo migratorio y emocional</h3>
+            <p>
+              Aunque muchas veces se percibe únicamente como tristeza, la ciencia ha demostrado que el duelo es un proceso
+              mucho más complejo. Involucra cambios en el cerebro, en el cuerpo y en la forma en que interpretamos el mundo.
+            </p>
+          </aside>
+        </section>
+      </section>
+
+      <section class="content-grid">
+        <article class="article-card">
+          <div class="feature-image-box">
+            <img src="duelo-migratorio.png" alt="Ilustración sobre duelo migratorio y cerebro" class="feature-image">
+          </div>
+
+          <section class="section">
+            <h2>¿Qué es realmente el duelo?</h2>
+            <p>
+              El duelo es una respuesta emocional, cognitiva y física frente a la pérdida. No ocurre solamente tras la muerte
+              de un ser querido. También puede aparecer después de una migración, un divorcio, una ruptura afectiva,
+              la infertilidad, la pérdida del hogar, la separación de los hijos, el distanciamiento familiar o la despedida
+              de un animal de compañía.
+            </p>
+            <p>
+              Desde la psicología, el duelo se entiende como un proceso de adaptación. La mente necesita reorganizar la realidad
+              cuando aquello que daba estabilidad, pertenencia o sentido ya no está de la misma manera.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>¿Qué ocurre en el cerebro durante el duelo?</h2>
+            <p>
+              La neurociencia ha mostrado que el duelo activa circuitos relacionados con el apego, la memoria, la emoción y el dolor.
+              El cerebro no solo recuerda a quien o a lo que se perdió: también sigue esperando su presencia. Por eso al inicio
+              puede sentirse una especie de incredulidad, confusión o búsqueda constante.
+            </p>
+            <p>
+              Regiones cerebrales vinculadas al dolor emocional, como la corteza cingulada anterior, la ínsula y estructuras del sistema límbico,
+              pueden participar en esta experiencia. Además, el estrés prolongado puede influir en el sueño, el apetito,
+              la concentración, la regulación emocional y la sensación de energía.
+            </p>
+          </section>
+<div class="visual-band visual-green">
+  
+  <div class="visual-text">
+    <h4>Duelo migratorio</h4>
+    <p>
+      Migrar puede implicar pérdidas múltiples: familia, idioma, costumbres,
+      paisajes, red de apoyo y sensación de pertenencia.
+    </p>
+  </div>
+
+  <div class="visual-text">
+    <h4>Vínculo y resiliencia</h4>
+    <p>
+      El dolor no anula la capacidad de sanar. Con el tiempo, la mente puede
+      reorganizarse e integrar la pérdida sin borrar el amor.
+    </p>
+  </div>
+
+</div>
+
+
+          <section class="section">
+            <h2>Duelo migratorio: perder sin desaparecer</h2>
+            <p>
+              En la migración, la pérdida suele ser múltiple. No solo se deja un país: también se deja una lengua cotidiana,
+              una red familiar, una forma de ser entendida, comidas, paisajes, rituales, referencias culturales y, en muchos casos,
+              una identidad profesional o social.
+            </p>
+            <p>
+              Esto puede generar tristeza, nostalgia, irritabilidad, culpa, ansiedad, cansancio emocional o sensación de no pertenecer
+              del todo ni al lugar de origen ni al nuevo lugar. Es un duelo complejo porque muchas de esas pérdidas no son visibles
+              para los demás, pero se sienten intensamente en la vida diaria.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>También se puede hacer duelo por un animal</h2>
+            <p>
+              Para muchas personas, un animal de compañía no es solo una mascota: es familia, refugio emocional, rutina, compañía
+              y seguridad afectiva. Tener que dejarlo atrás por migración, trámites, dificultades económicas o cambios vitales
+              puede producir un dolor real y profundo.
+            </p>
+            <p>
+              Este tipo de duelo a veces se minimiza socialmente, pero desde la salud mental debe ser reconocido y validado.
+              El vínculo con un animal puede activar apego, consuelo y sentido de hogar, especialmente en personas que viven solas
+              o han atravesado otras pérdidas previas.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>¿Por qué cada persona vive el duelo de manera distinta?</h2>
+            <p>
+              No existe una sola forma correcta de vivir una pérdida. Influyen la historia personal, la cultura, la infancia,
+              el tipo de vínculo, la red de apoyo, la personalidad, el contexto migratorio, la estabilidad económica y la presencia
+              o ausencia de otras cargas emocionales.
+            </p>
+            <p>
+              Algunas personas lloran mucho. Otras se sienten desconectadas. Algunas necesitan hablar; otras primero requieren silencio.
+              Ninguna reacción, por sí sola, define la profundidad del amor ni el valor de la relación perdida.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>La resiliencia no es olvidar</h2>
+            <p>
+              Hablar de resiliencia no significa negar el dolor ni “superar rápido” una pérdida. La resiliencia consiste en la capacidad
+              humana de reorganizarse, encontrar sentido, reconstruir vínculos y seguir viviendo sin traicionar lo que fue importante.
+            </p>
+            <p>
+              Con el tiempo, el duelo puede transformarse. No siempre desaparece por completo, pero muchas veces deja de sentirse
+              como una herida abierta y se convierte en una memoria integrada. Recordar sin quebrarse cada vez también es una forma de sanar.
+            </p>
+          </section>
+        </article>
+
+        <aside class="sidebar">
+          <div class="side-box">
+            <h3>Ideas clave</h3>
+            <ul>
+              <li>El duelo es una respuesta natural a la pérdida.</li>
+              <li>No solo ocurre ante la muerte.</li>
+              <li>Puede afectar el cerebro, el cuerpo y la percepción del mundo.</li>
+              <li>El duelo migratorio implica pérdidas múltiples y silenciosas.</li>
+              <li>La resiliencia no borra el vínculo: lo transforma.</li>
+            </ul>
+          </div>
+
+          <div class="side-box side-box-featured">
+            <div class="side-badge">Reflexión central</div>
+            <p class="side-note">
+              Sentir dolor ante una pérdida no es una señal de debilidad.
+            </p>
+            <p>
+              Es la consecuencia natural de haber creado un vínculo significativo.
+            </p>
+
+            <hr class="side-divider">
+
+            <p class="side-note">
+              El duelo no significa debilidad.
+            </p>
+            <p>
+              Significa que existió amor, apego, identidad compartida o una relación profunda con alguien,
+              con un lugar, con una etapa vital o con una forma de vida.
+            </p>
+          </div>
+
+          <div class="side-box">
+            <div class="side-badge">Mensaje central</div>
+            <p class="side-note">
+              El duelo expresa la profundidad del vínculo.
+            </p>
+            <p>
+              Comprenderlo desde la ciencia permite vivirlo con más humanidad, menos culpa y más compasión.
+            </p>
+          </div>
+
+          <div class="side-box">
+            <div class="side-badge">Seguir explorando</div>
+            <p>
+              Esta página forma parte de la sección de salud mental y migración de Maternity Global.
+              Puedes volver a la portada para explorar otros temas relacionados con maternidad,
+              estrés migratorio y bienestar emocional.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Maternity Global
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
