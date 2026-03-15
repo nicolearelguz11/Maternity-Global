@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Duelo migratorio | Maternity Global</title>
+  <title>Estrés y ansiedad migratoria | Maternity Global</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -241,11 +241,11 @@
       margin-bottom:14px;
     }
 
-   .hero-card h3{
-  margin:0 0 12px;
-  color:var(--green-5);
-  font-size:1.42rem;
-  line-height:1.2;
+    .hero-card h3{
+      margin:0 0 12px;
+      color:var(--green-5);
+      font-size:1.42rem;
+      line-height:1.2;
     }
 
     .hero-card p{
@@ -342,115 +342,47 @@
         linear-gradient(180deg, rgba(238,248,244,.9), rgba(216,239,231,.9));
       border:1px solid rgba(255,255,255,.85);
       box-shadow:var(--shadow-md);
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      padding:28px;
+      align-items:end;
     }
 
-    .visual-band .wave{
-      position:absolute;
-      left:-4%;
-      right:-4%;
-      bottom:-78px;
-      height:170px;
-      background:#ffffffd8;
-      border-radius:50% 50% 0 0 / 100% 100% 0 0;
-    }
-
-    .brain-circle{
-      position:absolute;
-      left:50%;
-      top:54%;
-      transform:translate(-50%,-50%);
-      width:220px;
-      height:220px;
-      border-radius:50%;
-      background:
-        radial-gradient(circle at 35% 35%, rgba(255,255,255,.70), rgba(255,255,255,0) 28%),
-        radial-gradient(circle at 50% 50%, rgba(79,194,171,.55), rgba(79,194,171,.16) 60%, rgba(79,194,171,0) 75%),
-        linear-gradient(135deg, rgba(130,224,205,.65), rgba(83,171,211,.38));
-      border:8px solid rgba(255,255,255,.74);
-      box-shadow:0 20px 50px rgba(47,158,143,.18);
-    }
-
-    .brain-circle::before,
-    .brain-circle::after{
+    .visual-band::after{
       content:"";
       position:absolute;
-      inset:22px;
+      right:-40px;
+      bottom:-40px;
+      width:180px;
+      height:180px;
       border-radius:50%;
-      border:2px solid rgba(255,255,255,.38);
+      background:rgba(255,255,255,.28);
     }
 
-    .brain-dot{
-      position:absolute;
-      width:16px;
-      height:16px;
-      border-radius:50%;
-      background:#ffffff;
-      box-shadow:0 0 0 6px rgba(255,255,255,.22);
-    }
-
-    .dot-1{ top:40px; left:52px; }
-    .dot-2{ top:74px; right:44px; }
-    .dot-3{ bottom:54px; left:72px; }
-    .dot-4{ bottom:68px; right:70px; }
-    .dot-5{ top:102px; left:104px; }
-
-    .line{
-      position:absolute;
-      height:2px;
-      background:rgba(255,255,255,.7);
-      transform-origin:left center;
-    }
-
-    .line-1{ width:74px; top:74px; left:64px; transform:rotate(18deg); }
-    .line-2{ width:76px; top:122px; left:84px; transform:rotate(-12deg); }
-    .line-3{ width:58px; top:126px; right:68px; transform:rotate(25deg); }
-
-    .mini-card{
-      position:absolute;
-      background:rgba(255,255,255,.72);
-      border:1px solid rgba(255,255,255,.82);
+    .visual-text{
+      position:relative;
+      z-index:2;
+      background:rgba(255,255,255,.64);
+      border:1px solid rgba(255,255,255,.78);
       box-shadow:var(--shadow-sm);
       border-radius:22px;
-      padding:16px 18px;
-      max-width:240px;
+      padding:18px 20px;
     }
 
-    .mini-card h4{
+    .visual-text h4{
       margin:0 0 8px;
       color:var(--green-5);
       font-size:1.08rem;
       line-height:1.2;
     }
 
-    .mini-card p{
+    .visual-text p{
       margin:0;
       color:var(--muted);
-      line-height:1.65;
-      font-size:.96rem;
+      line-height:1.7;
+      font-size:.97rem;
     }
-
-    .mini-card.left{
-      left:24px;
-      top:28px;
-      width:250px;
-    }
-
-    .mini-card.right{
-      right:22px;
-      bottom:24px;
-      width:250px;
-    }
-
-    .symbol{
-      position:absolute;
-      color:rgba(47,158,143,.38);
-      font-size:2rem;
-      font-weight:800;
-    }
-
-    .sym-1{ left:28px; bottom:36px; }
-    .sym-2{ right:40px; top:34px; }
-    .sym-3{ left:280px; top:46px; }
 
     .sidebar{
       display:grid;
@@ -578,27 +510,8 @@
       }
 
       .visual-band{
-        min-height:360px;
-      }
-
-      .brain-circle{
-        width:170px;
-        height:170px;
-      }
-
-      .mini-card{
-        position:relative;
-        left:auto !important;
-        right:auto !important;
-        top:auto !important;
-        bottom:auto !important;
-        width:auto !important;
-        max-width:none;
-        margin:16px;
-      }
-
-      .symbol{
-        display:none;
+        grid-template-columns:1fr;
+        min-height:auto;
       }
     }
   </style>
@@ -609,43 +522,45 @@
 
   <header>
     <div class="container nav">
-      <a class="logo" href="../index.html">Maternity Global</a>
+      <a class="logo" href="../../index.html">Maternity Global</a>
 
       <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="index.html">Salud mental</a>
+        <a href="../../index.html">Inicio</a>
+        <a href="../index.html">Salud mental</a>
       </nav>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <a class="back-link" href="index.html">← Volver a Salud mental</a>
+      <a class="back-link" href="../index.html">← Volver a Salud mental</a>
 
       <section class="hero-shell">
         <section class="hero">
           <div>
-            <div class="eyebrow">Duelo • vínculo • resiliencia humana</div>
+            <div class="eyebrow">Estrés • ansiedad • adaptación migratoria</div>
 
             <h1>
-              El duelo:
-              <span class="gradient-word">la ciencia del amor,</span><br>
-              la pérdida y la resiliencia humana
+              Estrés y
+              <span class="gradient-word">ansiedad migratoria:</span><br>
+              comprender la alerta, el cansancio y la adaptación
             </h1>
 
             <p class="lead">
-              El duelo es una de las experiencias más universales de la vida. Aparece cuando perdemos a alguien que amamos,
-              cuando una relación termina, cuando debemos abandonar nuestro hogar, cuando dejamos atrás una parte de nuestra
-              identidad o incluso cuando nos vemos obligados a separarnos de un animal que era parte de nuestra familia.
+              Migrar no implica solamente un cambio geográfico. También puede significar separación de la familia,
+              adaptación cultural, incertidumbre económica, trámites, cambios de idioma, pérdida de referencias
+              y una sensación persistente de tener que estar resolviendo algo. Todo esto puede aumentar el estrés
+              emocional y mantener al cuerpo y al cerebro en un estado de alerta mayor de lo habitual.
             </p>
           </div>
 
           <aside class="hero-card">
             <div class="label">Mirada científica y humana</div>
-            <h3>Duelo migratorio y emocional</h3>
+            <h3>Estrés migratorio y sistema nervioso</h3>
             <p>
-              Aunque muchas veces se percibe únicamente como tristeza, la ciencia ha demostrado que el duelo es un proceso
-              mucho más complejo. Involucra cambios en el cerebro, en el cuerpo y en la forma en que interpretamos el mundo.
+              Sentir tensión, agotamiento, dificultad para relajarse, miedo al futuro o preocupación constante
+              no siempre significa debilidad ni enfermedad. Muchas veces es la forma en la que el cerebro intenta
+              adaptarse a una realidad nueva, incierta y emocionalmente exigente.
             </p>
           </aside>
         </section>
@@ -654,107 +569,105 @@
       <section class="content-grid">
         <article class="article-card">
           <div class="feature-image-box">
-            <img src="duelo-migratorio.png" alt="Ilustración sobre duelo migratorio y cerebro" class="feature-image">
+            <img src="estres-ansiedad-migratoria.png" alt="Ilustración sobre estrés y ansiedad migratoria" class="feature-image">
           </div>
 
           <section class="section">
-            <h2>¿Qué es realmente el duelo?</h2>
+            <h2>¿Qué es el estrés migratorio?</h2>
             <p>
-              El duelo es una respuesta emocional, cognitiva y física frente a la pérdida. No ocurre solamente tras la muerte
-              de un ser querido. También puede aparecer después de una migración, un divorcio, una ruptura afectiva,
-              la infertilidad, la pérdida del hogar, la separación de los hijos, el distanciamiento familiar o la despedida
-              de un animal de compañía.
+              El estrés migratorio es la respuesta emocional y física que puede aparecer cuando una persona debe adaptarse
+              a un entorno nuevo mientras sostiene pérdidas, cambios y exigencias simultáneas. No se trata solo de “estar nerviosa”.
+              Puede incluir cansancio mental, irritabilidad, insomnio, sensación de sobrecarga, preocupación excesiva,
+              dificultad para concentrarse y sensación de no poder descansar del todo.
             </p>
             <p>
-              Desde la psicología, el duelo se entiende como un proceso de adaptación. La mente necesita reorganizar la realidad
-              cuando aquello que daba estabilidad, pertenencia o sentido ya no está de la misma manera.
-            </p>
-          </section>
-
-          <section class="section">
-            <h2>¿Qué ocurre en el cerebro durante el duelo?</h2>
-            <p>
-              La neurociencia ha mostrado que el duelo activa circuitos relacionados con el apego, la memoria, la emoción y el dolor.
-              El cerebro no solo recuerda a quien o a lo que se perdió: también sigue esperando su presencia. Por eso al inicio
-              puede sentirse una especie de incredulidad, confusión o búsqueda constante.
-            </p>
-            <p>
-              Regiones cerebrales vinculadas al dolor emocional, como la corteza cingulada anterior, la ínsula y estructuras del sistema límbico,
-              pueden participar en esta experiencia. Además, el estrés prolongado puede influir en el sueño, el apetito,
-              la concentración, la regulación emocional y la sensación de energía.
-            </p>
-          </section>
-<div class="visual-band visual-green">
-  
-  <div class="visual-text">
-    <h4>Duelo migratorio</h4>
-    <p>
-      Migrar puede implicar pérdidas múltiples: familia, idioma, costumbres,
-      paisajes, red de apoyo y sensación de pertenencia.
-    </p>
-  </div>
-
-  <div class="visual-text">
-    <h4>Vínculo y resiliencia</h4>
-    <p>
-      El dolor no anula la capacidad de sanar. Con el tiempo, la mente puede
-      reorganizarse e integrar la pérdida sin borrar el amor.
-    </p>
-  </div>
-
-</div>
-
-
-          <section class="section">
-            <h2>Duelo migratorio: perder sin desaparecer</h2>
-            <p>
-              En la migración, la pérdida suele ser múltiple. No solo se deja un país: también se deja una lengua cotidiana,
-              una red familiar, una forma de ser entendida, comidas, paisajes, rituales, referencias culturales y, en muchos casos,
-              una identidad profesional o social.
-            </p>
-            <p>
-              Esto puede generar tristeza, nostalgia, irritabilidad, culpa, ansiedad, cansancio emocional o sensación de no pertenecer
-              del todo ni al lugar de origen ni al nuevo lugar. Es un duelo complejo porque muchas de esas pérdidas no son visibles
-              para los demás, pero se sienten intensamente en la vida diaria.
+              En muchas ocasiones, el malestar no surge por un solo motivo, sino por la acumulación de varios factores:
+              distancia con la red de apoyo, incertidumbre laboral, presión económica, trámites legales, discriminación,
+              barreras idiomáticas, maternidad en soledad o sensación de no pertenecer por completo.
             </p>
           </section>
 
           <section class="section">
-            <h2>También se puede hacer duelo por un animal</h2>
+            <h2>¿Qué ocurre en el cerebro durante la ansiedad migratoria?</h2>
             <p>
-              Para muchas personas, un animal de compañía no es solo una mascota: es familia, refugio emocional, rutina, compañía
-              y seguridad afectiva. Tener que dejarlo atrás por migración, trámites, dificultades económicas o cambios vitales
-              puede producir un dolor real y profundo.
+              Desde la neurociencia, la ansiedad puede entenderse como un estado de vigilancia aumentado. El cerebro intenta
+              anticipar riesgos, resolver problemas y detectar señales de peligro o incertidumbre. En contextos migratorios,
+              esta respuesta puede activarse con más facilidad porque muchas referencias conocidas desaparecen al mismo tiempo.
             </p>
             <p>
-              Este tipo de duelo a veces se minimiza socialmente, pero desde la salud mental debe ser reconocido y validado.
-              El vínculo con un animal puede activar apego, consuelo y sentido de hogar, especialmente en personas que viven solas
-              o han atravesado otras pérdidas previas.
+              Estructuras como la amígdala participan en la respuesta emocional de alerta. El hipocampo compara la realidad actual
+              con recuerdos previos de seguridad, rutina y pertenencia. La corteza prefrontal intenta regular, interpretar
+              y organizar la experiencia. Cuando la carga es muy alta, puede sentirse que la mente no descansa aunque objetivamente
+              “no esté pasando nada grave” en ese momento.
+            </p>
+          </section>
+
+          <div class="visual-band">
+            <div class="visual-text">
+              <h4>Incertidumbre constante</h4>
+              <p>
+                Papeles, vivienda, trabajo, idioma o estabilidad emocional pueden mantener a la persona en una sensación de alerta sostenida.
+              </p>
+            </div>
+
+            <div class="visual-text">
+              <h4>Adaptarse también agota</h4>
+              <p>
+                El esfuerzo por encajar, comprender nuevas normas y sostener la vida diaria consume energía emocional y cognitiva.
+              </p>
+            </div>
+          </div>
+
+          <section class="section">
+            <h2>¿Por qué la migración puede aumentar la ansiedad?</h2>
+            <p>
+              Porque obliga al cerebro a procesar demasiadas novedades a la vez. Lo que antes era automático —comprender el idioma,
+              pedir ayuda, saber cómo funciona el sistema, moverse con confianza, acudir a la familia, entender códigos sociales—
+              puede volverse incierto o demandante. Esa pérdida de familiaridad exige un esfuerzo continuo de adaptación.
+            </p>
+            <p>
+              Además, muchas personas migran atravesando otras cargas paralelas: duelo por separación, presión económica,
+              embarazos lejos de casa, experiencias traumáticas, maternidad sin red de apoyo o miedo a fracasar.
+              El cuerpo puede vivir todo eso como una exigencia prolongada.
             </p>
           </section>
 
           <section class="section">
-            <h2>¿Por qué cada persona vive el duelo de manera distinta?</h2>
+            <h2>Manifestaciones frecuentes del estrés y la ansiedad migratoria</h2>
             <p>
-              No existe una sola forma correcta de vivir una pérdida. Influyen la historia personal, la cultura, la infancia,
-              el tipo de vínculo, la red de apoyo, la personalidad, el contexto migratorio, la estabilidad económica y la presencia
-              o ausencia de otras cargas emocionales.
+              No todas las personas lo viven igual, pero es frecuente encontrar síntomas como tensión muscular, insomnio,
+              dolor de cabeza, preocupación excesiva, irritabilidad, llanto fácil, sensación de estar “desbordada”,
+              dificultad para disfrutar, hipervigilancia, agotamiento o sensación de desconexión emocional.
             </p>
             <p>
-              Algunas personas lloran mucho. Otras se sienten desconectadas. Algunas necesitan hablar; otras primero requieren silencio.
-              Ninguna reacción, por sí sola, define la profundidad del amor ni el valor de la relación perdida.
+              Algunas personas también sienten culpa por no adaptarse tan rápido como esperaban, o se juzgan por sentirse cansadas,
+              tristes o confundidas. Sin embargo, adaptarse a una migración importante requiere tiempo, recursos y seguridad.
             </p>
           </section>
 
           <section class="section">
-            <h2>La resiliencia no es olvidar</h2>
+            <h2>Comprender no elimina el dolor, pero reduce la culpa</h2>
             <p>
-              Hablar de resiliencia no significa negar el dolor ni “superar rápido” una pérdida. La resiliencia consiste en la capacidad
-              humana de reorganizarse, encontrar sentido, reconstruir vínculos y seguir viviendo sin traicionar lo que fue importante.
+              Entender que el cerebro humano responde al cambio, a la pérdida y a la incertidumbre puede ayudar a mirar la experiencia
+              con más compasión. No todo malestar significa que algo esté “mal” en la persona. A veces significa que está viviendo
+              mucho al mismo tiempo y que su sistema nervioso está intentando sostener más de lo que parece desde fuera.
             </p>
             <p>
-              Con el tiempo, el duelo puede transformarse. No siempre desaparece por completo, pero muchas veces deja de sentirse
-              como una herida abierta y se convierte en una memoria integrada. Recordar sin quebrarse cada vez también es una forma de sanar.
+              Poner nombre a lo que ocurre permite reconocer límites, buscar apoyo, ordenar prioridades y validar que la adaptación
+              migratoria puede ser un proceso emocionalmente intenso incluso cuando la decisión de migrar fue voluntaria.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Adaptarse no significa dejar de sentir</h2>
+            <p>
+              La adaptación saludable no consiste en apagar las emociones, sino en encontrar una forma de seguir avanzando sin negar
+              el impacto de la experiencia. Una persona puede estar construyendo una nueva vida y al mismo tiempo sentir nostalgia,
+              miedo, cansancio o ambivalencia.
+            </p>
+            <p>
+              Reconocer esa complejidad es una forma de salud emocional. Comprender el estrés migratorio desde la ciencia y desde la humanidad
+              permite acompañarlo mejor, sin minimizarlo ni exagerarlo.
             </p>
           </section>
         </article>
@@ -763,41 +676,40 @@
           <div class="side-box">
             <h3>Ideas clave</h3>
             <ul>
-              <li>El duelo es una respuesta natural a la pérdida.</li>
-              <li>No solo ocurre ante la muerte.</li>
-              <li>Puede afectar el cerebro, el cuerpo y la percepción del mundo.</li>
-              <li>El duelo migratorio implica pérdidas múltiples y silenciosas.</li>
-              <li>La resiliencia no borra el vínculo: lo transforma.</li>
+              <li>La migración puede mantener al cerebro en un estado de alerta mayor.</li>
+              <li>La ansiedad migratoria no siempre significa enfermedad.</li>
+              <li>La incertidumbre sostenida agota emocional y físicamente.</li>
+              <li>Adaptarse a un entorno nuevo consume energía cognitiva y afectiva.</li>
+              <li>Comprender la respuesta del sistema nervioso ayuda a reducir culpa.</li>
             </ul>
           </div>
 
           <div class="side-box side-box-featured">
             <div class="side-badge">Reflexión central</div>
             <p class="side-note">
-              Sentir dolor ante una pérdida no es una señal de debilidad.
+              Sentirte cansada, alerta o sobrepasada no significa que seas débil.
             </p>
             <p>
-              Es la consecuencia natural de haber creado un vínculo significativo.
+              Muchas veces significa que has vivido demasiados cambios, pérdidas y exigencias al mismo tiempo.
             </p>
 
             <hr class="side-divider">
 
             <p class="side-note">
-              El duelo no significa debilidad.
+              El cerebro también necesita seguridad.
             </p>
             <p>
-              Significa que existió amor, apego, identidad compartida o una relación profunda con alguien,
-              con un lugar, con una etapa vital o con una forma de vida.
+              Cuando el entorno es incierto, la mente puede permanecer en vigilancia constante incluso si la persona intenta seguir funcionando con normalidad.
             </p>
           </div>
 
           <div class="side-box">
             <div class="side-badge">Mensaje central</div>
             <p class="side-note">
-              El duelo expresa la profundidad del vínculo.
+              Entender la ansiedad migratoria cambia la forma de mirarla.
             </p>
             <p>
-              Comprenderlo desde la ciencia permite vivirlo con más humanidad, menos culpa y más compasión.
+              No para romantizar el sufrimiento, sino para reconocer que muchas respuestas emocionales son humanas, comprensibles y merecen acompañamiento.
             </p>
           </div>
 
@@ -805,8 +717,8 @@
             <div class="side-badge">Seguir explorando</div>
             <p>
               Esta página forma parte de la sección de salud mental y migración de Maternity Global.
-              Puedes volver a la portada para explorar otros temas relacionados con maternidad,
-              estrés migratorio y bienestar emocional.
+              Puedes volver a la portada para explorar otros temas relacionados con duelo migratorio,
+              soledad, embarazo, trauma y bienestar emocional.
             </p>
           </div>
         </aside>
