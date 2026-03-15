@@ -1,1 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Embarazo y salud mental | Maternity Global</title>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green-1:#eef8f4;
+      --green-2:#dff3ec;
+      --green-3:#cfe9df;
+      --green-5:#2f9e8f;
+      --blue-1:#0b6fb8;
+      --blue-3:#0f5f9c;
+      --blue-4:#1b4d73;
+      --text:#163042;
+      --muted:#607585;
+      --line:rgba(11,111,184,.10);
+      --shadow-lg:0 24px 60px rgba(15, 51, 62, .12);
+      --shadow-md:0 14px 36px rgba(15, 51, 62, .10);
+      --shadow-sm:0 10px 24px rgba(15, 51, 62, .08);
+      --max:1220px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+
+    body{
+      margin:0;
+      font-family:"Nunito",system-ui,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.80), transparent 20%),
+        radial-gradient(circle at top right, rgba(255,255,255,.42), transparent 22%),
+        linear-gradient(180deg, #f2fbf7 0%, var(--green-2) 34%, var(--green-3) 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .bg-orb{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(10px);opacity:.45;}
+    .bg-orb-1{width:340px;height:340px;left:-110px;top:160px;background:radial-gradient(circle, rgba(47,158,143,.22), rgba(47,158,143,0));}
+    .bg-orb-2{width:420px;height:420px;right:-120px;top:260px;background:radial-gradient(circle, rgba(11,111,184,.12), rgba(11,111,184,0));}
+
+    .container{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 24px;}
+
+    header{
+      position:sticky;top:0;z-index:100;backdrop-filter:blur(14px);
+      background:rgba(47,158,143,.88);border-bottom:1px solid rgba(255,255,255,.18);
+    }
+
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .logo{text-decoration:none;color:#fff;font-weight:800;font-size:1.18rem;}
+    nav{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+    nav a{text-decoration:none;color:#fff;font-weight:700;padding:10px 14px;border-radius:999px;transition:.22s ease;}
+    nav a:hover{background:rgba(255,255,255,.14);transform:translateY(-1px);}
+
+    main{padding:42px 0 90px;}
+
+    .back-link{
+      display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--blue-1);
+      font-weight:800;margin-bottom:20px;padding:10px 14px;border-radius:999px;
+      background:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.65);box-shadow:var(--shadow-sm);
+    }
+
+    .hero-shell{
+      position:relative;overflow:hidden;
+      background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(255,255,255,.70)),
+                 linear-gradient(135deg, rgba(223,245,239,.45), rgba(255,255,255,.18));
+      border:1px solid rgba(255,255,255,.75);border-radius:34px;box-shadow:var(--shadow-lg);
+      padding:34px;margin-bottom:28px;
+    }
+
+    .hero-shell::before{
+      content:"";position:absolute;inset:auto -80px -80px auto;width:260px;height:260px;border-radius:50%;
+      background:radial-gradient(circle, rgba(47,158,143,.12), rgba(47,158,143,0));
+    }
+
+    .hero{display:grid;grid-template-columns:1.18fr .72fr;gap:28px;align-items:start;position:relative;z-index:1;}
+    .eyebrow{
+      display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;
+      background:rgba(11,111,184,.10);color:var(--blue-1);font-weight:800;font-size:.84rem;margin-bottom:18px;
+    }
+
+    h1{
+      margin:0 0 18px;font-size:clamp(2.2rem, 4.5vw, 4rem);line-height:1.04;letter-spacing:-.03em;
+      color:var(--blue-4);font-weight:800;
+    }
+
+    .gradient-word{
+      background:linear-gradient(90deg, var(--green-5), #3aaf9f);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+
+    .lead{margin:0;color:var(--text);font-size:1.12rem;line-height:1.9;max-width:820px;}
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.84), rgba(248,255,252,.76));
+      border:1px solid rgba(255,255,255,.85);border-radius:28px;padding:24px;box-shadow:var(--shadow-md);
+    }
+
+    .hero-card .label{
+      display:inline-block;padding:8px 14px;border-radius:999px;background:#edf8f4;color:var(--green-5);
+      font-size:.82rem;font-weight:800;margin-bottom:14px;
+    }
+
+    .hero-card h3{margin:0 0 12px;color:var(--green-5);font-size:1.42rem;line-height:1.2;}
+    .hero-card p{margin:0;color:var(--muted);line-height:1.8;font-size:1rem;}
+
+    .content-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,.75fr);gap:26px;align-items:start;}
+
+    .article-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(251,255,253,.86));
+      border:1px solid rgba(255,255,255,.88);border-radius:32px;padding:36px;box-shadow:var(--shadow-lg);
+    }
+
+    .section{margin-top:38px;padding-top:34px;border-top:1px solid var(--line);}
+    .section:first-child{margin-top:0;padding-top:0;border-top:none;}
+    .section h2{
+      margin:0 0 16px;color:var(--green-5);font-size:clamp(1.85rem, 2.7vw, 2.5rem);
+      line-height:1.06;letter-spacing:-.03em;font-weight:800;
+    }
+    .section p{margin:0 0 18px;color:var(--text);font-size:1.06rem;line-height:1.95;}
+
+    .visual-band{
+      margin:34px 0 8px;border-radius:30px;overflow:hidden;
+      background:
+        radial-gradient(circle at 52% 54%, rgba(78,194,171,.36), rgba(78,194,171,0) 26%),
+        radial-gradient(circle at 18% 68%, rgba(47,158,143,.18), rgba(47,158,143,0) 22%),
+        radial-gradient(circle at 83% 67%, rgba(11,111,184,.10), rgba(11,111,184,0) 18%),
+        linear-gradient(180deg, rgba(238,248,244,.9), rgba(216,239,231,.9));
+      border:1px solid rgba(255,255,255,.85);box-shadow:var(--shadow-md);
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:28px;
+    }
+
+    .visual-text{
+      background:rgba(255,255,255,.64);border:1px solid rgba(255,255,255,.78);
+      box-shadow:var(--shadow-sm);border-radius:22px;padding:18px 20px;
+    }
+    .visual-text h4{margin:0 0 8px;color:var(--green-5);font-size:1.08rem;}
+    .visual-text p{margin:0;color:var(--muted);line-height:1.7;font-size:.97rem;}
+
+    .sidebar{display:grid;gap:20px;position:sticky;top:98px;}
+    .side-box{
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(252,255,253,.84));
+      border:1px solid rgba(255,255,255,.9);border-radius:28px;padding:24px;box-shadow:var(--shadow-md);
+    }
+    .side-box-featured{
+      background:linear-gradient(180deg, rgba(232,247,242,.96), rgba(255,255,255,.98));
+      border:1px solid rgba(47,158,143,.14);box-shadow:0 12px 30px rgba(47,158,143,.08);
+    }
+    .side-box h3{margin:0 0 14px;color:var(--green-5);font-size:1.7rem;line-height:1.1;}
+    .side-box p, .side-box li{color:var(--muted);line-height:1.8;font-size:1rem;}
+    .side-box ul{list-style:none;padding:0;margin:0;}
+    .side-box li{position:relative;padding-left:28px;margin-bottom:14px;}
+    .side-box li::before{content:"●";position:absolute;left:0;top:0;color:var(--green-5);font-size:1rem;line-height:1.6;}
+    .side-note{margin:0 0 10px;font-weight:800;color:var(--blue-4);font-size:1.15rem;line-height:1.3;}
+    .side-divider{border:none;height:1px;background:rgba(11,111,184,.10);margin:16px 0;}
+    .side-badge{
+      display:inline-block;margin-bottom:12px;padding:8px 12px;border-radius:999px;background:#edf8f4;
+      color:var(--green-5);font-size:.8rem;font-weight:800;
+    }
+
+    footer{padding:42px 0 54px;text-align:center;color:var(--blue-3);font-weight:700;}
+
+    @media (max-width:1100px){
+      .hero,.content-grid{grid-template-columns:1fr;}
+      .sidebar{position:static;}
+    }
+
+    @media (max-width:760px){
+      .container{padding:0 18px;}
+      .nav{min-height:auto;padding:14px 0;flex-direction:column;align-items:flex-start;}
+      .hero-shell,.article-card,.side-box{padding:24px;}
+      .visual-band{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="../../index.html">Maternity Global</a>
+      <nav>
+        <a href="../../index.html">Inicio</a>
+        <a href="../index.html">Salud mental</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <a class="back-link" href="../index.html">← Volver a Salud mental</a>
+
+      <section class="hero-shell">
+        <section class="hero">
+          <div>
+            <div class="eyebrow">Embarazo • salud mental • vulnerabilidad • adaptación</div>
+            <h1>
+              Embarazo y
+              <span class="gradient-word">salud mental</span>
+            </h1>
+            <p class="lead">
+              El embarazo no es solo un proceso biológico. También puede movilizar emociones intensas, temores,
+              recuerdos, expectativas y cambios en la identidad. En contextos migratorios, estas experiencias pueden
+              volverse más complejas por la distancia con la familia, la falta de red de apoyo, la incertidumbre y la adaptación cultural.
+            </p>
+          </div>
+
+          <aside class="hero-card">
+            <div class="label">Mirada científica y humana</div>
+            <h3>La salud mental perinatal importa</h3>
+            <p>
+              Sentir miedo, agotamiento, ambivalencia o vulnerabilidad durante el embarazo no siempre significa que algo esté mal.
+              Muchas veces refleja una etapa de cambio profundo que merece apoyo, información clara y acompañamiento sin juicio.
+            </p>
+          </aside>
+        </section>
+      </section>
+
+      <section class="content-grid">
+        <article class="article-card">
+          <section class="section">
+            <h2>¿Por qué el embarazo puede impactar la salud mental?</h2>
+            <p>
+              El embarazo implica cambios hormonales, físicos, emocionales y sociales. También puede activar preguntas sobre el futuro,
+              el cuerpo, la maternidad, la estabilidad económica, la pareja, la familia y el sentido de responsabilidad.
+              Para algunas personas, esta etapa se vive con ilusión; para otras, también con miedo, cansancio o incertidumbre.
+            </p>
+            <p>
+              No existe una única forma correcta de sentirse. La experiencia puede ser ambivalente: una persona puede amar a su bebé
+              y al mismo tiempo sentirse sobrepasada, sola o preocupada. Reconocer esa complejidad es parte de una mirada más humana
+              y más realista de la salud mental perinatal.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Embarazo en contexto migratorio</h2>
+            <p>
+              Cuando el embarazo ocurre lejos del país de origen, el nivel de exigencia emocional puede aumentar. La ausencia de la madre,
+              de la familia o de amistades cercanas puede hacer que una etapa ya vulnerable se sienta todavía más solitaria.
+              Además, pueden aparecer barreras idiomáticas, dificultades para entender el sistema de salud, miedo administrativo
+              o inseguridad laboral y económica.
+            </p>
+            <p>
+              En estos contextos, la persona embarazada puede experimentar una mezcla de ilusión y duelo: alegría por el embarazo,
+              pero también tristeza por no poder compartirlo como hubiera querido con su red afectiva de origen.
+            </p>
+          </section>
+
+          <div class="visual-band">
+            <div class="visual-text">
+              <h4>Vulnerabilidad no es debilidad</h4>
+              <p>
+                Durante el embarazo es normal sentirse más sensible. El cuerpo y la mente están atravesando una reorganización profunda.
+              </p>
+            </div>
+
+            <div class="visual-text">
+              <h4>La red de apoyo protege</h4>
+              <p>
+                Contar con acompañamiento emocional, información clara y vínculos seguros puede reducir el impacto del estrés.
+              </p>
+            </div>
+          </div>
+
+          <section class="section">
+            <h2>Factores que pueden aumentar el malestar</h2>
+            <p>
+              Algunos factores que pueden intensificar la carga emocional son la soledad, antecedentes de ansiedad o depresión,
+              relaciones de pareja conflictivas, violencia, trauma previo, embarazo no planificado, incertidumbre económica,
+              migración reciente o falta de acceso a atención sanitaria comprensible y cercana.
+            </p>
+            <p>
+              Esto no significa que el malestar sea inevitable, pero sí que algunas personas necesitarán más apoyo, más contención
+              y más recursos para atravesar esta etapa con seguridad.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Manifestaciones emocionales frecuentes</h2>
+            <p>
+              Es posible sentir preocupación excesiva, dificultad para dormir, irritabilidad, llanto fácil, miedo al parto,
+              ambivalencia, sensación de no estar preparada, cansancio emocional o sensación de desborde.
+              A veces también aparecen culpa o vergüenza por no sentirse “feliz todo el tiempo”.
+            </p>
+            <p>
+              La idealización del embarazo puede hacer que muchas personas callen su malestar. Sin embargo, la salud mental perinatal
+              incluye precisamente la posibilidad de hablar de lo difícil sin dejar de reconocer lo valioso de la experiencia.
+            </p>
+          </section>
+
+          <section class="section">
+            <h2>Cuidar la salud mental también es cuidado prenatal</h2>
+            <p>
+              Atender el bienestar emocional durante el embarazo no es un lujo ni algo secundario. Forma parte del cuidado integral.
+              Dormir, descansar, pedir ayuda, hablar de los miedos, recibir atención respetuosa y contar con espacios de apoyo
+              puede marcar una diferencia importante.
+            </p>
+            <p>
+              La salud mental no se reduce a ausencia de trastorno. También implica sentirse acompañada, comprendida y suficientemente segura
+              para vivir esta etapa sin tener que ocultar el cansancio o la vulnerabilidad.
+            </p>
+          </section>
+        </article>
+
+        <aside class="sidebar">
+          <div class="side-box">
+            <h3>Ideas clave</h3>
+            <ul>
+              <li>El embarazo puede movilizar emociones intensas y cambiantes.</li>
+              <li>En migración, la falta de red de apoyo puede aumentar la vulnerabilidad.</li>
+              <li>La ambivalencia emocional no significa rechazo ni fracaso.</li>
+              <li>La salud mental perinatal forma parte del cuidado integral.</li>
+              <li>Pedir apoyo también es una forma de cuidado.</li>
+            </ul>
+          </div>
+
+          <div class="side-box side-box-featured">
+            <div class="side-badge">Reflexión central</div>
+            <p class="side-note">
+              No necesitas sentirte fuerte todo el tiempo para estar cuidando bien de ti y de tu embarazo.
+            </p>
+            <p>
+              La vulnerabilidad durante esta etapa puede ser una respuesta humana a los cambios físicos, emocionales y sociales que estás viviendo.
+            </p>
+            <hr class="side-divider">
+            <p class="side-note">La salud mental también merece seguimiento.</p>
+            <p>
+              Hablar de emociones, miedos y agotamiento durante el embarazo es parte del cuidado, no un signo de debilidad.
+            </p>
+          </div>
+
+          <div class="side-box">
+            <div class="side-badge">Mensaje central</div>
+            <p class="side-note">El embarazo no tiene que vivirse en silencio.</p>
+            <p>
+              Comprender esta etapa desde la ciencia y desde la humanidad ayuda a acompañarla con más realismo, menos culpa y más apoyo.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Maternity Global</footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
