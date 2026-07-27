@@ -1,0 +1,1 @@
+import{r as e,t}from"./jsx-runtime-Fvaned_r.js";e();var n=t();function r(e){return(0,n.jsx)(`a`,{...e})}export{r as t};
