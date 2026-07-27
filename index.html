@@ -1,713 +1,304 @@
-<!-- ==================================================
-     GUÍA SOBRE VPH
-================================================== -->
-<section id="vph" class="vph-section">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maternity Global: información médica clara sobre salud femenina, embarazo, fertilidad, VPH y migración.">
+  <meta name="theme-color" content="#075a56">
+  <title>Maternity Global | Salud femenina sin fronteras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#163c3c;--muted:#607471;--teal:#0b6d69;--teal-dark:#07514e;
+      --mint:#dff1eb;--cream:#fbfaf5;--peach:#f7e1d3;--white:#fff;
+      --line:#d8e3df;--danger:#9a422d;--shadow:0 24px 60px rgba(19,60,58,.13)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:110px}
+    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    img{max-width:100%}
+    .container{width:min(1160px,calc(100% - 40px));margin-inline:auto}
+    .skip-link{position:absolute;left:-9999px}
+    .skip-link:focus{left:16px;top:16px;background:#fff;padding:10px;z-index:100}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(11,109,105,.12)}
+    .utility{display:flex;justify-content:space-between;align-items:center;min-height:34px;font-size:11px;color:var(--muted);border-bottom:1px solid var(--line)}
+    .utility p{margin:0}.languages{display:flex;gap:5px}.languages span{font-weight:800;border-radius:20px;padding:2px 8px}.languages span:first-child{background:var(--mint);color:var(--teal)}
+    .nav{min-height:82px;display:flex;align-items:center;gap:32px}
+    .brand{display:flex;align-items:center;gap:11px;margin-right:auto}
+    .brand-mark{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:#fff;font-family:"Playfair Display",serif;font-weight:600}
+    .brand strong,.brand small{display:block}.brand strong{font-family:"Playfair Display",serif;font-size:20px;line-height:1.05}.brand small{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .nav-links{display:flex;gap:25px;font-size:13px;font-weight:700}.nav-links a:hover{color:var(--teal)}
+    .menu-button{display:none;width:43px;height:43px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);font-size:20px}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:999px;padding:14px 21px;font-size:13px;font-weight:800;transition:.2s ease}
+    .button:hover{transform:translateY(-2px)}.button-small{padding:10px 16px}.button-primary{background:var(--peach);color:#613d31;box-shadow:0 8px 24px rgba(85,54,43,.14)}.button-secondary{border:1px solid rgba(255,255,255,.5);color:#fff;background:transparent}.button-ghost{border:1px solid var(--teal);color:var(--teal);background:transparent}.button-dark{background:var(--teal);color:#fff}
+    .hero{background:linear-gradient(115deg,var(--teal-dark),#0c716b);color:#fff;overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;width:440px;height:440px;right:-120px;top:-180px;border:1px solid rgba(255,255,255,.14);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.02)}
+    .hero-grid{min-height:610px;display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:70px;position:relative;z-index:1}
+    .eyebrow{font-size:11px;letter-spacing:.17em;font-weight:800;margin:0 0 18px;color:#bbddd5}.eyebrow.dark{color:var(--teal)}
+    h1,h2{font-family:"Playfair Display",serif;font-weight:500;letter-spacing:-.035em;line-height:1.04;margin:0}
+    h1{font-size:clamp(54px,6vw,86px);max-width:760px}
+    .hero-lead,.feature-lead{font-size:17px;max-width:650px;margin:24px 0 30px;color:rgba(255,255,255,.82)}.feature-lead{color:var(--muted)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}.trust-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:34px;font-size:11px;color:rgba(255,255,255,.72)}
+    .hero-card{background:rgba(255,255,255,.97);color:var(--ink);padding:34px;border-radius:26px;box-shadow:var(--shadow)}
+    .hero-card-icon,.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:var(--mint);color:var(--teal);font-size:25px}
+    .hero-card .kicker{font-size:10px;letter-spacing:.15em;color:var(--teal);font-weight:800;margin:18px 0 7px}.hero-card h2{font-size:31px;margin-bottom:18px}
+    .hero-card>a{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid var(--line);font-size:13px;font-weight:700}.hero-card>a b{color:var(--teal)}.microcopy{font-size:10px;color:var(--muted);margin:16px 0 0}
+    .section{padding:100px 0}.section-tint{background:#eef6f2}.section-dark{background:var(--teal-dark);color:#fff}
+    .section-heading{display:grid;grid-template-columns:1fr .7fr;gap:50px;align-items:end;margin-bottom:38px}.section-heading h2,.section h2{font-size:clamp(39px,4vw,58px)}.section-heading>p{color:var(--muted);font-size:14px;margin:0}
+    .card-grid{display:grid;gap:18px}.card-grid.three{grid-template-columns:repeat(3,1fr)}
+    .tool-card,.guide-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:27px;transition:.25s ease;min-height:255px;text-align:left}
+    button.tool-card{width:100%;color:inherit}.tool-card:hover,.guide-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
+    .tool-card h3,.guide-card h3{font-family:"Playfair Display",serif;font-size:25px;margin:22px 0 9px}.tool-card p,.guide-card p{font-size:13px;color:var(--muted);margin-bottom:22px}.tool-card b,.guide-card b,.text-link{font-size:12px;color:var(--teal)}.guide-card small{display:block;margin-top:18px;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);font-weight:800}
+    .hpv-feature{background:#fff}.hpv-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
+    .hpv-visual{aspect-ratio:1.15;border-radius:30px;background:radial-gradient(circle at 30% 28%,#fff 0 8%,transparent 8.5%),linear-gradient(145deg,var(--peach),#f8cfc1);display:grid;place-content:center;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hpv-visual:before,.hpv-visual:after{content:"";position:absolute;border:1px solid rgba(11,109,105,.22);border-radius:50%}.hpv-visual:before{inset:15%}.hpv-visual:after{inset:30%}.hpv-visual span{font:500 74px/1 "Playfair Display",serif;color:var(--teal);z-index:1}.hpv-visual i{font-style:normal;text-transform:uppercase;letter-spacing:.2em;font-size:10px;margin-top:10px;z-index:1}
+    .check-list{padding:0;list-style:none;margin:26px 0}.check-list li{padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}.check-list li:before{content:"✓";color:var(--teal);font-weight:900;margin-right:12px}
+    .split{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.split>div:first-child p:last-child{color:rgba(255,255,255,.7);font-size:15px}
+    .clinical-list{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.12)}.clinical-list article{display:flex;gap:14px;padding:25px;background:var(--teal-dark)}.clinical-list article>span{color:#9bd2c6;font-size:22px}.clinical-list h3{font-size:14px;margin:0}.clinical-list p{font-size:11px;color:rgba(255,255,255,.62);margin:5px 0}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}.quote-card,.migration-card{border-radius:26px;padding:50px;background:var(--peach)}.quote-card p{font-family:"Playfair Display",serif;font-size:31px;line-height:1.2;margin:0 0 20px}.quote-card span{font-size:11px;color:var(--muted)}.migration-card{background:var(--teal);color:#fff}.migration-card>span{font-size:45px}.migration-card h3{font:500 31px/1.1 "Playfair Display",serif}.migration-card p{color:rgba(255,255,255,.72);font-size:13px}
+    .alert-section{padding-top:30px}.alert-box{border:1px solid #e9b9a9;background:#fff7f2;border-radius:24px;padding:36px;display:grid;grid-template-columns:1fr .5fr;gap:40px;align-items:center}.alert-box h2{font-size:37px}.alert-box p{color:var(--muted);font-size:13px}.alert-box strong{color:var(--danger);font-size:13px}.centered{text-align:center;max-width:760px}.centered p:last-child{color:var(--muted)}
+    .vph-intro{background:linear-gradient(115deg,#0a5f5a,#0b7770);color:#fff}.vph-intro-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center}.vph-intro h2{font-size:clamp(46px,5vw,72px)}.vph-intro p{color:rgba(255,255,255,.76)}.fact-card{background:var(--peach);color:var(--ink);padding:34px;border-radius:24px}.fact-card strong{display:block;font:500 29px/1.2 "Playfair Display",serif;margin-bottom:12px}.fact-card p{color:#6f5b52;font-size:12px;margin:0}
+    .vph-nav{background:#fff;border-bottom:1px solid var(--line)}.vph-nav .container{display:flex;gap:27px;overflow:auto;padding-block:15px}.vph-nav a{white-space:nowrap;font-size:11px;font-weight:800;color:var(--muted)}
+    .article-section{padding:82px 0;background:#fff}.article-section.tint{background:#eef6f2}.article-section.dark{background:var(--teal-dark);color:#fff}
+    .article-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:85px}.article-grid h2{font-size:46px}.prose>p{color:var(--muted);font-size:15px;margin:0 0 24px}.dark .prose>p{color:rgba(255,255,255,.72)}
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0}.info-grid article{border:1px solid var(--line);border-radius:16px;padding:22px}.info-grid h3{margin:0;font-family:"Playfair Display",serif}.info-grid p,.situation-list p{font-size:12px;color:var(--muted);margin:7px 0}
+    .dose-table{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:25px 0}.dose-table>div{display:grid;grid-template-columns:1fr 1fr;padding:17px 22px;border-bottom:1px solid var(--line);font-size:13px}.dose-table>div:last-child{border:0}.dose-table span{color:var(--teal);font-weight:800}.note{padding:18px;border-left:3px solid var(--teal);background:rgba(223,241,235,.75);font-size:12px!important}
+    .situation-list article{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}.situation-list article>span{color:var(--teal);font-size:11px;font-weight:800}.situation-list b{font-family:"Playfair Display",serif;font-size:20px}
+    .safety-box{padding:24px;border:1px solid rgba(255,255,255,.2);border-radius:18px;margin:26px 0}.safety-box p{color:rgba(255,255,255,.68);font-size:12px;margin:6px 0}
+    .callout{display:flex;gap:18px;background:var(--peach);border-radius:18px;padding:24px}.callout>span{font-size:24px;color:var(--teal)}.callout p{font-size:12px;color:var(--muted);margin:5px 0}
+    .faq-grid{max-width:820px;margin:45px auto 0}.faq-grid details{border-top:1px solid var(--line);padding:20px 0}.faq-grid summary{list-style:none;display:flex;justify-content:space-between;gap:20px;font-weight:800;cursor:pointer}.faq-grid summary::-webkit-details-marker{display:none}.faq-grid summary span{color:var(--teal);font-size:20px;transition:.2s}.faq-grid details[open] summary span{transform:rotate(45deg)}.faq-grid details p{color:var(--muted);font-size:13px;max-width:700px}
+    .sources{background:var(--peach);padding:50px 0}.sources h2{font-size:30px}.sources p{font-size:12px;color:#725d53;max-width:800px}.source-links{display:flex;gap:20px;flex-wrap:wrap}.sources a{font-size:11px;font-weight:800;color:var(--teal);text-decoration:underline}
+    footer{background:#073e3c;color:#fff;padding:65px 0 24px}.footer-grid{display:grid;grid-template-columns:1.4fr .5fr 1fr;gap:70px}.footer-grid>div{display:flex;flex-direction:column;gap:10px}.footer-grid p,.footer-grid a{font-size:11px;color:rgba(255,255,255,.64);margin:0}.footer-grid .brand{margin-bottom:12px}.footer-grid .brand small{color:rgba(255,255,255,.55)}.footer-grid .brand-mark{background:#fff;color:var(--teal)}.footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:50px;padding-top:20px;display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.5)}
+    .modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:20px;background:rgba(4,35,34,.72);backdrop-filter:blur(7px)}.modal.open{display:grid}.modal-card{width:min(540px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:25px;padding:32px;box-shadow:var(--shadow)}.modal-top{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.modal h2{font-size:31px}.close{width:38px;height:38px;border:0;border-radius:50%;background:var(--mint);color:var(--teal);font-size:22px}.form-grid{display:grid;gap:15px;margin-top:25px}.form-grid label{font-size:12px;font-weight:800}.form-grid input{width:100%;border:1px solid var(--line);border-radius:12px;padding:12px;margin-top:5px;color:var(--ink)}.result{display:none;margin-top:20px;padding:18px;border-radius:14px;background:var(--mint);color:var(--ink)}.result.show{display:block}.result strong{display:block;font-family:"Playfair Display",serif;font-size:22px}.result small{display:block;color:var(--muted);margin-top:6px}
+    @media(max-width:900px){
+      .nav-links,.button-ghost{display:none}.menu-button{display:grid;place-items:center}.nav-links.open{position:fixed;display:flex;flex-direction:column;inset:116px 0 auto 0;padding:24px;background:var(--cream);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+      .hero-grid,.hpv-grid,.split,.two-col,.section-heading,.vph-intro-grid,.article-grid{grid-template-columns:1fr}.hero-grid{padding:80px 0;gap:45px}.card-grid.three{grid-template-columns:1fr 1fr}.section{padding:75px 0}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.article-grid{gap:25px}
+    }
+    @media(max-width:580px){
+      .container{width:min(100% - 28px,1160px)}.utility p{display:none}.utility{justify-content:flex-end}.nav{min-height:70px}.nav-links.open{top:105px}.brand strong{font-size:17px}.brand small{font-size:8px}h1{font-size:48px}.hero-lead{font-size:15px}.hero-card{padding:25px}.card-grid.three,.clinical-list,.alert-box,.footer-grid,.info-grid,.dose-table>div{grid-template-columns:1fr}.section,.article-section{padding:62px 0}.section-heading{gap:14px}.hpv-grid{gap:35px}.hpv-visual span{font-size:58px}.trust-row{display:grid;gap:7px}.footer-grid>div:first-child{grid-column:auto}.footer-bottom{gap:20px;align-items:flex-start}.article-grid h2{font-size:39px}.vph-intro-grid{gap:35px}.modal-card{padding:24px}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header class="site-header">
+    <div class="container utility">
+      <p>Información médica clara para mujeres en cualquier lugar</p>
+      <div class="languages" aria-label="Idiomas"><span>ES</span><span>FR</span><span>EN</span></div>
+    </div>
+    <nav class="container nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Maternity Global, inicio">
+        <span class="brand-mark">MG</span>
+        <span><strong>Maternity Global</strong><small>Salud femenina sin fronteras</small></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#herramientas">Herramientas</a><a href="#guias">Guías</a><a href="#vph">VPH</a><a href="#migracion">Migración</a>
+      </div>
+      <a class="button button-small button-ghost" href="#alertas">Señales de alarma</a>
+      <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </nav>
+  </header>
 
-  <div class="vph-container">
-
-    <!-- Encabezado -->
-    <div class="vph-header">
-      <span class="vph-label">PREVENCIÓN Y VACUNACIÓN</span>
-
-      <h2>Virus del Papiloma Humano (VPH)</h2>
-
-      <p class="vph-introduction">
-        El VPH es una infección muy frecuente que se transmite principalmente
-        mediante el contacto íntimo de piel y mucosas. La vacunación y el
-        tamizaje cervical ayudan a prevenir el cáncer de cuello uterino y otras
-        enfermedades relacionadas.
-      </p>
-
-      <div class="vph-important">
-        <span class="vph-important-icon">✓</span>
-
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
         <div>
-          <strong>Dato importante</strong>
-          <p>
-            Tener VPH no significa que aparecerá cáncer ni implica
-            necesariamente una infidelidad. La mayoría de las infecciones
-            desaparece espontáneamente.
-          </p>
+          <p class="eyebrow">SALUD FEMENINA · MATERNIDAD · MIGRACIÓN</p>
+          <h1>Tu salud también viaja contigo.</h1>
+          <p class="hero-lead">Información médica comprensible y basada en evidencia para acompañarte desde la planificación familiar hasta la maternidad, estés donde estés.</p>
+          <div class="actions"><a class="button button-primary" href="#guias">Explorar las guías →</a><a class="button button-secondary" href="#herramientas">Usar calculadoras</a></div>
+          <div class="trust-row"><span>✓ Criterio clínico</span><span>✓ Lenguaje sencillo</span><span>✓ Perspectiva multicultural</span></div>
+        </div>
+        <aside class="hero-card">
+          <div class="hero-card-icon">♡</div><p class="kicker">EMPIEZA POR AQUÍ</p><h2>¿Qué necesitas hoy?</h2>
+          <a href="#fertilidad"><span>Comprender mi ciclo</span><b>→</b></a>
+          <a href="#embarazo"><span>Acompañar mi embarazo</span><b>→</b></a>
+          <a href="#vph"><span>Informarme sobre el VPH</span><b>→</b></a>
+          <a href="#migracion"><span>Orientarme en otro país</span><b>→</b></a>
+          <p class="microcopy">Contenido educativo. No sustituye una consulta médica.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="herramientas">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow dark">HERRAMIENTAS ÚTILES</p><h2>Calculadoras para conocerte mejor</h2></div><p>Estimaciones orientativas para preparar preguntas y conversar con tu profesional de salud.</p></div>
+        <div class="card-grid three">
+          <button class="tool-card calculator-open" data-calculator="ovulacion"><span class="icon">◔</span><h3>Calendario de ovulación</h3><p>Identifica tu ventana fértil con una estimación sencilla.</p><b>Calcular ahora →</b></button>
+          <button class="tool-card calculator-open" data-calculator="menstrual"><span class="icon">⌁</span><h3>Calendario menstrual</h3><p>Estima la fecha de inicio de tu siguiente menstruación.</p><b>Calcular ahora →</b></button>
+          <button class="tool-card calculator-open" data-calculator="parto"><span class="icon">♡</span><h3>Fecha probable de parto</h3><p>Calcula una fecha orientativa desde tu última menstruación.</p><b>Calcular ahora →</b></button>
         </div>
       </div>
+    </section>
+
+    <section class="section section-tint" id="guias">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow dark">GUÍAS DE SALUD</p><h2>Información para cada etapa</h2></div><p>Elige un tema y encuentra explicaciones directas, recomendaciones y señales de alerta.</p></div>
+        <div class="card-grid three">
+          <a class="guide-card" href="#fertilidad"><span class="icon">✦</span><small>Planificación</small><h3>Fertilidad y ciclo</h3><p>Conoce tu ciclo, planifica un embarazo o elige anticoncepción.</p><b>Leer la guía →</b></a>
+          <a class="guide-card" href="#embarazo"><span class="icon">◒</span><small>Acompañamiento</small><h3>Embarazo y cuidados</h3><p>Cambios esperados, cuidados y señales que requieren valoración.</p><b>Leer la guía →</b></a>
+          <a class="guide-card" href="#salud-mental"><span class="icon">☼</span><small>Bienestar</small><h3>Salud mental materna</h3><p>Duelo migratorio, ansiedad, depresión perinatal y apoyo.</p><b>Leer la guía →</b></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hpv-feature">
+      <div class="container hpv-grid">
+        <div class="hpv-visual" aria-hidden="true"><span>VPH</span><i>Prevención</i></div>
+        <div><p class="eyebrow dark">PREVENCIÓN Y VACUNACIÓN</p><h2>Vacuna frente al VPH</h2><p class="feature-lead">El VPH es muy frecuente. La vacunación puede prevenir la mayoría de los cánceres relacionados con los tipos incluidos en la vacuna.</p><ul class="check-list"><li>Quién debe vacunarse y cuántas dosis necesita</li><li>Qué hacer si ya iniciaste relaciones sexuales</li><li>Embarazo, lactancia y tamizaje cervical</li></ul><a class="button button-dark" href="#vph">Ver guía completa sobre el VPH →</a></div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="fertilidad">
+      <div class="container split">
+        <div><p class="eyebrow">CUIDADO INTEGRAL</p><h2>Decisiones informadas, sin juicios</h2><p>Tu historia, tus planes y tu contexto importan. Aquí encontrarás orientación para participar en las decisiones sobre tu salud.</p></div>
+        <div class="clinical-list">
+          <article><span>+</span><div><h3>Embarazo</h3><p>Control prenatal, nutrición y movimientos fetales.</p></div></article>
+          <article><span>+</span><div><h3>Condiciones médicas</h3><p>Diabetes, hipertensión, SOP, asma e infecciones.</p></div></article>
+          <article><span>+</span><div><h3>Señales de alarma</h3><p>Sangrado, dolor intenso, fiebre o menos movimientos.</p></div></article>
+          <article><span>+</span><div><h3>Salud sexual</h3><p>Anticoncepción, infecciones de transmisión sexual y consentimiento.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="embarazo">
+      <div class="container two-col"><div><p class="eyebrow dark">EMBARAZO</p><h2>Comprende lo que ocurre en tu cuerpo</h2><p class="feature-lead">Control prenatal, alimentación, actividad física, medicamentos, vacunas y cambios emocionales durante cada trimestre.</p><a class="text-link" href="#alertas">Conocer las señales de alarma →</a></div><div class="quote-card"><p>“La información útil te ayuda a reconocer qué es esperable y cuándo pedir ayuda.”</p><span>Orientación educativa Maternity Global</span></div></div>
+    </section>
+
+    <section class="section section-tint" id="migracion">
+      <div class="container two-col"><div class="migration-card"><span>◎</span><h3>Tu expediente de salud viaja contigo</h3><p>Lleva una lista de diagnósticos, medicamentos, alergias, vacunas, cirugías y estudios importantes.</p></div><div><p class="eyebrow dark">SALUD Y MIGRACIÓN</p><h2>Navegar un sistema sanitario nuevo</h2><p class="feature-lead">Prepara tus consultas, reúne tus documentos y conoce tus derechos. Pedir un intérprete o explicaciones claras también es cuidar tu salud.</p></div></div>
+    </section>
+
+    <section class="section alert-section" id="alertas">
+      <div class="container alert-box"><div><p class="eyebrow dark">ATENCIÓN URGENTE</p><h2>Señales de alarma durante el embarazo</h2><p>Busca valoración urgente ante sangrado abundante, dificultad para respirar, dolor torácico, convulsiones, fiebre persistente, dolor abdominal intenso, cefalea intensa con alteraciones visuales o disminución marcada de movimientos fetales.</p></div><strong>Si crees que existe una emergencia, contacta el servicio de urgencias de tu país.</strong></div>
+    </section>
+
+    <section class="section" id="salud-mental">
+      <div class="container centered"><p class="eyebrow dark">SALUD MENTAL</p><h2>No tienes que adaptarte sola</h2><p>El duelo migratorio, el embarazo y la maternidad pueden sentirse abrumadores. Hablar de ansiedad, tristeza persistente, violencia o aislamiento es parte legítima del cuidado.</p></div>
+    </section>
+
+    <section class="section vph-intro" id="vph">
+      <div class="container vph-intro-grid">
+        <div><p class="eyebrow">GUÍA MÉDICA · PREVENCIÓN</p><h2>Virus del Papiloma Humano</h2><p>El VPH es una infección muy frecuente que se transmite principalmente mediante el contacto íntimo de piel y mucosas. La vacunación y el tamizaje cervical ayudan a prevenir el cáncer de cuello uterino y otras enfermedades relacionadas.</p></div>
+        <aside class="fact-card"><strong>Tener VPH no significa que aparecerá cáncer.</strong><p>La mayoría de las infecciones desaparece espontáneamente y tampoco implica necesariamente una infidelidad.</p></aside>
+      </div>
+    </section>
+    <nav class="vph-nav" aria-label="Índice de la guía de VPH"><div class="container"><a href="#que-es-vph">Qué es</a><a href="#vacunacion">Vacunación</a><a href="#situaciones">Situaciones especiales</a><a href="#seguridad">Seguridad</a><a href="#tamizaje">Tamizaje</a><a href="#preguntas">Preguntas</a></div></nav>
+
+    <section class="article-section" id="que-es-vph">
+      <div class="container article-grid"><div><p class="eyebrow dark">01 · INFORMACIÓN ESENCIAL</p><h2>¿Qué es el VPH?</h2></div><div class="prose"><p>El virus del papiloma humano comprende numerosos tipos. Algunos pueden producir verrugas genitales y otros se relacionan con lesiones precancerosas y distintos tipos de cáncer.</p><div class="info-grid"><article><h3>Tipos de bajo riesgo</h3><p>Pueden causar verrugas genitales, pero normalmente no se relacionan con cáncer.</p></article><article><h3>Tipos de alto riesgo</h3><p>Una infección persistente puede producir lesiones precancerosas y cáncer cervical, vulvar, vaginal, anal, de pene u orofaríngeo.</p></article></div><p>El preservativo disminuye el riesgo de transmisión, pero no lo elimina por completo porque el virus puede encontrarse en zonas de piel no cubiertas.</p></div></div>
+    </section>
+
+    <section class="article-section tint" id="vacunacion">
+      <div class="container article-grid"><div><p class="eyebrow dark">02 · PREVENCIÓN</p><h2>Vacunación frente al VPH</h2></div><div class="prose"><p>La vacuna previene nuevas infecciones por los tipos incluidos, pero no elimina una infección existente ni trata lesiones ya desarrolladas.</p><div class="dose-table"><div><strong>Inicio antes de los 15 años</strong><span>Habitualmente 2 dosis</span></div><div><strong>Inicio a partir de los 15 años</strong><span>Habitualmente 3 dosis</span></div><div><strong>Personas inmunocomprometidas</strong><span>Generalmente 3 dosis</span></div></div><p class="note"><strong>Importante:</strong> los esquemas, intervalos y edades recomendadas varían según el país. Consulta el calendario oficial de tu lugar de residencia.</p></div></div>
+    </section>
+
+    <section class="article-section" id="situaciones">
+      <div class="container article-grid"><div><p class="eyebrow dark">03 · CASOS FRECUENTES</p><h2>Situaciones especiales</h2></div><div class="situation-list"><article><span>01</span><div><b>Después de iniciar relaciones sexuales</b><p>La vacuna todavía puede aportar protección frente a tipos de VPH con los que no hayas tenido contacto.</p></div></article><article><span>02</span><div><b>Infección o lesión cervical previa</b><p>Puede continuar estando indicada, pero no sustituye el tratamiento ni el seguimiento ginecológico.</p></div></article><article><span>03</span><div><b>Embarazo</b><p>La vacunación suele posponerse hasta finalizar el embarazo. Si se aplicó una dosis sin conocer el embarazo, normalmente no se requiere una intervención especial.</p></div></article><article><span>04</span><div><b>Lactancia</b><p>En general puede administrarse durante la lactancia siguiendo las recomendaciones sanitarias locales.</p></div></article></div></div>
+    </section>
+
+    <section class="article-section dark" id="seguridad">
+      <div class="container article-grid"><div><p class="eyebrow">04 · SEGURIDAD</p><h2>Una vacuna ampliamente estudiada</h2></div><div class="prose"><p>La vacuna frente al VPH no contiene virus vivo y no puede producir una infección por VPH.</p><div class="safety-box"><strong>Efectos secundarios más frecuentes</strong><p>Dolor, enrojecimiento o inflamación en el lugar de aplicación; cefalea, cansancio, dolor muscular, fiebre leve, náusea o mareo.</p></div><p>Es recomendable permanecer sentada o recostada aproximadamente 15 minutos después de la aplicación. Busca atención urgente ante dificultad para respirar, hinchazón de la cara o garganta o urticaria generalizada.</p></div></div>
+    </section>
+
+    <section class="article-section" id="tamizaje">
+      <div class="container article-grid"><div><p class="eyebrow dark">05 · DETECCIÓN</p><h2>La vacuna no sustituye el tamizaje</h2></div><div class="prose"><p>Incluso después de recibir la vacuna es necesario continuar con las pruebas de detección recomendadas según tu edad, antecedentes y país.</p><div class="callout"><span>✓</span><div><strong>Vacunación + tamizaje</strong><p>La prueba de VPH, la citología cervical o la estrategia indicada localmente son complementarias a la vacunación.</p></div></div></div></div>
+    </section>
+
+    <section class="section section-tint" id="preguntas">
+      <div class="container"><div class="centered"><p class="eyebrow dark">PREGUNTAS FRECUENTES</p><h2>Respuestas breves sobre el VPH</h2></div><div class="faq-grid">
+        <details><summary>¿La vacuna puede causar una infección por VPH?<span>+</span></summary><p>No. La vacuna no contiene virus vivo y no puede producir una infección por VPH.</p></details>
+        <details><summary>¿Sirve si ya inicié relaciones sexuales?<span>+</span></summary><p>Sí puede aportar beneficio, porque es poco probable haber estado expuesta a todos los tipos de VPH incluidos en la vacuna.</p></details>
+        <details><summary>¿Necesito una prueba de VPH antes de vacunarme?<span>+</span></summary><p>En general, no se recomienda hacer una prueba de VPH o Papanicolaou únicamente para decidir si se administra la vacuna.</p></details>
+        <details><summary>¿Necesito continuar el Papanicolaou si estoy vacunada?<span>+</span></summary><p>Sí. La vacuna no protege frente a todos los tipos oncogénicos y no trata infecciones existentes.</p></details>
+      </div></div>
+    </section>
+
+    <section class="sources">
+      <div class="container"><h2>Fuentes médicas</h2><p>Esta información es educativa y no sustituye una valoración médica individual. Las recomendaciones pueden variar entre países.</p><div class="source-links"><a href="https://www.who.int/news-room/fact-sheets/detail/cervical-cancer" target="_blank" rel="noopener noreferrer">Organización Mundial de la Salud ↗</a><a href="https://www.cdc.gov/vaccines/vpd/hpv/hcp/recommendations.html" target="_blank" rel="noopener noreferrer">CDC: recomendaciones sobre VPH ↗</a></div></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid"><div><a class="brand" href="#inicio"><span class="brand-mark">MG</span><span><strong>Maternity Global</strong><small>Salud femenina sin fronteras</small></span></a><p>Educación sanitaria accesible, respetuosa y multicultural.</p></div><div><b>Explorar</b><a href="#herramientas">Herramientas</a><a href="#vph">VPH</a><a href="#migracion">Migración</a></div><div><b>Importante</b><p>Este sitio ofrece información educativa y no reemplaza el diagnóstico ni el tratamiento individual.</p></div></div>
+    <div class="container footer-bottom">© 2026 Maternity Global <span>Hecho para acompañarte, estés donde estés.</span></div>
+  </footer>
+
+  <div class="modal" id="calculatorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <div class="modal-top"><div><p class="eyebrow dark">CÁLCULO ORIENTATIVO</p><h2 id="modalTitle">Calculadora</h2></div><button class="close" id="closeModal" aria-label="Cerrar">×</button></div>
+      <form class="form-grid" id="calculatorForm">
+        <label>Primer día de tu última menstruación<input type="date" id="lastPeriod" required></label>
+        <label id="cycleLabel">Duración habitual de tu ciclo (días)<input type="number" id="cycleLength" min="21" max="40" value="28"></label>
+        <button class="button button-dark" type="submit">Calcular</button>
+      </form>
+      <div class="result" id="calculatorResult" aria-live="polite"></div>
     </div>
-
-    <!-- ¿Qué es el VPH? -->
-    <article class="vph-block">
-      <div class="vph-number">01</div>
-
-      <div class="vph-content">
-        <h3>¿Qué es el VPH?</h3>
-
-        <p>
-          El virus del papiloma humano comprende numerosos tipos de virus.
-          Algunos pueden producir verrugas genitales y otros se relacionan
-          con lesiones precancerosas y distintos tipos de cáncer.
-        </p>
-
-        <div class="vph-grid">
-          <div class="vph-card">
-            <span class="vph-card-icon">🛡️</span>
-            <h4>Tipos de bajo riesgo</h4>
-            <p>
-              Pueden causar verrugas genitales, pero normalmente no se
-              relacionan con cáncer.
-            </p>
-          </div>
-
-          <div class="vph-card">
-            <span class="vph-card-icon">🔬</span>
-            <h4>Tipos de alto riesgo</h4>
-            <p>
-              Una infección persistente puede producir lesiones
-              precancerosas y cáncer cervical, vulvar, vaginal, anal,
-              de pene u orofaríngeo.
-            </p>
-          </div>
-        </div>
-
-        <p>
-          El preservativo disminuye el riesgo de transmisión, pero no lo
-          elimina completamente porque el virus puede encontrarse en zonas
-          de piel no cubiertas.
-        </p>
-      </div>
-    </article>
-
-    <!-- Vacunación -->
-    <article class="vph-block vph-soft">
-      <div class="vph-number">02</div>
-
-      <div class="vph-content">
-        <h3>Vacunación frente al VPH</h3>
-
-        <p>
-          La vacuna previene nuevas infecciones por los tipos de VPH incluidos,
-          pero no elimina una infección existente ni trata las lesiones que ya
-          se hayan desarrollado.
-        </p>
-
-        <div class="vph-dose-list">
-          <div class="vph-dose">
-            <strong>Inicio antes de los 15 años</strong>
-            <span>Habitualmente 2 dosis</span>
-          </div>
-
-          <div class="vph-dose">
-            <strong>Inicio a partir de los 15 años</strong>
-            <span>Habitualmente 3 dosis</span>
-          </div>
-
-          <div class="vph-dose">
-            <strong>Personas inmunocomprometidas</strong>
-            <span>Generalmente 3 dosis según indicación médica</span>
-          </div>
-        </div>
-
-        <div class="vph-note">
-          <strong>Importante:</strong>
-          los esquemas, intervalos y edades recomendadas pueden variar según
-          el país. Debe consultarse el calendario oficial del lugar de
-          residencia.
-        </div>
-      </div>
-    </article>
-
-    <!-- Situaciones especiales -->
-    <article class="vph-block">
-      <div class="vph-number">03</div>
-
-      <div class="vph-content">
-        <h3>Situaciones especiales</h3>
-
-        <div class="vph-situations">
-          <div>
-            <span>01</span>
-            <section>
-              <h4>Después de iniciar relaciones sexuales</h4>
-              <p>
-                La vacuna todavía puede aportar protección frente a tipos de
-                VPH con los que la persona no haya tenido contacto.
-              </p>
-            </section>
-          </div>
-
-          <div>
-            <span>02</span>
-            <section>
-              <h4>Infección por VPH o lesión cervical previa</h4>
-              <p>
-                Puede continuar estando indicada, pero no sustituye el
-                tratamiento ni el seguimiento ginecológico.
-              </p>
-            </section>
-          </div>
-
-          <div>
-            <span>03</span>
-            <section>
-              <h4>Embarazo</h4>
-              <p>
-                La vacunación suele posponerse hasta finalizar el embarazo.
-                Si se aplicó una dosis sin conocer el embarazo, normalmente
-                no se requiere ninguna intervención especial.
-              </p>
-            </section>
-          </div>
-
-          <div>
-            <span>04</span>
-            <section>
-              <h4>Lactancia</h4>
-              <p>
-                En general, puede administrarse durante la lactancia siguiendo
-                las recomendaciones sanitarias locales.
-              </p>
-            </section>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Seguridad -->
-    <article class="vph-block vph-dark">
-      <div class="vph-number">04</div>
-
-      <div class="vph-content">
-        <h3>Seguridad de la vacuna</h3>
-
-        <p>
-          La vacuna frente al VPH ha sido ampliamente estudiada. No contiene
-          virus vivo y no puede producir una infección por VPH.
-        </p>
-
-        <h4>Efectos secundarios más frecuentes</h4>
-
-        <ul class="vph-check-list">
-          <li>Dolor, enrojecimiento o inflamación en el lugar de aplicación.</li>
-          <li>Cefalea, cansancio o dolor muscular.</li>
-          <li>Fiebre leve, náusea o mareo.</li>
-          <li>Desmayo relacionado con la aplicación de la inyección.</li>
-        </ul>
-
-        <div class="vph-alert">
-          <strong>Después de la vacuna</strong>
-          <p>
-            Es recomendable permanecer sentada o recostada durante
-            aproximadamente 15 minutos. Busca atención urgente ante dificultad
-            para respirar, hinchazón de la cara o garganta o urticaria
-            generalizada.
-          </p>
-        </div>
-      </div>
-    </article>
-
-    <!-- Tamizaje -->
-    <article class="vph-block">
-      <div class="vph-number">05</div>
-
-      <div class="vph-content">
-        <h3>La vacuna no sustituye el tamizaje cervical</h3>
-
-        <p>
-          Incluso después de recibir la vacuna es necesario continuar con las
-          pruebas de detección recomendadas según la edad y el país:
-        </p>
-
-        <div class="vph-screening">
-          <span>✓</span>
-
-          <div>
-            <strong>Vacunación + tamizaje</strong>
-            <p>
-              La prueba de VPH, la citología cervical o la estrategia indicada
-              localmente son complementarias a la vacunación.
-            </p>
-          </div>
-        </div>
-      </div>
-    </article>
-
-    <!-- Preguntas frecuentes -->
-    <article class="vph-faq">
-      <span class="vph-label">PREGUNTAS FRECUENTES</span>
-      <h3>Respuestas breves sobre el VPH</h3>
-
-      <details>
-        <summary>
-          ¿La vacuna puede causar una infección por VPH?
-          <span>+</span>
-        </summary>
-
-        <p>
-          No. La vacuna no contiene virus vivo y no puede producir una
-          infección por VPH.
-        </p>
-      </details>
-
-      <details>
-        <summary>
-          ¿Sirve si ya inicié relaciones sexuales?
-          <span>+</span>
-        </summary>
-
-        <p>
-          Sí puede aportar beneficio, porque es poco probable haber estado
-          expuesta a todos los tipos de VPH incluidos en la vacuna.
-        </p>
-      </details>
-
-      <details>
-        <summary>
-          ¿Necesito una prueba de VPH antes de vacunarme?
-          <span>+</span>
-        </summary>
-
-        <p>
-          En general, no se recomienda hacer una prueba de VPH o Papanicolaou
-          únicamente para decidir si se administra la vacuna.
-        </p>
-      </details>
-
-      <details>
-        <summary>
-          ¿Necesito continuar con el Papanicolaou si estoy vacunada?
-          <span>+</span>
-        </summary>
-
-        <p>
-          Sí. La vacuna no protege frente a todos los tipos oncogénicos y no
-          trata infecciones existentes.
-        </p>
-      </details>
-    </article>
-
-    <!-- Fuentes -->
-    <div class="vph-sources">
-      <h3>Fuentes médicas</h3>
-
-      <p>
-        Esta información es educativa y no sustituye la valoración médica
-        individual.
-      </p>
-
-      <div class="vph-source-links">
-        <a
-          href="https://www.who.int/news-room/fact-sheets/detail/cervical-cancer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Organización Mundial de la Salud ↗
-        </a>
-
-        <a
-          href="https://www.cdc.gov/vaccines/hcp/by-disease/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          CDC: vacunas y VPH ↗
-        </a>
-      </div>
-    </div>
-
   </div>
-</section>
-/* ==================================================
-   SECCIÓN VPH
-================================================== */
 
-.vph-section {
-  padding: 90px 20px;
-  background:
-    radial-gradient(circle at 5% 5%, rgba(219, 166, 151, 0.20), transparent 28%),
-    #fffdfb;
-  color: #263b37;
-}
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const navLinks = document.getElementById("navLinks");
+    menuButton.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("open");
+      document.body.classList.toggle("menu-open", open);
+      menuButton.setAttribute("aria-expanded", open);
+      menuButton.textContent = open ? "×" : "☰";
+    });
+    navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      navLinks.classList.remove("open"); document.body.classList.remove("menu-open");
+      menuButton.setAttribute("aria-expanded", "false"); menuButton.textContent = "☰";
+    }));
 
-.vph-container {
-  width: min(1120px, 100%);
-  margin: 0 auto;
-}
-
-.vph-header {
-  max-width: 850px;
-  margin-bottom: 65px;
-}
-
-.vph-label {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #a85f55;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-}
-
-.vph-header h2 {
-  margin: 0 0 20px;
-  color: #173d36;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-  line-height: 1;
-}
-
-.vph-introduction {
-  max-width: 760px;
-  margin: 0;
-  color: #51635f;
-  font-size: 1.15rem;
-  line-height: 1.8;
-}
-
-.vph-important {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  margin-top: 30px;
-  padding: 22px;
-  border: 1px solid #ead8d2;
-  border-radius: 18px;
-  background: #fff7f3;
-}
-
-.vph-important-icon {
-  display: grid;
-  flex: 0 0 40px;
-  width: 40px;
-  height: 40px;
-  place-items: center;
-  border-radius: 50%;
-  background: #be7568;
-  color: white;
-  font-weight: 800;
-}
-
-.vph-important strong,
-.vph-important p {
-  display: block;
-}
-
-.vph-important p {
-  margin: 5px 0 0;
-  line-height: 1.65;
-}
-
-.vph-block {
-  display: grid;
-  grid-template-columns: 100px minmax(0, 1fr);
-  gap: 35px;
-  margin: 25px 0;
-  padding: 55px;
-  border: 1px solid #e8e0dc;
-  border-radius: 28px;
-  background: white;
-  box-shadow: 0 16px 50px rgba(43, 66, 60, 0.07);
-}
-
-.vph-number {
-  color: #bd7668;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
-}
-
-.vph-content h3,
-.vph-faq h3,
-.vph-sources h3 {
-  margin: 0 0 20px;
-  color: #173d36;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.7rem, 4vw, 2.7rem);
-  line-height: 1.15;
-}
-
-.vph-content-content h4 {
-  color: #244c45;
-}
-
-.vph-content p {
-  color: #576965;
-  font-size: 1.02rem;
-  line-height: 1.8;
-}
-
-.vph-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin: 30px 0;
-}
-
-.vph-card {
-  padding: 25px;
-  border-radius: 18px;
-  background: #f5f8f6;
-}
-
-.vph-card-icon {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 1.7rem;
-}
-
-.vph-card h4 {
-  margin: 0 0 10px;
-}
-
-.vph-card p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-.vph-soft {
-  background: #f4eee9;
-}
-
-.vph-dose-list {
-  overflow: hidden;
-  margin: 28px 0;
-  border: 1px solid #ddd2cc;
-  border-radius: 16px;
-  background: white;
-}
-
-.vph-dose {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 21px 24px;
-  border-bottom: 1px solid #eee6e2;
-}
-
-.vph-dose:last-child {
-  border-bottom: 0;
-}
-
-.vph-dose span {
-  color: #a45f54;
-  font-weight: 700;
-  text-align: right;
-}
-
-.vph-note {
-  padding: 18px 20px;
-  border-left: 4px solid #ba7063;
-  border-radius: 6px;
-  background: #fffaf7;
-  color: #53635f;
-  line-height: 1.7;
-}
-
-.vph-situations > div {
-  display: grid;
-  grid-template-columns: 55px 1fr;
-  gap: 20px;
-  padding: 23px 0;
-  border-bottom: 1px solid #e7dfdb;
-}
-
-.vph-situations > div:last-child {
-  border-bottom: 0;
-}
-
-.vph-situations > div > span {
-  color: #b26b60;
-  font-weight: 800;
-}
-
-.vph-situations section h4 {
-  margin: 0 0 7px;
-}
-
-.vph-situations section p {
-  margin: 0;
-}
-
-.vph-dark {
-  border-color: #173d36;
-  background: #173d36;
-  color: white;
-}
-
-.vph-dark .vph-number,
-.vph-dark h3,
-.vph-dark h4 {
-  color: white;
-}
-
-.vph-dark p {
-  color: #d9e4e0;
-}
-
-.vph-check-list {
-  display: grid;
-  gap: 12px;
-  padding: 0;
-  list-style: none;
-}
-
-.vph-check-list li {
-  position: relative;
-  padding-left: 30px;
-  color: #e4ece9;
-  line-height: 1.6;
-}
-
-.vph-check-list li::before {
-  position: absolute;
-  left: 0;
-  content: "✓";
-  color: #e2a092;
-  font-weight: 900;
-}
-
-.vph-alert {
-  margin-top: 28px;
-  padding: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.vph-alert p {
-  margin-bottom: 0;
-}
-
-.vph-screening {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  margin-top: 25px;
-  padding: 24px;
-  border-radius: 18px;
-  background: #eef5f2;
-}
-
-.vph-screening > span {
-  display: grid;
-  flex: 0 0 42px;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border-radius: 50%;
-  background: #2e665b;
-  color: white;
-}
-
-.vph-screening p {
-  margin: 6px 0 0;
-}
-
-.vph-faq {
-  margin-top: 70px;
-  padding: 55px;
-  border-radius: 28px;
-  background: #f5eee9;
-}
-
-.vph-faq details {
-  margin-top: 12px;
-  border: 1px solid #e3d6cf;
-  border-radius: 14px;
-  background: white;
-}
-
-.vph-faq summary {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px;
-  color: #21463f;
-  font-weight: 750;
-  cursor: pointer;
-  list-style: none;
-}
-
-.vph-faq summary::-webkit-details-marker {
-  display: none;
-}
-
-.vph-faq summary span {
-  color: #b2685c;
-  font-size: 1.3rem;
-}
-
-.vph-faq details[open] summary span {
-  transform: rotate(45deg);
-}
-
-.vph-faq details p {
-  margin: 0;
-  padding: 0 20px 22px;
-  color: #5b6c68;
-  line-height: 1.7;
-}
-
-.vph-sources {
-  margin-top: 40px;
-  padding: 35px;
-  border-top: 1px solid #ddd4cf;
-}
-
-.vph-sources h3 {
-  font-size: 1.6rem;
-}
-
-.vph-sources p {
-  color: #5e6d69;
-}
-
-.vph-source-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.vph-source-links a {
-  display: inline-block;
-  padding: 12px 18px;
-  border: 1px solid #2d6258;
-  border-radius: 999px;
-  color: #2d6258;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.2s ease;
-}
-
-.vph-source-links a:hover {
-  background: #2d6258;
-  color: white;
-  transform: translateY(-2px);
-}
-
-/* Diseño adaptable para celular */
-@media (max-width: 760px) {
-  .vph-section {
-    padding: 65px 15px;
-  }
-
-  .vph-block {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 30px 22px;
-  }
-
-  .vph-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .vph-dose {
-    flex-direction: column;
-  }
-
-  .vph-dose span {
-    text-align: left;
-  }
-
-  .vph-faq {
-    padding: 35px 20px;
-  }
-
-  .vph-sources {
-    padding: 30px 5px;
-  }
-}
+    const modal = document.getElementById("calculatorModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const closeModal = document.getElementById("closeModal");
+    const form = document.getElementById("calculatorForm");
+    const result = document.getElementById("calculatorResult");
+    const cycleLabel = document.getElementById("cycleLabel");
+    let calculatorType = "ovulacion";
+    const titles = {ovulacion:"Calendario de ovulación", menstrual:"Calendario menstrual", parto:"Fecha probable de parto"};
+    document.querySelectorAll(".calculator-open").forEach(button => button.addEventListener("click", () => {
+      calculatorType = button.dataset.calculator;
+      modalTitle.textContent = titles[calculatorType];
+      cycleLabel.style.display = calculatorType === "parto" ? "none" : "block";
+      result.classList.remove("show"); result.innerHTML = "";
+      modal.classList.add("open"); document.body.style.overflow = "hidden";
+      document.getElementById("lastPeriod").focus();
+    }));
+    function hideModal(){modal.classList.remove("open");document.body.style.overflow="";}
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", event => {if(event.target === modal) hideModal()});
+    document.addEventListener("keydown", event => {if(event.key === "Escape") hideModal()});
+    function addDays(date, days){const copy=new Date(date);copy.setDate(copy.getDate()+days);return copy}
+    function pretty(date){return new Intl.DateTimeFormat("es-MX",{day:"numeric",month:"long",year:"numeric",timeZone:"UTC"}).format(date)}
+    form.addEventListener("submit", event => {
+      event.preventDefault();
+      const raw = document.getElementById("lastPeriod").value;
+      if(!raw) return;
+      const start = new Date(raw + "T00:00:00Z");
+      const cycle = Number(document.getElementById("cycleLength").value || 28);
+      let html = "";
+      if(calculatorType === "parto"){
+        const due = addDays(start, 280);
+        html = "<strong>Fecha probable de parto: " + pretty(due) + "</strong><small>Es una estimación basada en 40 semanas. La ecografía puede ajustar esta fecha.</small>";
+      } else if(calculatorType === "menstrual"){
+        const next = addDays(start, cycle);
+        html = "<strong>Próxima menstruación estimada: " + pretty(next) + "</strong><small>Los ciclos pueden variar. Esta herramienta no diagnostica alteraciones menstruales.</small>";
+      } else {
+        const ovulation = addDays(start, cycle - 14);
+        const fertileStart = addDays(ovulation, -5);
+        const fertileEnd = addDays(ovulation, 1);
+        html = "<strong>Ventana fértil estimada: " + pretty(fertileStart) + " – " + pretty(fertileEnd) + "</strong><small>Ovulación estimada: " + pretty(ovulation) + ". No uses este cálculo como único método anticonceptivo.</small>";
+      }
+      result.innerHTML = html; result.classList.add("show");
+    });
+  </script>
+</body>
+</html>
