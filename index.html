@@ -1,1377 +1,716 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maternidad Global – Plataforma para mujeres migrantes</title>
+<!-- ==================================================
+     GUÍA SOBRE VPH
+================================================== -->
+<section id="vph" class="vph-section">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <div class="vph-container">
 
-  <style>
-    :root {
-      --primary: #1e7bb5;
-      --primary-strong: #126cad;
-      --primary-light: #d8ecff;
-      --accent: #2f9e8f;
+    <!-- Encabezado -->
+    <div class="vph-header">
+      <span class="vph-label">PREVENCIÓN Y VACUNACIÓN</span>
 
-      --bg-top: #2b8bd0;
-      --bg-mid: #1e7bb5;
-      --bg-bottom: #155d9a;
+      <h2>Virus del Papiloma Humano (VPH)</h2>
 
-      --text-main: #1f2933;
-      --text-muted: #6b7280;
-      --text-soft: rgba(255, 255, 255, 0.90);
+      <p class="vph-introduction">
+        El VPH es una infección muy frecuente que se transmite principalmente
+        mediante el contacto íntimo de piel y mucosas. La vacunación y el
+        tamizaje cervical ayudan a prevenir el cáncer de cuello uterino y otras
+        enfermedades relacionadas.
+      </p>
 
-      --card-bg: rgba(255,255,255,0.96);
-      --danger: #c62828;
+      <div class="vph-important">
+        <span class="vph-important-icon">✓</span>
 
-      --border-soft: rgba(255, 255, 255, 0.22);
-      --border-light: rgba(255, 255, 255, 0.42);
-
-      --radius: 16px;
-      --radius-lg: 22px;
-
-      --shadow-soft: 0 18px 45px rgba(4, 28, 45, 0.14);
-      --shadow-card: 0 20px 40px rgba(0, 0, 0, 0.10);
-      --shadow-button: 0 10px 22px rgba(0,0,0,.16);
-
-      --container: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,.14), transparent 18%),
-        radial-gradient(circle at top right, rgba(255,255,255,.08), transparent 18%),
-        linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-bottom) 100%);
-      color: var(--text-main);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* Header */
-    header {
-      background-color: var(--accent);
-      border-bottom: 1px solid rgba(255,255,255,.18);
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      backdrop-filter: blur(8px);
-    }
-
-    .topbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0 0.55rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,.92);
-    }
-
-    .lang-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .lang-badge {
-      padding: 0.22rem 0.62rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.28);
-      background-color: rgba(255,255,255,.10);
-      color: #fff;
-      font-size: 0.8rem;
-      transition: background-color 0.2s ease, transform 0.15s ease;
-    }
-
-    .lang-badge:hover {
-      background-color: rgba(255,255,255,.18);
-      transform: translateY(-1px);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.95rem 0 1rem;
-      gap: 1rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-    }
-
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent);
-      font-size: 0.88rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .logo-text-title {
-      font-weight: 800;
-      color: #ffffff;
-      letter-spacing: 0.02em;
-      font-size: 1.02rem;
-      line-height: 1.1;
-    }
-
-    .logo-text-subtitle {
-      font-size: 0.8rem;
-      color: rgba(255,255,255,.82);
-      line-height: 1.1;
-      margin-top: 0.1rem;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.3rem;
-      font-size: 0.95rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: #ffffff;
-      opacity: 0.92;
-      transition: opacity 0.2s ease;
-      font-weight: 600;
-    }
-
-    .nav-links a:hover {
-      opacity: 0.72;
-    }
-
-    /* Buttons */
-    .btn {
-      border-radius: 999px;
-      border: none;
-      padding: 0.68rem 1.3rem;
-      font-size: 0.94rem;
-      cursor: pointer;
-      font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.3rem;
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background-color 0.2s ease,
-        color 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background-color: #ffffff;
-      color: var(--accent);
-      box-shadow: var(--shadow-button);
-    }
-
-    .btn-primary:hover {
-      background-color: #f8fffd;
-      transform: translateY(-1px);
-    }
-
-    .btn-outline {
-      background-color: transparent;
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,.42);
-    }
-
-    .btn-outline:hover {
-      background-color: rgba(255,255,255,.12);
-    }
-
-    /* Hero */
-    .hero {
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,.10), transparent 18%),
-        linear-gradient(180deg, #2a89c8 0%, #1e7bb5 55%, #1b6ea9 100%);
-      padding: 4.2rem 0 3.4rem;
-    }
-
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(360px, 1fr);
-      gap: 3.2rem;
-      align-items: center;
-    }
-
-    .hero-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      background-color: rgba(255,255,255,.16);
-      color: #ffffff;
-      padding: 0.4rem 0.95rem;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .hero-label span.icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-      background-color: rgba(255,255,255,.22);
-      color: #fff;
-      font-size: 0.75rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 4.2vw, 3.35rem);
-      line-height: 1.14;
-      margin-bottom: 1rem;
-      color: #ffffff;
-      letter-spacing: -0.04em;
-      max-width: 13ch;
-      font-weight: 800;
-    }
-
-    .hero-title span.highlight {
-      color: #b7f0d9;
-    }
-
-    .hero-subtitle {
-      font-size: 1.04rem;
-      color: rgba(255,255,255,.92);
-      max-width: 39rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-note {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,.84);
-      max-width: 39rem;
-    }
-
-    .hero-card {
-      background-color: var(--card-bg);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-card);
-      padding: 1.65rem 1.45rem;
-      display: grid;
-      gap: 1rem;
-      max-width: 440px;
-      margin-left: auto;
-      width: 100%;
-    }
-
-    .hero-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .hero-card-title {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.25;
-    }
-
-    .hero-card-pill {
-      font-size: 0.76rem;
-      padding: 0.3rem 0.72rem;
-      border-radius: 999px;
-      background-color: var(--primary-light);
-      color: var(--primary);
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .hero-card-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem 1.2rem;
-      font-size: 0.82rem;
-    }
-
-    .hero-card-label {
-      color: var(--text-muted);
-      font-size: 0.78rem;
-      margin-bottom: 0.12rem;
-    }
-
-    .hero-card-value {
-      font-weight: 700;
-      color: #1f2933;
-    }
-
-    .hero-card-lang {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.15rem;
-    }
-
-    .hero-card-lang span {
-      padding: 0.18rem 0.65rem;
-      border-radius: 999px;
-      background-color: #eff6ff;
-      font-size: 0.75rem;
-      color: #1d4ed8;
-    }
-
-    .hero-disclaimer {
-      font-size: 0.74rem;
-      color: var(--danger);
-      border-left: 3px solid var(--danger);
-      padding-left: 0.65rem;
-      margin-top: 0.2rem;
-    }
-
-    /* Shared content */
-    section {
-      padding: 2.8rem 0;
-    }
-
-    .section-header {
-      margin-bottom: 1.65rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.28rem;
-    }
-
-    .section-kicker {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--primary);
-      font-weight: 800;
-    }
-
-    .section-title {
-      font-size: 1.55rem;
-      color: #0f172a;
-      line-height: 1.18;
-      font-weight: 800;
-    }
-
-    .section-subtitle {
-      font-size: 0.96rem;
-      color: var(--text-muted);
-      max-width: 42rem;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1.45rem;
-    }
-
-    .card {
-      background-color: #ffffff;
-      border-radius: 18px;
-      padding: 1.35rem 1.15rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.14);
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      font-size: 0.9rem;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 42px rgba(4, 28, 45, 0.16);
-    }
-
-    .card-tag {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    .card-title {
-      font-weight: 800;
-      color: #111827;
-      margin-bottom: 0.1rem;
-      line-height: 1.24;
-    }
-
-    .card-text {
-      font-size: 0.87rem;
-      color: var(--text-muted);
-    }
-
-    .card-meta {
-      margin-top: 0.42rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    .card-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .card-link:hover .card {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 36px rgba(0,0,0,0.10);
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.26rem 0.62rem;
-      border-radius: 999px;
-      background-color: #eef2ff;
-      color: #4338ca;
-      font-size: 0.78rem;
-      width: fit-content;
-      font-weight: 700;
-    }
-
-    .pill span.icon {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      background-color: #4f46e5;
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-    }
-
-    .two-column {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
-      gap: 2rem;
-      align-items: start;
-    }
-
-    .list-check {
-      list-style: none;
-      padding-left: 0;
-      font-size: 0.92rem;
-      color: var(--text-muted);
-    }
-
-    .list-check li {
-      position: relative;
-      padding-left: 1.45rem;
-      margin-bottom: 0.58rem;
-    }
-
-    .list-check li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      top: 0.05rem;
-      font-size: 0.8rem;
-      color: var(--primary);
-    }
-
-    .badge-soft {
-      display: inline-flex;
-      padding: 0.28rem 0.65rem;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      background-color: #fef3c7;
-      color: #92400e;
-      margin-bottom: 0.45rem;
-      font-weight: 700;
-      width: fit-content;
-    }
-
-    .table-resources {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.83rem;
-      background: rgba(255,255,255,.96);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .table-resources th,
-    .table-resources td {
-      padding: 0.65rem 0.75rem;
-      border-bottom: 1px solid rgba(209,213,219,.65);
-      text-align: left;
-    }
-
-    .table-resources th {
-      font-weight: 700;
-      color: #111827;
-      background-color: #f3f4f6;
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #0f766e, #0f172a);
-      color: #ecfeff;
-      border-radius: 24px;
-      padding: 2.1rem 1.6rem;
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 1.8rem;
-      align-items: center;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.45);
-      margin-bottom: 2.5rem;
-    }
-
-    .cta-title {
-      font-size: 1.55rem;
-      margin-bottom: 0.45rem;
-      line-height: 1.18;
-      font-weight: 800;
-    }
-
-    .cta-text {
-      font-size: 0.95rem;
-      opacity: 0.92;
-      margin-bottom: 0.9rem;
-    }
-
-    .cta-note {
-      font-size: 0.78rem;
-      opacity: 0.85;
-    }
-
-    .cta-card {
-      background-color: rgba(15, 23, 42, 0.85);
-      border-radius: 18px;
-      padding: 1rem;
-      font-size: 0.82rem;
-      display: grid;
-      gap: 0.45rem;
-    }
-
-    .cta-chip {
-      padding: 0.22rem 0.62rem;
-      border-radius: 999px;
-      background-color: rgba(248, 250, 252, 0.12);
-      font-size: 0.78rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      width: fit-content;
-      font-weight: 700;
-    }
-
-    footer {
-      border-top: 1px solid var(--border-soft);
-      padding: 1.7rem 0 2rem;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,.86);
-    }
-
-    .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .footer-links a {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 900px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 2rem;
-      }
-
-      .two-column {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .grid-3 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .cta {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
-      .hero-card {
-        margin-left: 0;
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-      }
-
-      .hero-title {
-        font-size: 1.95rem;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .hero-card-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Topbar idiomas -->
-  <header>
-    <div class="container">
-      <div class="topbar">
-        <div>Proyecto de investigación – Salud materna y migración</div>
-        <div class="lang-badges" aria-label="Idiomas disponibles">
-          <span class="lang-badge">ES</span>
-          <span class="lang-badge">FR</span>
-          <span class="lang-badge">EN</span>
-          <span class="lang-badge">AR</span>
-          <span class="lang-badge">PT</span>
-          <span class="lang-badge">DE</span>
-          <span class="lang-badge">IT</span>
-        </div>
-      </div>
-
-      <!-- Navegación -->
-      <nav class="nav" aria-label="Navegación principal">
-        <div class="logo">
-          <div class="logo-mark">MG</div>
-          <div>
-            <div class="logo-text-title">Maternidad Global</div>
-            <div class="logo-text-subtitle">Plataforma para mujeres migrantes</div>
-          </div>
-        </div>
-        <div class="nav-links">
-          <a href="#sobre">Sobre el proyecto</a>
-          <a href="#embarazo">Embarazo</a>
-          <a href="#migracion">Migración</a>
-          <a href="#mental">Salud mental</a>
-          <a href="#articulos">Artículos</a>
-          <a href="#recursos">Recursos</a>
-          <button class="btn btn-primary">Participar en el estudio</button>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
         <div>
-          <div class="hero-label">
-            <span class="icon">❤</span>
-            Plataforma humanizada basada en evidencia científica
-          </div>
-          <h1 class="hero-title">
-            Salud materna <span class="highlight">para todas las mujeres</span>, sin importar país, idioma ni seguro médico.
-          </h1>
-          <p class="hero-subtitle">
-            Maternidad Global es un proyecto de investigación que reúne información fiable sobre embarazo,
-            movimientos fetales, salud sexual y migración. Diseñado especialmente para mujeres migrantes que
-            buscan orientación clara, respetuosa y en su propio idioma.
-          </p>
-
-          <div class="hero-actions">
-            <button class="btn btn-primary">Explorar contenido educativo</button>
-            <button class="btn btn-outline">Leer más sobre el proyecto</button>
-          </div>
-          <p class="hero-note">
-            Disponible progresivamente en: español, francés, árabe, inglés, portugués, alemán e italiano.
-            Este sitio no sustituye una consulta médica presencial ni los servicios de urgencias.
+          <strong>Dato importante</strong>
+          <p>
+            Tener VPH no significa que aparecerá cáncer ni implica
+            necesariamente una infidelidad. La mayoría de las infecciones
+            desaparece espontáneamente.
           </p>
         </div>
-
-        <!-- Tarjeta lateral tipo panel OMS -->
-        <aside class="hero-card" aria-label="Resumen del proyecto">
-          <div class="hero-card-header">
-            <div>
-              <div class="hero-card-title">Información clara para decisiones informadas</div>
-              <div class="hero-card-label">Enfoque: embarazo, migración y salud integral de la mujer</div>
-            </div>
-            <span class="hero-card-pill">Estudio en curso</span>
-          </div>
-
-          <div class="hero-card-grid">
-            <div>
-              <div class="hero-card-label">Áreas principales</div>
-              <div class="hero-card-value">Embarazo, migración, salud mental, sexualidad, duelo</div>
-            </div>
-            <div>
-              <div class="hero-card-label">Población objetivo</div>
-              <div class="hero-card-value">Mujeres migrantes, con o sin seguro médico</div>
-            </div>
-            <div>
-              <div class="hero-card-label">Formato</div>
-              <div class="hero-card-value">Artículos médicos, guías prácticas y recursos por país</div>
-            </div>
-            <div>
-              <div class="hero-card-label">Próximamente</div>
-              <div class="hero-card-value">Aplicación tipo directorio médico (estilo Doctoralia)</div>
-            </div>
-          </div>
-
-          <div>
-            <div class="hero-card-label">Idiomas previstos</div>
-            <div class="hero-card-lang">
-              <span>Español</span>
-              <span>Français</span>
-              <span>English</span>
-              <span>العربية</span>
-              <span>Português</span>
-              <span>Deutsch</span>
-              <span>Italiano</span>
-            </div>
-          </div>
-
-          <p class="hero-disclaimer">
-            Este sitio ofrece información de carácter general y educativo. No constituye diagnóstico,
-            prescripción ni sustituto de una consulta médica profesional. En caso de urgencia, contacte con
-            los servicios de emergencia de su país.
-          </p>
-        </aside>
       </div>
-    </section>
-
-    <!-- SOBRE EL PROYECTO -->
-    <section id="sobre">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Sobre el proyecto</div>
-          <h2 class="section-title">Un espacio multicultural de salud basado en evidencia</h2>
-          <p class="section-subtitle">
-            Maternidad Global nace para responder a una necesidad real: muchas mujeres migrantes viven su
-            embarazo lejos de su red de apoyo, con barreras de idioma, burocracia y acceso limitado a la
-            información sanitaria. Nuestro objetivo es ofrecer contenido riguroso, comprensible y culturalmente
-            sensible.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <div class="card-tag">Perspectiva médica</div>
-            <h3 class="card-title">Contenido revisado por profesionales</h3>
-            <p class="card-text">
-              Cada sección se basa en guías clínicas, recomendaciones internacionales y consensos científicos.
-              El lenguaje se adapta para que sea claro sin perder rigor.
-            </p>
-            <p class="card-meta">Orientación, no sustitución de una consulta médica.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-tag">Perspectiva migratoria</div>
-            <h3 class="card-title">Entender la realidad de vivir lejos de casa</h3>
-            <p class="card-text">
-              Hablamos de duelo migratorio, barreras administrativas, discriminación, redes de apoyo y derechos
-              sanitarios en distintos países, con un enfoque respetuoso y realista.
-            </p>
-            <p class="card-meta">La experiencia migrante forma parte central del proyecto.</p>
-          </article>
-
-          <article class="card">
-            <div class="card-tag">Idioma y accesibilidad</div>
-            <h3 class="card-title">Información en varios idiomas</h3>
-            <p class="card-text">
-              Priorizamos los idiomas más hablados por mujeres migrantes: español, francés, árabe, inglés,
-              portugués, alemán e italiano. Progresivamente añadiremos más lenguas según las necesidades
-              detectadas.
-            </p>
-            <p class="card-meta">La comprensión es la primera forma de cuidado.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-<main>
-  <!-- ===================== -->
-  <!-- FERTILIDAD Y PLANIFICACIÓN -->
-  <!-- ===================== -->
-  <section id="fertilidad">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Fertilidad e Infertilidad </div>
-        <h2 class="section-title">Comprender tu ciclo y planificar el embarazo</h2>
-        <p class="section-subtitle">
-          Información educativa para comprender el ciclo menstrual, la ovulación y
-          fechas orientativas relacionadas con el embarazo.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <h3 class="card-title">Planificacion Familiar</h3>
-          <p class="card-text">
-            Explicación general sobre fertilidad, ventana fértil y factores que pueden
-            influir en la concepción.
-          </p>
-          <p class="card-meta">Contenido educativo · No diagnóstico</p>
-        </article>
-
-       <a href="ovulacion/index.html" class="card-link">
-  <article class="card">
-    <h3 class="card-title">Calendario de Ovulación</h3>
-    <p class="card-text">
-      Identifica tu período fértil y señales de ovulación con análisis predictivo.
-    </p>
-    <p class="card-meta">Salud basada en evidencia (Haz clic para calcular)</p>
-  </article>
-</a>
-
-        <article class="card">
-          <h3 class="card-title">Calendario menstrual</h3>
-          <p class="card-text">
-            Duración del ciclo, variaciones normales y cuándo consultar.
-          </p>
-        </article>
-
-
-<a href="calculadora-parto/index.html" class="card-link">
-      <article class="card">
-        <h3 class="card-title">Fecha de probable Parto</h3>
-        <p class="card-text">
-          Las recomendaciones de la fecha de probable parto
-        </p>
-        <p class="card-meta">Salud basada en evidencia (Haz clic para calcular)</p>
-      </article>
-    </a>
-
-  </div> </div> </section> ```
-  
-
-<!-- ===================== -->
-<!-- VACUNAS Y PREVENCIÓN -->
-<!-- ===================== -->
-<section id="vacunas">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-kicker">Prevención y salud pública</div>
-      <h2 class="section-title">Vacunas antes, durante el embarazo y en el bebé</h2>
-      <p class="section-subtitle">
-        La vacunación forma parte de la prevención en salud materna e infantil.
-        Esta sección ofrece información general sobre vacunas recomendadas en
-        diferentes etapas de la vida reproductiva.
-      </p>
     </div>
 
-    <div class="grid-3">
-      <article class="card">
-        <h3 class="card-title">Antes y durante del embarazo</h3>
-        <p class="card-text">
-          Antes de buscar un embarazo, es habitual revisar el estado vacunal.
-          Algunas vacunas se recomiendan antes de la gestación para proteger
-          tanto a la madre como al futuro bebé.
-        </p>
-        <p class="card-meta">Información preventiva · Orientativa</p>
-      </article>
+    <!-- ¿Qué es el VPH? -->
+    <article class="vph-block">
+      <div class="vph-number">01</div>
 
-      <article class="card">
-        <h3 class="card-title">Vacuna frente al VPH</h3>
-        <p class="card-text">
-          La vacuna contra el virus del papiloma humano (VPH) puede aportar
-          beneficios incluso en mujeres que ya han tenido relaciones sexuales.
-          Las recomendaciones de edad varían según el país y la situación individual.
-        </p>
-        <p class="card-meta">No se administra durante el embarazo</p>
-      </article>
+      <div class="vph-content">
+        <h3>¿Qué es el VPH?</h3>
 
-      <article class="card">
-        <h3 class="card-title">Vacunas y migración</h3>
-        <p class="card-text">
-          Muchas mujeres migrantes no disponen de un registro vacunal completo.
-          Revisar antecedentes y acceder a información clara es parte del cuidado
-          en salud pública.
+        <p>
+          El virus del papiloma humano comprende numerosos tipos de virus.
+          Algunos pueden producir verrugas genitales y otros se relacionan
+          con lesiones precancerosas y distintos tipos de cáncer.
         </p>
-        <p class="card-meta">Acceso y derechos sanitarios</p>
-      </article>
 
-      <article class="card">
-        <h3 class="card-title">Vacunas del bebé</h3>
-        <p class="card-text">
-          Tras el nacimiento, existen calendarios vacunales infantiles que
-          varían por país. Esta plataforma ofrece orientación general para
-          comprender su objetivo y calendario.
-        </p>
-        <p class="card-meta">Información no sustituta del pediatra</p>
-      </article>
-
-      <article class="card">
-        <h3 class="card-title">Consultar siempre</h3>
-        <p class="card-text">
-          Las recomendaciones vacunales deben individualizarse. Ante dudas,
-          es importante consultar con un profesional sanitario o centro de salud.
-        </p>
-        <p class="card-meta">Salud basada en evidencia</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-  <!-- EMBARAZO Y MOVIMIENTOS FETALES -->
-    <section id="embarazo">
-      <div class="container two-column">
-        <div>
-          <div class="section-header">
-            <div class="section-kicker">Embarazo y desarrollo fetal</div>
-            <h2 class="section-title">Comprender semana a semana lo que ocurre en tu cuerpo</h2>
-            <p class="section-subtitle">
-              El embarazo puede ser una mezcla de ilusión, miedo, cansancio y muchas preguntas. Nuestro objetivo
-              es acompañarte con información clara sobre desarrollo fetal, cambios físicos, señales de alarma y
-              autocuidado, siempre desde un enfoque respetuoso con tu historia personal y cultural.
+        <div class="vph-grid">
+          <div class="vph-card">
+            <span class="vph-card-icon">🛡️</span>
+            <h4>Tipos de bajo riesgo</h4>
+            <p>
+              Pueden causar verrugas genitales, pero normalmente no se
+              relacionan con cáncer.
             </p>
           </div>
 
-          <ul class="list-check">
-            <li>Guías por trimestre: síntomas frecuentes, signos de alarma y cuándo consultar.</li>
-            <li>Desarrollo del feto explicado de forma visual y sencilla.</li>
-            <li>Información sobre movimientos fetales: qué es esperable y cuándo es importante pedir ayuda.</li>
-            <li>Consejos generales sobre descanso, nutrición y apoyo emocional.</li>
-          </ul>
-        </div>
-
-        <aside>
-          <span class="badge-soft">Próximamente – Herramienta simple de registro</span>
-          <article class="card">
-            <h3 class="card-title">Registro de movimientos fetales</h3>
-            <p class="card-text">
-              Estamos diseñando una herramienta básica para que puedas anotar de forma sencilla los movimientos
-              fetales y compartir esta información con tu profesional sanitario. Esta herramienta será orientativa
-              y no se utilizará para fines de diagnóstico.
-            </p>
-            <p class="card-meta">
-              En la futura aplicación, este módulo se integrará con recordatorios, gráficos y recomendaciones
-              generales basadas en guías clínicas.
-            </p>
-          </article>
-        </aside>
-      </div>
-    </section>
-
-  
-  <!-- ===================== -->
-  <!-- EMBARAZO Y CONDICIONES MEDICAS PREEXISTENTES -->
-  <!-- ===================== -->
- <section id="condiciones-medicas">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-kicker">Condiciones médicas</div>
-      <h2 class="section-title">
-        Embarazo con condiciones médicas preexistentes e infecciosas
-      </h2>
-      <p class="section-subtitle">
-        Algunas mujeres viven el embarazo con enfermedades crónicas o infecciosas. Con seguimiento
-        médico adecuado, es posible reducir riesgos y proteger su salud y la del bebé.
-        Esta sección ofrece información educativa y no diagnóstica.
-      </p>
-    </div>
-
-      <article class="card">
-        <h3 class="card-title">Enfermedades de transmision sexual </h3>
-        <p class="card-text">
-          Seguimiento médico especializado y reducción del riesgo de transmisión vertical.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3 class="card-title">Infecciosas no sexuales</h3>
-        <p class="card-text">
-          Abordaje médico según guías de salud pública y contexto del país.
-        </p>
-      </article>
-
-      <article class="card">
-        <h3 class="card-title">Enfermedades cronicas no infecciosas </h3>
-        <p class="card-text">
-        ASMA, EPOC, Diabetes Tipo I y II, ERC, Lupues, SOP
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-      
-  <!-- ===================== -->
-  <!-- ALERTAS Y ORIENTACIÓN -->
-  <!-- ===================== -->
-  <section id="alertas">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Orientación y alertas</div>
-        <h2 class="section-title">Factores de riesgo y señales de alarma</h2>
-        <p class="section-subtitle">
-          Herramientas educativas basadas en guías clínicas internacionales.
-          No sustituyen valoración médica.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <h3 class="card-title">Riesgo de parto prematuro</h3>
-          <p class="card-text">
-            Factores asociados como antecedentes, infecciones, estrés o condiciones médicas.
-          </p>
-          <p class="card-meta">Modelo orientativo · No predictivo</p>
-        </article>
-
-        <article class="card">
-          <h3 class="card-title">Diabetes Gestacional</h3>
-          <p class="card-text">
-            Qué puede significar una glucosa alterada durante el embarazo y cuándo consultar.
-          </p>
-        </article>
-
-          <article class="card">
-          <h3 class="card-title">Hipertension Gesetacional </h3>
-          <p class="card-text">
-            Qué puede significar una presion arterial alta durante el embarazo y cuándo consultar.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3 class="card-title">Preeclapsia vs Eclampsia </h3>
-          <p class="card-text">
-            Hipertensión, hipotensión y signos de alarma durante el embarazo.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== -->
-  <!-- VÍNCULO Y DESARROLLO -->
-  <!-- ===================== -->
-  <section id="vinculo">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-kicker">Vínculo y desarrollo</div>
-        <h2 class="section-title">Entorno emocional y desarrollo del niño</h2>
-        <p class="section-subtitle">
-          Información basada en psicología del desarrollo y salud mental perinatal.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <h3 class="card-title">Apego y vínculo temprano</h3>
-          <p class="card-text">
-            Qué es el apego y por qué es importante para el desarrollo emocional del bebé.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3 class="card-title">Llanto prolongado</h3>
-          <p class="card-text">
-            Cómo el llanto persistente puede influir en el estrés infantil y parental.
-          </p>
-        </article>
-
-        <article class="card">
-          <h3 class="card-title">Depresión materna</h3>
-          <p class="card-text">
-            Cómo el bienestar emocional materno puede influir en el entorno del niño.
-          </p>
-          <p class="card-meta">Informativo · No diagnóstico</p>
-        </article>
-
-        <article class="card">
-          <h3 class="card-title">Recomendaciones musicales</h3>
-          <p class="card-text">
-            Evidencia sobre música, regulación emocional y vínculo temprano.
-          </p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-    <!-- MIGRACIÓN Y DERECHOS -->
-    <section id="migracion">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Migración y acceso a la salud</div>
-          <h2 class="section-title">Navegar el sistema sanitario en un país nuevo</h2>
-          <p class="section-subtitle">
-            Estar embarazada lejos de tu país puede generar mucha incertidumbre: ¿tengo derecho a atención?,
-            ¿dónde puedo ir si no tengo seguro?, ¿qué pasa si no hablo el idioma?. Esta sección recopila información
-            orientativa y recursos por país / región.
-          </p>
-        </div>
-
-        <div class="two-column">
-          <div>
-            <div class="pill">
-              <span class="icon">🌍</span>
-              Guías por región (en construcción)
-            </div>
-            <p style="font-size:0.9rem; color:var(--text-muted); margin:0.7rem 0 0.9rem;">
-              A medida que avance el proyecto, iremos incorporando fichas por país con:
-            </p>
-            <ul class="list-check">
-              <li>Información general sobre acceso a la atención prenatal sin seguro o con seguro limitado.</li>
-              <li>Listados de organizaciones sociales, ONG y servicios comunitarios que acompañan a mujeres migrantes.</li>
-              <li>Orientación básica sobre derechos sanitarios en cada contexto.</li>
-              <li>Teléfonos de ayuda y líneas de emergencia.</li>
-            </ul>
-          </div>
-
-          <div>
-            <table class="table-resources" id="recursos">
-              <thead>
-                <tr>
-                  <th>Región / País</th>
-                  <th>Tipo de recurso</th>
-                  <th>Notas</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Europa (ejemplo)</td>
-                  <td>ONG de apoyo a mujeres embarazadas migrantes</td>
-                  <td>Pendiente de completar con organizaciones específicas por país.</td>
-                </tr>
-                <tr>
-                  <td>América Latina</td>
-                  <td>Redes comunitarias y centros de salud públicos</td>
-                  <td>Información general y enlaces oficiales en desarrollo.</td>
-                </tr>
-                <tr>
-                  <td>Otros contextos</td>
-                  <td>Recursos locales</td>
-                  <td>Se irán incorporando según la evolución de la investigación.</td>
-                </tr>
-              </tbody>
-            </table>
-            <p style="font-size:0.78rem; color:var(--text-muted); margin-top:0.5rem;">
-              Esta tabla es un punto de partida. Puedes editar este contenido directamente en el archivo
-              <strong>index.html</strong> para añadir países, ciudades y contactos conforme avance la investigación.
+          <div class="vph-card">
+            <span class="vph-card-icon">🔬</span>
+            <h4>Tipos de alto riesgo</h4>
+            <p>
+              Una infección persistente puede producir lesiones
+              precancerosas y cáncer cervical, vulvar, vaginal, anal,
+              de pene u orofaríngeo.
             </p>
           </div>
         </div>
+
+        <p>
+          El preservativo disminuye el riesgo de transmisión, pero no lo
+          elimina completamente porque el virus puede encontrarse en zonas
+          de piel no cubiertas.
+        </p>
       </div>
-    </section>
-
-    <!-- SALUD MENTAL Y TEMAS SENSIBLES -->
-    <section id="mental">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Salud mental y temas sensibles</div>
-          <h2 class="section-title">Duelo migratorio, sexualidad, violencia y bienestar emocional</h2>
-          <p class="section-subtitle">
-            Además de los cambios físicos, muchas mujeres viven procesos profundos a nivel emocional:
-            duelo por lo que se deja atrás, cambios en la pareja, experiencias de racismo o violencia,
-            dificultades económicas y fatiga constante. Aquí encontrarás artículos que abordan estos temas
-            con sensibilidad y sin juicios.
-          </p>
-        </div>
-
-        <div class="grid-3"> 
-  <a href="salud-mental/index.html" class="card-link">
-    <article class="card">
-      <h3 class="card-title">SALUD MENTAL</h3>
-      <p class="card-text">
-        Pérdida de la red familiar, del idioma, de las costumbres...
-        Hablamos de cómo estos aspectos pueden influir en el embarazo
-        y en el postparto, y qué pequeñas estrategias pueden ayudar.
-      </p>
-      <p class="card-meta">Contenido disponible en varios artículos.</p>
     </article>
-  </a>
-</div>
-  
-          
-          <article class="card">
-            <h3 class="card-title">Salud sexual y reproductiva</h3>
-            <p class="card-text">
-              Anticoncepción, ETS, sexualidad en el embarazo, consentimiento y placer. Información científica
-              explicada con un lenguaje cercano y respetuoso con distintas culturas.
-            </p>
-            <p class="card-meta">Incluye referencias a guías internacionales.</p>
-          </article>
 
-          <article class="card">
-            <h3 class="card-title">Violencia y seguridad</h3>
-            <p class="card-text">
-              Orientación general sobre violencia obstétrica, violencia de pareja y recursos donde buscar ayuda
-              si te sientes en riesgo. Con enfoque en seguridad y protección.
-            </p>
-            <p class="card-meta">En caso de peligro inmediato, contacta siempre con los servicios de emergencia.</p>
-          </article>
+    <!-- Vacunación -->
+    <article class="vph-block vph-soft">
+      <div class="vph-number">02</div>
+
+      <div class="vph-content">
+        <h3>Vacunación frente al VPH</h3>
+
+        <p>
+          La vacuna previene nuevas infecciones por los tipos de VPH incluidos,
+          pero no elimina una infección existente ni trata las lesiones que ya
+          se hayan desarrollado.
+        </p>
+
+        <div class="vph-dose-list">
+          <div class="vph-dose">
+            <strong>Inicio antes de los 15 años</strong>
+            <span>Habitualmente 2 dosis</span>
+          </div>
+
+          <div class="vph-dose">
+            <strong>Inicio a partir de los 15 años</strong>
+            <span>Habitualmente 3 dosis</span>
+          </div>
+
+          <div class="vph-dose">
+            <strong>Personas inmunocomprometidas</strong>
+            <span>Generalmente 3 dosis según indicación médica</span>
+          </div>
+        </div>
+
+        <div class="vph-note">
+          <strong>Importante:</strong>
+          los esquemas, intervalos y edades recomendadas pueden variar según
+          el país. Debe consultarse el calendario oficial del lugar de
+          residencia.
         </div>
       </div>
-    </section>
+    </article>
 
-    <!-- ARTÍCULOS -->
-    <section id="articulos">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-kicker">Artículos médicos y testimonios</div>
-          <h2 class="section-title">Una biblioteca viva en varios idiomas</h2>
-          <p class="section-subtitle">
-            Aquí irás añadiendo poco a poco artículos de interés médico, guías prácticas y, si lo consideras adecuado,
-            testimonios anónimos de mujeres que deseen compartir su experiencia migratoria y de embarazo.
+    <!-- Situaciones especiales -->
+    <article class="vph-block">
+      <div class="vph-number">03</div>
+
+      <div class="vph-content">
+        <h3>Situaciones especiales</h3>
+
+        <div class="vph-situations">
+          <div>
+            <span>01</span>
+            <section>
+              <h4>Después de iniciar relaciones sexuales</h4>
+              <p>
+                La vacuna todavía puede aportar protección frente a tipos de
+                VPH con los que la persona no haya tenido contacto.
+              </p>
+            </section>
+          </div>
+
+          <div>
+            <span>02</span>
+            <section>
+              <h4>Infección por VPH o lesión cervical previa</h4>
+              <p>
+                Puede continuar estando indicada, pero no sustituye el
+                tratamiento ni el seguimiento ginecológico.
+              </p>
+            </section>
+          </div>
+
+          <div>
+            <span>03</span>
+            <section>
+              <h4>Embarazo</h4>
+              <p>
+                La vacunación suele posponerse hasta finalizar el embarazo.
+                Si se aplicó una dosis sin conocer el embarazo, normalmente
+                no se requiere ninguna intervención especial.
+              </p>
+            </section>
+          </div>
+
+          <div>
+            <span>04</span>
+            <section>
+              <h4>Lactancia</h4>
+              <p>
+                En general, puede administrarse durante la lactancia siguiendo
+                las recomendaciones sanitarias locales.
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Seguridad -->
+    <article class="vph-block vph-dark">
+      <div class="vph-number">04</div>
+
+      <div class="vph-content">
+        <h3>Seguridad de la vacuna</h3>
+
+        <p>
+          La vacuna frente al VPH ha sido ampliamente estudiada. No contiene
+          virus vivo y no puede producir una infección por VPH.
+        </p>
+
+        <h4>Efectos secundarios más frecuentes</h4>
+
+        <ul class="vph-check-list">
+          <li>Dolor, enrojecimiento o inflamación en el lugar de aplicación.</li>
+          <li>Cefalea, cansancio o dolor muscular.</li>
+          <li>Fiebre leve, náusea o mareo.</li>
+          <li>Desmayo relacionado con la aplicación de la inyección.</li>
+        </ul>
+
+        <div class="vph-alert">
+          <strong>Después de la vacuna</strong>
+          <p>
+            Es recomendable permanecer sentada o recostada durante
+            aproximadamente 15 minutos. Busca atención urgente ante dificultad
+            para respirar, hinchazón de la cara o garganta o urticaria
+            generalizada.
           </p>
         </div>
-
-        <div class="grid-2">
-          <article class="card">
-            <div class="card-tag">Ejemplo de artículo</div>
-            <h3 class="card-title">Primer trimestre del embarazo</h3>
-            <p class="card-text">
-              Cambios más frecuentes, cuándo consultar, náuseas, sangrados y síntomas que requieren una
-              valoración profesional. Puedes enlazar aquí a un PDF o a una página específica.
-            </p>
-            <p class="card-meta">ES · FR · EN (pendiente de traducción).</p>
-          </article>
-
-          <article class="card">
-            <div class="card-tag">Ejemplo de tema migración</div>
-            <h3 class="card-title">Cómo prepararte para una consulta médica en otro idioma</h3>
-            <p class="card-text">
-              Listas de frases útiles, consejos para llevar apuntado lo más importante, derechos básicos y cómo
-              pedir intérprete si el sistema de salud lo permite.
-            </p>
-            <p class="card-meta">ES · AR · EN (en preparación).</p>
-          </article>
-
-          <article class="card">
-            <div class="card-tag">Ejemplo de bienestar</div>
-            <h3 class="card-title">Cuidar tu salud mental en el embarazo</h3>
-            <p class="card-text">
-              Señales de alarma en depresión perinatal, ansiedad y estrés extremo, así como recursos de apoyo
-              comunitario y profesional.
-            </p>
-            <p class="card-meta">ES · PT · IT (en preparación).</p>
-          </article>
-        </div>
       </div>
-    </section>
+    </article>
 
-    <!-- CTA FINAL -->
-    <section>
-      <div class="container">
-        <div class="cta">
+    <!-- Tamizaje -->
+    <article class="vph-block">
+      <div class="vph-number">05</div>
+
+      <div class="vph-content">
+        <h3>La vacuna no sustituye el tamizaje cervical</h3>
+
+        <p>
+          Incluso después de recibir la vacuna es necesario continuar con las
+          pruebas de detección recomendadas según la edad y el país:
+        </p>
+
+        <div class="vph-screening">
+          <span>✓</span>
+
           <div>
-            <div class="cta-title">Próximos pasos: hacia una aplicación global para mujeres</div>
-            <p class="cta-text">
-              Este sitio web es el primer paso de un proyecto más amplio. La visión a futuro incluye una aplicación
-              donde las mujeres puedan encontrar profesionales de la salud por país, idioma y especialidad, similar
-              a un directorio médico tipo Doctoralia pero centrado en salud femenina y migración.
-            </p>
-            <p class="cta-note">
-              Aquí podrás describir la metodología de tu investigación, los criterios éticos, el proceso de
-              anonimización de datos y cómo se integrará la tecnología en la práctica clínica y social.
-            </p>
-          </div>
-          <div class="cta-card">
-            <div class="cta-chip">
-              <span>🔬</span> Proyecto de investigación
-            </div>
+            <strong>Vacunación + tamizaje</strong>
             <p>
-              Utiliza este espacio para resumir tu protocolo de estudio: objetivos, población, métodos y
-              colaboraciones internacionales.
+              La prueba de VPH, la citología cervical o la estrategia indicada
+              localmente son complementarias a la vacunación.
             </p>
-            <p>
-              Puedes añadir un enlace al PDF completo de tu protocolo, a tu institución académica o al comité
-              de ética que avala el proyecto.
-            </p>
-            <button class="btn btn-outline" style="margin-top:0.4rem;">
-              Añadir enlace al protocolo
-            </button>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </article>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-inner">
-      <div>
-        © <span id="year"></span> Maternidad Global. Este sitio forma parte de un proyecto de investigación
-        en desarrollo. Algunos contenidos pueden estar incompletos o en revisión.
-      </div>
-      <div class="footer-links">
-        <a href="#">Aviso legal</a>
-        <a href="#">Política de privacidad</a>
-        <a href="#">Metodología</a>
-        <a href="#">Contacto</a>
+    <!-- Preguntas frecuentes -->
+    <article class="vph-faq">
+      <span class="vph-label">PREGUNTAS FRECUENTES</span>
+      <h3>Respuestas breves sobre el VPH</h3>
+
+      <details>
+        <summary>
+          ¿La vacuna puede causar una infección por VPH?
+          <span>+</span>
+        </summary>
+
+        <p>
+          No. La vacuna no contiene virus vivo y no puede producir una
+          infección por VPH.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          ¿Sirve si ya inicié relaciones sexuales?
+          <span>+</span>
+        </summary>
+
+        <p>
+          Sí puede aportar beneficio, porque es poco probable haber estado
+          expuesta a todos los tipos de VPH incluidos en la vacuna.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          ¿Necesito una prueba de VPH antes de vacunarme?
+          <span>+</span>
+        </summary>
+
+        <p>
+          En general, no se recomienda hacer una prueba de VPH o Papanicolaou
+          únicamente para decidir si se administra la vacuna.
+        </p>
+      </details>
+
+      <details>
+        <summary>
+          ¿Necesito continuar con el Papanicolaou si estoy vacunada?
+          <span>+</span>
+        </summary>
+
+        <p>
+          Sí. La vacuna no protege frente a todos los tipos oncogénicos y no
+          trata infecciones existentes.
+        </p>
+      </details>
+    </article>
+
+    <!-- Fuentes -->
+    <div class="vph-sources">
+      <h3>Fuentes médicas</h3>
+
+      <p>
+        Esta información es educativa y no sustituye la valoración médica
+        individual.
+      </p>
+
+      <div class="vph-source-links">
+        <a
+          href="https://www.who.int/news-room/fact-sheets/detail/cervical-cancer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Organización Mundial de la Salud ↗
+        </a>
+
+        <a
+          href="https://www.cdc.gov/vaccines/hcp/by-disease/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          CDC: vacunas y VPH ↗
+        </a>
       </div>
     </div>
-  </footer>
 
-  <script>
-    // Mostrar automáticamente el año actual en el footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+  </div>
+</section>
+/* ==================================================
+   SECCIÓN VPH
+================================================== */
+
+.vph-section {
+  padding: 90px 20px;
+  background:
+    radial-gradient(circle at 5% 5%, rgba(219, 166, 151, 0.20), transparent 28%),
+    #fffdfb;
+  color: #263b37;
+}
+
+.vph-container {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.vph-header {
+  max-width: 850px;
+  margin-bottom: 65px;
+}
+
+.vph-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #a85f55;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.vph-header h2 {
+  margin: 0 0 20px;
+  color: #173d36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 1;
+}
+
+.vph-introduction {
+  max-width: 760px;
+  margin: 0;
+  color: #51635f;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+.vph-important {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 30px;
+  padding: 22px;
+  border: 1px solid #ead8d2;
+  border-radius: 18px;
+  background: #fff7f3;
+}
+
+.vph-important-icon {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 50%;
+  background: #be7568;
+  color: white;
+  font-weight: 800;
+}
+
+.vph-important strong,
+.vph-important p {
+  display: block;
+}
+
+.vph-important p {
+  margin: 5px 0 0;
+  line-height: 1.65;
+}
+
+.vph-block {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 35px;
+  margin: 25px 0;
+  padding: 55px;
+  border: 1px solid #e8e0dc;
+  border-radius: 28px;
+  background: white;
+  box-shadow: 0 16px 50px rgba(43, 66, 60, 0.07);
+}
+
+.vph-number {
+  color: #bd7668;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+}
+
+.vph-content h3,
+.vph-faq h3,
+.vph-sources h3 {
+  margin: 0 0 20px;
+  color: #173d36;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 4vw, 2.7rem);
+  line-height: 1.15;
+}
+
+.vph-content-content h4 {
+  color: #244c45;
+}
+
+.vph-content p {
+  color: #576965;
+  font-size: 1.02rem;
+  line-height: 1.8;
+}
+
+.vph-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.vph-card {
+  padding: 25px;
+  border-radius: 18px;
+  background: #f5f8f6;
+}
+
+.vph-card-icon {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 1.7rem;
+}
+
+.vph-card h4 {
+  margin: 0 0 10px;
+}
+
+.vph-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.vph-soft {
+  background: #f4eee9;
+}
+
+.vph-dose-list {
+  overflow: hidden;
+  margin: 28px 0;
+  border: 1px solid #ddd2cc;
+  border-radius: 16px;
+  background: white;
+}
+
+.vph-dose {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 21px 24px;
+  border-bottom: 1px solid #eee6e2;
+}
+
+.vph-dose:last-child {
+  border-bottom: 0;
+}
+
+.vph-dose span {
+  color: #a45f54;
+  font-weight: 700;
+  text-align: right;
+}
+
+.vph-note {
+  padding: 18px 20px;
+  border-left: 4px solid #ba7063;
+  border-radius: 6px;
+  background: #fffaf7;
+  color: #53635f;
+  line-height: 1.7;
+}
+
+.vph-situations > div {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  gap: 20px;
+  padding: 23px 0;
+  border-bottom: 1px solid #e7dfdb;
+}
+
+.vph-situations > div:last-child {
+  border-bottom: 0;
+}
+
+.vph-situations > div > span {
+  color: #b26b60;
+  font-weight: 800;
+}
+
+.vph-situations section h4 {
+  margin: 0 0 7px;
+}
+
+.vph-situations section p {
+  margin: 0;
+}
+
+.vph-dark {
+  border-color: #173d36;
+  background: #173d36;
+  color: white;
+}
+
+.vph-dark .vph-number,
+.vph-dark h3,
+.vph-dark h4 {
+  color: white;
+}
+
+.vph-dark p {
+  color: #d9e4e0;
+}
+
+.vph-check-list {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.vph-check-list li {
+  position: relative;
+  padding-left: 30px;
+  color: #e4ece9;
+  line-height: 1.6;
+}
+
+.vph-check-list li::before {
+  position: absolute;
+  left: 0;
+  content: "✓";
+  color: #e2a092;
+  font-weight: 900;
+}
+
+.vph-alert {
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.vph-alert p {
+  margin-bottom: 0;
+}
+
+.vph-screening {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  margin-top: 25px;
+  padding: 24px;
+  border-radius: 18px;
+  background: #eef5f2;
+}
+
+.vph-screening > span {
+  display: grid;
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50%;
+  background: #2e665b;
+  color: white;
+}
+
+.vph-screening p {
+  margin: 6px 0 0;
+}
+
+.vph-faq {
+  margin-top: 70px;
+  padding: 55px;
+  border-radius: 28px;
+  background: #f5eee9;
+}
+
+.vph-faq details {
+  margin-top: 12px;
+  border: 1px solid #e3d6cf;
+  border-radius: 14px;
+  background: white;
+}
+
+.vph-faq summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  color: #21463f;
+  font-weight: 750;
+  cursor: pointer;
+  list-style: none;
+}
+
+.vph-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.vph-faq summary span {
+  color: #b2685c;
+  font-size: 1.3rem;
+}
+
+.vph-faq details[open] summary span {
+  transform: rotate(45deg);
+}
+
+.vph-faq details p {
+  margin: 0;
+  padding: 0 20px 22px;
+  color: #5b6c68;
+  line-height: 1.7;
+}
+
+.vph-sources {
+  margin-top: 40px;
+  padding: 35px;
+  border-top: 1px solid #ddd4cf;
+}
+
+.vph-sources h3 {
+  font-size: 1.6rem;
+}
+
+.vph-sources p {
+  color: #5e6d69;
+}
+
+.vph-source-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.vph-source-links a {
+  display: inline-block;
+  padding: 12px 18px;
+  border: 1px solid #2d6258;
+  border-radius: 999px;
+  color: #2d6258;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.vph-source-links a:hover {
+  background: #2d6258;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Diseño adaptable para celular */
+@media (max-width: 760px) {
+  .vph-section {
+    padding: 65px 15px;
+  }
+
+  .vph-block {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 30px 22px;
+  }
+
+  .vph-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vph-dose {
+    flex-direction: column;
+  }
+
+  .vph-dose span {
+    text-align: left;
+  }
+
+  .vph-faq {
+    padding: 35px 20px;
+  }
+
+  .vph-sources {
+    padding: 30px 5px;
+  }
+}
+<a href="#vph" class="card-link">
+  Ver guía completa sobre el VPH →
+</a>
