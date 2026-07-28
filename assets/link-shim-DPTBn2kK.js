@@ -1,1 +1,0 @@
-import{r as e,t}from"./jsx-runtime-X8yY4W8D.js";e();var n=t();function r(e){return(0,n.jsx)(`a`,{...e})}export{r as t};
